@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Azka 🎂</title>
+<title>For Azka</title>
 
 <style>
 * {
@@ -13,162 +13,286 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #080808;
-    color: white;
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow: hidden;
+    background: #050308;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-.page {
-    display: none;
+/* Background */
+
+.intro {
+    position: relative;
     min-height: 100vh;
-    padding: 35px 25px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    animation: fade 0.8s ease;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 45%, rgba(105, 45, 150, 0.20), transparent 30%),
+        radial-gradient(circle at 10% 90%, rgba(65, 20, 100, 0.16), transparent 30%),
+        #050308;
 }
 
-.page.active {
-    display: flex;
+/* Soft glow */
+
+.glow {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: rgba(130, 65, 180, 0.18);
+    filter: blur(90px);
+    animation: pulse 5s ease-in-out infinite;
 }
+
+/* Stars */
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.35;
+    animation: drift 8s linear infinite;
+}
+
+.star:nth-child(1) { left: 10%; top: 80%; animation-delay: 0s; }
+.star:nth-child(2) { left: 20%; top: 60%; animation-delay: 2s; }
+.star:nth-child(3) { left: 35%; top: 90%; animation-delay: 1s; }
+.star:nth-child(4) { left: 50%; top: 75%; animation-delay: 3s; }
+.star:nth-child(5) { left: 65%; top: 85%; animation-delay: 1.5s; }
+.star:nth-child(6) { left: 78%; top: 65%; animation-delay: 2.5s; }
+.star:nth-child(7) { left: 90%; top: 85%; animation-delay: 0.5s; }
+.star:nth-child(8) { left: 45%; top: 55%; animation-delay: 4s; }
+
+/* Main content */
 
 .content {
-    width: 100%;
+    position: relative;
+    z-index: 5;
+    width: 90%;
     max-width: 600px;
+    text-align: center;
 }
 
-.small {
-    color: #999;
-    font-size: 14px;
-    letter-spacing: 3px;
+/* Top text */
+
+.kicker {
+    color: #9c8ba7;
+    font-size: 11px;
+    letter-spacing: 5px;
     text-transform: uppercase;
-    margin-bottom: 18px;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: appear 1.2s ease 0.3s forwards;
 }
 
-h1 {
-    font-size: clamp(38px, 10vw, 72px);
-    line-height: 1.05;
-    margin-bottom: 20px;
-}
-
-h2 {
-    font-size: 30px;
-    margin-bottom: 20px;
-}
-
-p {
-    color: #cfcfcf;
-    font-size: 17px;
-    line-height: 1.8;
-    margin-bottom: 25px;
-}
-
-button {
-    border: 1px solid #555;
-    background: #151515;
-    color: white;
-    padding: 14px 28px;
-    border-radius: 30px;
-    font-size: 15px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: white;
-    color: black;
-    transform: scale(1.04);
-}
+/* Lock */
 
 .lock {
-    font-size: 65px;
-    margin-bottom: 25px;
-    animation: float 3s infinite ease-in-out;
-}
+    width: 105px;
+    height: 105px;
+    margin: 0 auto 32px;
 
-.card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 28px;
-    border-radius: 24px;
-    margin: 20px 0;
-    backdrop-filter: blur(10px);
-}
-
-.memory {
-    padding: 20px;
-    margin: 14px 0;
-    border-left: 2px solid #777;
-    text-align: left;
-    background: rgba(255,255,255,0.04);
-    border-radius: 0 15px 15px 0;
-}
-
-.memory span {
-    color: #888;
-    font-size: 12px;
-    letter-spacing: 2px;
-}
-
-.final {
-    font-size: clamp(42px, 11vw, 85px);
-    background: linear-gradient(90deg, #fff, #888, #fff);
-    background-size: 200%;
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: shine 4s infinite linear;
-}
-
-.progress {
-    position: fixed;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
-    gap: 7px;
-    z-index: 10;
-}
+    align-items: center;
+    justify-content: center;
 
-.dot {
-    width: 7px;
-    height: 7px;
     border-radius: 50%;
-    background: #333;
+
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.12);
+
+    box-shadow:
+        0 0 35px rgba(140,70,190,0.25),
+        inset 0 0 30px rgba(255,255,255,0.025);
+
+    opacity: 0;
+    animation:
+        lockIn 1.4s ease 0.5s forwards,
+        floating 4s ease-in-out 2s infinite;
 }
 
-.dot.active {
-    background: white;
+.lock span {
+    font-size: 52px;
+    filter: drop-shadow(0 0 15px rgba(190,120,240,0.65));
 }
 
-.hidden-message {
-    display: none;
-    margin-top: 25px;
+/* Title */
+
+h1 {
+    font-size: clamp(42px, 11vw, 72px);
+    line-height: 1.05;
+    font-weight: 600;
+    letter-spacing: -2px;
+    margin-bottom: 22px;
+
+    opacity: 0;
+    animation: appear 1.4s ease 0.9s forwards;
 }
 
-.hidden-message.show {
-    display: block;
-    animation: fade 1s ease;
+h1 span {
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #c9a5dd,
+        #ffffff
+    );
+
+    background-size: 200%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    animation: shine 5s linear infinite;
 }
 
-@keyframes fade {
+/* Description */
+
+.description {
+    max-width: 450px;
+    margin: 0 auto 38px;
+
+    color: #9d98a3;
+
+    font-size: 15px;
+    line-height: 1.8;
+
+    opacity: 0;
+    animation: appear 1.4s ease 1.3s forwards;
+}
+
+/* Button */
+
+.unlock {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    min-width: 165px;
+
+    padding: 15px 28px;
+
+    border-radius: 50px;
+
+    border: 1px solid rgba(255,255,255,0.20);
+
+    background: rgba(255,255,255,0.055);
+
+    color: white;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(12px);
+
+    opacity: 0;
+
+    animation: appear 1.4s ease 1.7s forwards;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.unlock:hover {
+    transform: translateY(-3px);
+
+    background: rgba(255,255,255,0.11);
+
+    box-shadow:
+        0 12px 40px rgba(120,60,170,0.25);
+}
+
+.unlock:active {
+    transform: scale(0.95);
+}
+
+.arrow {
+    font-size: 18px;
+}
+
+/* Bottom */
+
+.bottom {
+    position: absolute;
+
+    bottom: 22px;
+    left: 0;
+
+    width: 100%;
+
+    text-align: center;
+
+    color: #4c4650;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    opacity: 0;
+
+    animation: appear 1.5s ease 2.2s forwards;
+}
+
+/* Animations */
+
+@keyframes appear {
     from {
         opacity: 0;
-        transform: translateY(15px);
+        transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-@keyframes float {
-    0%,100% {
+@keyframes lockIn {
+    from {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes floating {
+    0%, 100% {
         transform: translateY(0);
     }
+
     50% {
-        transform: translateY(-12px);
+        transform: translateY(-7px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(0.85);
+        opacity: 0.55;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
     }
 }
 
@@ -176,18 +300,57 @@ button:hover {
     0% {
         background-position: 0%;
     }
+
     100% {
         background-position: 200%;
     }
 }
 
-@media(max-width:500px) {
-    p {
-        font-size: 16px;
+@keyframes drift {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
     }
 
-    .card {
-        padding: 22px;
+    20% {
+        opacity: 0.4;
+    }
+
+    80% {
+        opacity: 0.15;
+    }
+
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+/* Phone */
+
+@media (max-width: 500px) {
+
+    .lock {
+        width: 92px;
+        height: 92px;
+    }
+
+    .lock span {
+        font-size: 46px;
+    }
+
+    h1 {
+        font-size: 44px;
+    }
+
+    .description {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+
+    .kicker {
+        font-size: 10px;
+        letter-spacing: 4px;
     }
 }
 </style>
@@ -195,216 +358,74 @@ button:hover {
 
 <body>
 
-<div class="progress">
-    <div class="dot active"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-</div>
+<section class="intro">
 
-<section class="page active">
+    <div class="glow"></div>
+
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+
     <div class="content">
-        <div class="small">A little something</div>
-        <div class="lock">🔐</div>
 
-        <h1>There's something<br>waiting for you.</h1>
+        <div class="kicker">
+            A little something
+        </div>
 
-        <p>
-            But obviously, you can't just get everything that easily.
-            Some things are meant to be unlocked.
+        <div class="lock">
+            <span>🔐</span>
+        </div>
+
+        <h1>
+            There's something<br>
+            <span>waiting for you.</span>
+        </h1>
+
+        <p class="description">
+            Not everything is meant to be opened at once.
+            Some things are better when you discover them
+            one step at a time.
         </p>
 
-        <button onclick="nextPage()">Unlock →</button>
-    </div>
-</section>
-
-<section class="page">
-    <div class="content">
-        <div class="small">Level 01</div>
-
-        <h2>First clue.</h2>
-
-        <div class="card">
-            <p>
-                This isn't really about finding the right answer.
-                It's about knowing who this was made for.
-            </p>
-
-            <h2>Who is this for?</h2>
-
-            <button onclick="showAnswer()">I know 👀</button>
-
-            <div id="answer" class="hidden-message">
-                <p><strong>Azka.</strong></p>
-                <button onclick="nextPage()">Continue →</button>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="page">
-    <div class="content">
-        <div class="small">Level 02</div>
-
-        <h2>Some things are hard to explain.</h2>
-
-        <p>
-            Sometimes a person becomes part of your memories
-            without even realizing how much those little moments
-            actually meant.
-        </p>
-
-        <div class="card">
-            <p>
-                The random conversations.<br>
-                The stupid jokes.<br>
-                The unexpected moments.<br>
-                The memories that somehow stayed.
-            </p>
-        </div>
-
-        <button onclick="nextPage()">Keep going →</button>
-    </div>
-</section>
-
-<section class="page">
-    <div class="content">
-        <div class="small">Level 03</div>
-
-        <h2>Things worth remembering.</h2>
-
-        <div class="memory">
-            <span>MEMORY 01</span>
-            <p>That one conversation that you probably don't even remember...</p>
-        </div>
-
-        <div class="memory">
-            <span>MEMORY 02</span>
-            <p>The random moments that somehow became inside jokes.</p>
-        </div>
-
-        <div class="memory">
-            <span>MEMORY 03</span>
-            <p>All the little things that made the friendship what it is.</p>
-        </div>
-
-        <button onclick="nextPage()">One more →</button>
-    </div>
-</section>
-
-<section class="page">
-    <div class="content">
-        <div class="small">Level 04</div>
-
-        <h2>Okay...</h2>
-
-        <p>
-            Enough mysterious stuff.
-            You made it this far.
-        </p>
-
-        <div class="card">
-            <h2>So here's the actual reason.</h2>
-
-            <p>
-                Today is your day.
-                And I wanted to make something instead of
-                just sending another ordinary birthday message.
-            </p>
-        </div>
-
-        <button onclick="nextPage()">Open it →</button>
-    </div>
-</section>
-
-<section class="page">
-    <div class="content">
-        <div class="small">Almost there</div>
-
-        <h2>Happy Birthday, Azka 🎂</h2>
-
-        <div class="card">
-            <p>
-                I hope this year brings you a lot of reasons to smile,
-                plenty of good memories, and people who genuinely
-                appreciate having you around.
-            </p>
-
-            <p>
-                You deserve a really good year.
-                So enjoy your day, eat something good,
-                smile a little more than usual,
-                and don't let anyone ruin it.
-            </p>
-        </div>
-
-        <button onclick="nextPage()">There's one last thing →</button>
-    </div>
-</section>
-
-<section class="page">
-    <div class="content">
-
-        <div class="small">Final level</div>
-
-        <h1 class="final">Happy Birthday<br>Azka 🎂</h1>
-
-        <p>
-            And that's it...
-            or maybe this is just the beginning of another
-            bunch of memories.
-        </p>
-
-        <div class="card">
-            <p>
-                <strong>Thank you for being you.</strong>
-            </p>
-
-            <p>
-                Have the best birthday. ❤️
-            </p>
-        </div>
-
-        <p style="color:#666; font-size:13px;">
-            Made specially for you.
-        </p>
+        <button class="unlock" onclick="unlock()">
+            Unlock
+            <span class="arrow">→</span>
+        </button>
 
     </div>
+
+    <div class="bottom">
+        something made just for you
+    </div>
+
 </section>
 
 <script>
 
-let currentPage = 0;
+function unlock() {
 
-const pages = document.querySelectorAll(".page");
-const dots = document.querySelectorAll(".dot");
+    const button = document.querySelector(".unlock");
 
-function nextPage() {
+    button.innerHTML = "Unlocking...";
 
-    if (currentPage < pages.length - 1) {
+    button.style.pointerEvents = "none";
 
-        pages[currentPage].classList.remove("active");
-        dots[currentPage].classList.remove("active");
+    setTimeout(function() {
 
-        currentPage++;
+        button.innerHTML = 'Unlocked ✓';
 
-        pages[currentPage].classList.add("active");
-        dots[currentPage].classList.add("active");
+        setTimeout(function() {
 
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    }
-}
+            alert("Okay... you unlocked the first part 👀");
 
-function showAnswer() {
+        }, 300);
 
-    document.getElementById("answer").classList.add("show");
-
+    }, 900);
 }
 
 </script>
