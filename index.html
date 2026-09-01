@@ -1,4 +1,413 @@
 <!DOCTYPE html>
-<html>
-...
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Azka 🎂</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #080808;
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 35px 25px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    animation: fade 0.8s ease;
+}
+
+.page.active {
+    display: flex;
+}
+
+.content {
+    width: 100%;
+    max-width: 600px;
+}
+
+.small {
+    color: #999;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-size: clamp(38px, 10vw, 72px);
+    line-height: 1.05;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #cfcfcf;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+button {
+    border: 1px solid #555;
+    background: #151515;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: white;
+    color: black;
+    transform: scale(1.04);
+}
+
+.lock {
+    font-size: 65px;
+    margin-bottom: 25px;
+    animation: float 3s infinite ease-in-out;
+}
+
+.card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 28px;
+    border-radius: 24px;
+    margin: 20px 0;
+    backdrop-filter: blur(10px);
+}
+
+.memory {
+    padding: 20px;
+    margin: 14px 0;
+    border-left: 2px solid #777;
+    text-align: left;
+    background: rgba(255,255,255,0.04);
+    border-radius: 0 15px 15px 0;
+}
+
+.memory span {
+    color: #888;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.final {
+    font-size: clamp(42px, 11vw, 85px);
+    background: linear-gradient(90deg, #fff, #888, #fff);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 4s infinite linear;
+}
+
+.progress {
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 7px;
+    z-index: 10;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #333;
+}
+
+.dot.active {
+    background: white;
+}
+
+.hidden-message {
+    display: none;
+    margin-top: 25px;
+}
+
+.hidden-message.show {
+    display: block;
+    animation: fade 1s ease;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%,100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes shine {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 200%;
+    }
+}
+
+@media(max-width:500px) {
+    p {
+        font-size: 16px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="progress">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+</div>
+
+<section class="page active">
+    <div class="content">
+        <div class="small">A little something</div>
+        <div class="lock">🔐</div>
+
+        <h1>There's something<br>waiting for you.</h1>
+
+        <p>
+            But obviously, you can't just get everything that easily.
+            Some things are meant to be unlocked.
+        </p>
+
+        <button onclick="nextPage()">Unlock →</button>
+    </div>
+</section>
+
+<section class="page">
+    <div class="content">
+        <div class="small">Level 01</div>
+
+        <h2>First clue.</h2>
+
+        <div class="card">
+            <p>
+                This isn't really about finding the right answer.
+                It's about knowing who this was made for.
+            </p>
+
+            <h2>Who is this for?</h2>
+
+            <button onclick="showAnswer()">I know 👀</button>
+
+            <div id="answer" class="hidden-message">
+                <p><strong>Azka.</strong></p>
+                <button onclick="nextPage()">Continue →</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page">
+    <div class="content">
+        <div class="small">Level 02</div>
+
+        <h2>Some things are hard to explain.</h2>
+
+        <p>
+            Sometimes a person becomes part of your memories
+            without even realizing how much those little moments
+            actually meant.
+        </p>
+
+        <div class="card">
+            <p>
+                The random conversations.<br>
+                The stupid jokes.<br>
+                The unexpected moments.<br>
+                The memories that somehow stayed.
+            </p>
+        </div>
+
+        <button onclick="nextPage()">Keep going →</button>
+    </div>
+</section>
+
+<section class="page">
+    <div class="content">
+        <div class="small">Level 03</div>
+
+        <h2>Things worth remembering.</h2>
+
+        <div class="memory">
+            <span>MEMORY 01</span>
+            <p>That one conversation that you probably don't even remember...</p>
+        </div>
+
+        <div class="memory">
+            <span>MEMORY 02</span>
+            <p>The random moments that somehow became inside jokes.</p>
+        </div>
+
+        <div class="memory">
+            <span>MEMORY 03</span>
+            <p>All the little things that made the friendship what it is.</p>
+        </div>
+
+        <button onclick="nextPage()">One more →</button>
+    </div>
+</section>
+
+<section class="page">
+    <div class="content">
+        <div class="small">Level 04</div>
+
+        <h2>Okay...</h2>
+
+        <p>
+            Enough mysterious stuff.
+            You made it this far.
+        </p>
+
+        <div class="card">
+            <h2>So here's the actual reason.</h2>
+
+            <p>
+                Today is your day.
+                And I wanted to make something instead of
+                just sending another ordinary birthday message.
+            </p>
+        </div>
+
+        <button onclick="nextPage()">Open it →</button>
+    </div>
+</section>
+
+<section class="page">
+    <div class="content">
+        <div class="small">Almost there</div>
+
+        <h2>Happy Birthday, Azka 🎂</h2>
+
+        <div class="card">
+            <p>
+                I hope this year brings you a lot of reasons to smile,
+                plenty of good memories, and people who genuinely
+                appreciate having you around.
+            </p>
+
+            <p>
+                You deserve a really good year.
+                So enjoy your day, eat something good,
+                smile a little more than usual,
+                and don't let anyone ruin it.
+            </p>
+        </div>
+
+        <button onclick="nextPage()">There's one last thing →</button>
+    </div>
+</section>
+
+<section class="page">
+    <div class="content">
+
+        <div class="small">Final level</div>
+
+        <h1 class="final">Happy Birthday<br>Azka 🎂</h1>
+
+        <p>
+            And that's it...
+            or maybe this is just the beginning of another
+            bunch of memories.
+        </p>
+
+        <div class="card">
+            <p>
+                <strong>Thank you for being you.</strong>
+            </p>
+
+            <p>
+                Have the best birthday. ❤️
+            </p>
+        </div>
+
+        <p style="color:#666; font-size:13px;">
+            Made specially for you.
+        </p>
+
+    </div>
+</section>
+
+<script>
+
+let currentPage = 0;
+
+const pages = document.querySelectorAll(".page");
+const dots = document.querySelectorAll(".dot");
+
+function nextPage() {
+
+    if (currentPage < pages.length - 1) {
+
+        pages[currentPage].classList.remove("active");
+        dots[currentPage].classList.remove("active");
+
+        currentPage++;
+
+        pages[currentPage].classList.add("active");
+        dots[currentPage].classList.add("active");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+}
+
+function showAnswer() {
+
+    document.getElementById("answer").classList.add("show");
+
+}
+
+</script>
+
+</body>
 </html>
