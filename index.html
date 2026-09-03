@@ -446,12 +446,12 @@ function unlock() {
 <section class="page" style="min-height:100vh; width:100%; display:flex; align-items:center; justify-content:center; box-sizing:border-box;">
     <div class="content">
 
-        <div class="small">Level 01</div>
+        <div class="small">LEVEL 01</div>
 
         <h1 style="font-size:42px;">THE ANIME TRIAL</h1>
 
-        <p>
-            Three challenges stand between you and the next page.
+        <p id="animeIntro">
+            Five challenges stand between you and the next page.
             Let's see if you actually know your anime. 👀
         </p>
 
@@ -480,6 +480,13 @@ function unlock() {
             </div>
 
             <div id="gameMessage" class="hidden-message"></div>
+
+            <button
+                id="tryAgainButton"
+                onclick="animeTryAgain()"
+                style="display:none;">
+                Try Again →
+            </button>
 
         </div>
 
@@ -536,6 +543,32 @@ const animeQuestions = [
         correct: 2,
         wrong: "Nahhh 😭 You know the answer to this one.",
         right: "CORRECT. 😭 We both knew where this was going."
+    },
+
+    {
+        title: "🧠 Challenge 4",
+        question: "In Attack on Titan, what was the original purpose of the Underground's anti-personnel vertical maneuvering equipment?",
+        answers: [
+            "A) To fight Titans inside the Underground",
+            "B) To allow combat in narrow urban spaces",
+            "C) To replace conventional ODM gear"
+        ],
+        correct: 1,
+        wrong: "BROOO 😭 THAT WAS A DEEP-CUT QUESTION.",
+        right: "CORRECT ✓ Okay... that's actually impressive."
+    },
+
+    {
+        title: "💀 FINAL CHALLENGE",
+        question: "Toji has one weakness. What is it?",
+        answers: [
+            "A) Cursed energy",
+            "B) His lack of patience",
+            "C) Seeing someone skip leg day 😭"
+        ],
+        correct: 2,
+        wrong: "😭 BRO. YOU REALLY GOT THE FINAL QUESTION WRONG?",
+        right: "CORRECT 😭 We both knew the answer was leg day."
     }
 
 ];
@@ -545,10 +578,12 @@ function animeAnswer(choice) {
     const current = animeQuestions[animeQuestion];
     const message = document.getElementById("gameMessage");
     const buttons = document.querySelectorAll("#answers button");
+    const tryAgain = document.getElementById("tryAgainButton");
+    const nextButton = document.getElementById("nextChallenge");
 
     if (choice === current.correct) {
 
-        message.innerHTML = current.right;
+        message.innerHTML = "✓ " + current.right;
         message.classList.add("show");
 
         buttons.forEach(button => {
@@ -556,29 +591,49 @@ function animeAnswer(choice) {
             button.style.opacity = "0.5";
         });
 
-        document.getElementById("nextChallenge").style.display =
-            "inline-block";
+        tryAgain.style.display = "none";
+        nextButton.style.display = "inline-block";
 
         if (animeQuestion === animeQuestions.length - 1) {
 
-            document.getElementById("nextChallenge").innerHTML =
+            nextButton.innerHTML =
                 "🔓 Unlock Next Page →";
 
         }
 
     } else {
 
-        message.innerHTML = "❌ " + current.wrong;
+        message.innerHTML =
+            "❌ WRONG<br><br>" + current.wrong;
+
         message.classList.add("show");
 
-        const selectedButton = buttons[choice];
+        buttons.forEach(button => {
+            button.disabled = true;
+        });
 
-        selectedButton.style.transform = "translateX(8px)";
+        tryAgain.style.display = "inline-block";
+        nextButton.style.display = "none";
 
-        setTimeout(() => {
-            selectedButton.style.transform = "translateX(0)";
-        }, 250);
     }
+
+}
+
+function animeTryAgain() {
+
+    const message = document.getElementById("gameMessage");
+    const buttons = document.querySelectorAll("#answers button");
+    const tryAgain = document.getElementById("tryAgainButton");
+
+    message.innerHTML = "";
+    message.classList.remove("show");
+
+    buttons.forEach(button => {
+        button.disabled = false;
+    });
+
+    tryAgain.style.display = "none";
+
 }
 
 function animeNextChallenge() {
@@ -618,6 +673,9 @@ function animeNextChallenge() {
         document.getElementById("gameMessage")
             .classList.remove("show");
 
+        document.getElementById("tryAgainButton").style.display =
+            "none";
+
         document.getElementById("nextChallenge").style.display =
             "none";
 
@@ -630,7 +688,6 @@ function animeNextChallenge() {
 }
 
 </script>
-
     
 </body>
 </html>
