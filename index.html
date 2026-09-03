@@ -620,6 +620,72 @@ function animeNextChallenge() {
 }
 
 </script>
-    
+
+    <style>
+.page {
+    min-height: 100vh;
+    min-height: 100dvh;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 18px;
+}
+
+.page .content {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+}
+
+#animeGame {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#answers button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+}
+
+@media (max-width: 600px) {
+    .page {
+        padding: 24px 16px;
+    }
+
+    h1 {
+        font-size: 34px !important;
+    }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const closeButtons = document.querySelectorAll("button");
+
+    closeButtons.forEach(function(button) {
+
+        if (button.innerText.trim().toLowerCase() === "close") {
+
+            button.addEventListener("click", function () {
+
+                setTimeout(function () {
+
+                    if (typeof nextPage === "function") {
+                        nextPage();
+                    }
+
+                }, 300);
+
+            });
+
+        }
+
+    });
+
+});
+</script>
 </body>
 </html>
