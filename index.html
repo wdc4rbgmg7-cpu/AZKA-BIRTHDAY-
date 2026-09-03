@@ -444,212 +444,87 @@ function unlock() {
 <!-- PAGE 2 — ANIME TRIAL -->
 
 <style>
-/* ================================
-   ANIME TRIAL — CLEAN REBUILD
-   ================================ */
-
 .anime-page {
-    position: relative;
     min-height: 100vh;
     width: 100%;
+    position: relative;
     overflow: hidden;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 30px 18px;
-    background: #050508;
-    color: white;
+    padding: 24px 16px;
+    background: #050507;
+    color: #fff;
     font-family: Arial, sans-serif;
 }
 
-/* BACKGROUND */
+/* CINEMATIC BACKGROUND */
 
-.anime-visual {
+.anime-bg {
     position: absolute;
     inset: 0;
+    transition: all 0.8s ease;
     z-index: 0;
-    transition:
-        background 0.8s ease,
-        filter 0.8s ease;
 }
 
-.anime-visual::before {
+.anime-bg.one {
+    background:
+        radial-gradient(circle at 72% 18%, rgba(210,225,255,.28), transparent 13%),
+        radial-gradient(ellipse at 50% 82%, rgba(20,110,170,.40), transparent 48%),
+        repeating-linear-gradient(165deg, transparent 0 20px, rgba(90,190,230,.06) 21px 22px),
+        linear-gradient(180deg,#06111e,#071b2b 50%,#02050a);
+}
+
+.anime-bg.two {
+    background:
+        radial-gradient(ellipse at 72% 40%, rgba(205,195,175,.20), transparent 22%),
+        radial-gradient(ellipse at 20% 70%, rgba(100,75,50,.25), transparent 40%),
+        linear-gradient(90deg,rgba(5,5,5,.9),transparent 50%,rgba(5,5,5,.9)),
+        linear-gradient(180deg,#151716,#39352f 50%,#070605);
+}
+
+.anime-bg.three {
+    background:
+        radial-gradient(circle at 55% 23%, rgba(220,230,255,.22), transparent 18%),
+        linear-gradient(105deg,transparent 0 38%,rgba(170,190,220,.08) 39%,transparent 40%),
+        linear-gradient(75deg,transparent 0 62%,rgba(170,190,220,.06) 63%,transparent 64%),
+        linear-gradient(180deg,#0d1119,#191d28 50%,#040508);
+}
+
+.anime-bg.four {
+    background:
+        radial-gradient(ellipse at 50% 28%,rgba(235,185,105,.22),transparent 20%),
+        linear-gradient(90deg,rgba(0,0,0,.94),transparent 30%,transparent 70%,rgba(0,0,0,.94)),
+        repeating-linear-gradient(90deg,#16120f 0 9%,#251c15 9.2% 10%),
+        linear-gradient(180deg,#24190f,#060504);
+}
+
+.anime-bg.five {
+    background:
+        radial-gradient(ellipse at 50% 25%,rgba(240,240,255,.23),transparent 18%),
+        radial-gradient(ellipse at 50% 90%,rgba(105,80,150,.25),transparent 42%),
+        linear-gradient(90deg,#020207,#17141e 50%,#020207);
+}
+
+/* DARK OVERLAY */
+
+.anime-bg::after {
     content: "";
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(
-            circle at 50% 45%,
-            rgba(120, 100, 255, 0.10),
-            transparent 42%
-        ),
-        linear-gradient(
-            180deg,
-            rgba(0,0,0,0.05),
-            rgba(0,0,0,0.72)
-        );
+        radial-gradient(circle at center,transparent 20%,rgba(0,0,0,.35) 75%),
+        linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.65));
 }
 
-.anime-visual::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    opacity: 0.12;
-    background:
-        repeating-linear-gradient(
-            0deg,
-            transparent 0px,
-            transparent 3px,
-            rgba(255,255,255,0.025) 4px
-        );
-}
+/* CARD */
 
-/* CHALLENGE 1 */
-
-.anime-visual.tanjiro {
-    background:
-        radial-gradient(
-            circle at 72% 18%,
-            rgba(220,235,255,0.32),
-            transparent 13%
-        ),
-        radial-gradient(
-            ellipse at 50% 80%,
-            rgba(20,110,165,0.40),
-            transparent 48%
-        ),
-        repeating-linear-gradient(
-            165deg,
-            transparent 0px,
-            transparent 19px,
-            rgba(100,200,230,0.06) 20px,
-            rgba(100,200,230,0.06) 21px
-        ),
-        linear-gradient(
-            180deg,
-            #07121f 0%,
-            #071b2b 48%,
-            #02050a 100%
-        );
-}
-
-/* CHALLENGE 2 */
-
-.anime-visual.aot {
-    background:
-        radial-gradient(
-            ellipse at 70% 40%,
-            rgba(210,205,185,0.18),
-            transparent 22%
-        ),
-        radial-gradient(
-            ellipse at 25% 72%,
-            rgba(110,80,55,0.24),
-            transparent 38%
-        ),
-        linear-gradient(
-            90deg,
-            rgba(5,5,5,0.92),
-            transparent 50%,
-            rgba(5,5,5,0.92)
-        ),
-        linear-gradient(
-            180deg,
-            #171817 0%,
-            #39352f 48%,
-            #080706 100%
-        );
-}
-
-/* CHALLENGE 3 */
-
-.anime-visual.toji {
-    background:
-        radial-gradient(
-            circle at 55% 25%,
-            rgba(225,235,255,0.20),
-            transparent 18%
-        ),
-        linear-gradient(
-            105deg,
-            transparent 0 38%,
-            rgba(170,190,220,0.08) 39%,
-            transparent 40%
-        ),
-        linear-gradient(
-            75deg,
-            transparent 0 62%,
-            rgba(170,190,220,0.06) 63%,
-            transparent 64%
-        ),
-        linear-gradient(
-            180deg,
-            #0e121a 0%,
-            #191c27 48%,
-            #040508 100%
-        );
-}
-
-/* CHALLENGE 4 */
-
-.anime-visual.underground {
-    background:
-        radial-gradient(
-            ellipse at 50% 30%,
-            rgba(235,185,105,0.20),
-            transparent 20%
-        ),
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,0.94),
-            transparent 30%,
-            transparent 70%,
-            rgba(0,0,0,0.94)
-        ),
-        repeating-linear-gradient(
-            90deg,
-            #17130f 0px,
-            #17130f 9%,
-            #241c15 9.3%,
-            #241c15 10%
-        ),
-        linear-gradient(
-            180deg,
-            #24190f,
-            #070605
-        );
-}
-
-/* CHALLENGE 5 */
-
-.anime-visual.final-toji {
-    background:
-        radial-gradient(
-            ellipse at 50% 28%,
-            rgba(240,240,255,0.22),
-            transparent 18%
-        ),
-        radial-gradient(
-            ellipse at 50% 90%,
-            rgba(105,80,150,0.24),
-            transparent 42%
-        ),
-        linear-gradient(
-            90deg,
-            #020207 0%,
-            #17141e 50%,
-            #020207 100%
-        );
-}
-
-/* QUIZ CONTENT */
-
-.anime-content {
+.anime-wrap {
     position: relative;
     z-index: 2;
     width: 100%;
-    max-width: 520px;
+    max-width: 500px;
 }
 
 .anime-card {
@@ -657,56 +532,50 @@ function unlock() {
     box-sizing: border-box;
     padding: 28px 22px;
     border-radius: 24px;
+    text-align: center;
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(25,25,35,0.92),
-            rgba(7,7,12,0.96)
-        );
+    background: rgba(8,8,13,.82);
 
-    border: 1px solid rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,.13);
 
     box-shadow:
-        0 25px 80px rgba(0,0,0,0.65),
-        inset 0 1px 0 rgba(255,255,255,0.06);
+        0 30px 80px rgba(0,0,0,.65),
+        inset 0 1px 0 rgba(255,255,255,.06);
 
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-
-    text-align: center;
 }
 
 .anime-level {
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 4px;
-    opacity: 0.55;
-    margin-bottom: 10px;
+    opacity: .55;
+    margin-bottom: 9px;
 }
 
 .anime-title {
-    font-size: 27px;
+    font-size: 28px;
     font-weight: 800;
     letter-spacing: 2px;
-    margin-bottom: 16px;
+    margin-bottom: 15px;
 }
 
 .anime-badge {
     display: inline-block;
     padding: 7px 14px;
-    border-radius: 999px;
-    font-size: 11px;
-    letter-spacing: 2px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50px;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.12);
+    font-size: 10px;
+    letter-spacing: 3px;
     margin-bottom: 20px;
 }
 
-.anime-challenge {
-    font-size: 12px;
+.anime-number {
+    font-size: 11px;
     letter-spacing: 3px;
-    opacity: 0.55;
-    margin-bottom: 12px;
+    opacity: .5;
+    margin-bottom: 13px;
 }
 
 .anime-question {
@@ -716,87 +585,67 @@ function unlock() {
     margin-bottom: 22px;
 }
 
-#answers {
+.anime-answers {
     display: flex;
     flex-direction: column;
     gap: 11px;
 }
 
-#answers button {
+.anime-answers button {
     width: 100%;
-    padding: 14px 16px;
+    padding: 14px 15px;
     border-radius: 14px;
-    border: 1px solid rgba(255,255,255,0.12);
-    background: rgba(255,255,255,0.055);
-    color: white;
+
+    background: rgba(255,255,255,.055);
+    color: #fff;
+
+    border: 1px solid rgba(255,255,255,.12);
+
     font-size: 15px;
     cursor: pointer;
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        border 0.2s ease;
+
+    transition: .2s ease;
 }
 
-#answers button:hover {
-    transform: translateY(-2px);
-    background: rgba(255,255,255,0.10);
+.anime-answers button:active {
+    transform: scale(.98);
 }
 
-#gameMessage {
+.anime-answers button:hover {
+    background: rgba(255,255,255,.10);
+}
+
+.anime-message {
     min-height: 24px;
-    margin-top: 18px;
+    margin-top: 17px;
     font-size: 14px;
     font-weight: 600;
 }
 
-#tryAgainButton,
-#nextChallenge {
-    margin-top: 14px;
+.anime-next,
+.anime-retry {
+    display: none;
+    margin-top: 13px;
     padding: 12px 20px;
     border-radius: 12px;
-    border: none;
-    color: white;
-    background: rgba(255,255,255,0.10);
-    cursor: pointer;
+    border: 1px solid rgba(255,255,255,.12);
+    color: #fff;
+    background: rgba(120,95,255,.30);
     font-size: 14px;
+    cursor: pointer;
 }
 
-#nextChallenge {
-    background: rgba(120,95,255,0.35);
-}
-
-#tryAgainButton {
-    display: none;
-}
-
-#nextChallenge {
-    display: none;
-}
-
-.theme-change {
-    animation: themeChange 0.7s ease;
-}
-
-@keyframes themeChange {
-    0% {
-        opacity: 0.3;
-        transform: scale(1.04);
-    }
-
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
+.anime-retry {
+    background: rgba(255,255,255,.09);
 }
 
 @media (max-width: 500px) {
-
     .anime-page {
-        padding: 20px 14px;
+        padding: 18px 13px;
     }
 
     .anime-card {
-        padding: 24px 18px;
+        padding: 25px 17px;
         border-radius: 21px;
     }
 
@@ -810,14 +659,13 @@ function unlock() {
 }
 </style>
 
+<section class="anime-page">
 
-<section class="anime-page" id="animePage">
+    <div class="anime-bg one" id="animeBackground"></div>
 
-    <div class="anime-visual tanjiro" id="animeVisual"></div>
+    <div class="anime-wrap">
 
-    <div class="anime-content">
-
-        <div class="anime-card" id="animeGame">
+        <div class="anime-card">
 
             <div class="anime-level">
                 LEVEL 01
@@ -831,23 +679,23 @@ function unlock() {
                 ANIME
             </div>
 
-            <div class="anime-challenge" id="challengeNumber">
+            <div class="anime-number" id="animeNumber">
                 CHALLENGE 01
             </div>
 
-            <div class="anime-question" id="question">
+            <div class="anime-question" id="animeQuestion">
                 Loading...
             </div>
 
-            <div id="answers"></div>
+            <div class="anime-answers" id="animeAnswers"></div>
 
-            <div id="gameMessage"></div>
+            <div class="anime-message" id="animeMessage"></div>
 
-            <button id="tryAgainButton" onclick="animeTryAgain()">
+            <button class="anime-retry" id="animeRetry">
                 Try Again
             </button>
 
-            <button id="nextChallenge" onclick="animeNext()">
+            <button class="anime-next" id="animeNext">
                 Next Challenge
             </button>
 
@@ -857,10 +705,9 @@ function unlock() {
 
 </section>
 
-
 <script>
 
-const animeQuestions = [
+const animeData = [
 
     {
         question: "Who is the main character of Demon Slayer?",
@@ -870,7 +717,7 @@ const animeQuestions = [
             "Inosuke Hashibira"
         ],
         correct: 0,
-        visual: "tanjiro"
+        background: "one"
     },
 
     {
@@ -881,29 +728,29 @@ const animeQuestions = [
             "Jujutsu Society"
         ],
         correct: 0,
-        visual: "aot"
+        background: "two"
     },
 
     {
         question: "Who is Toji Fushiguro?",
         answers: [
-            "A sorcerer with limitless cursed energy",
             "A powerful non-sorcerer assassin",
-            "A Titan shifter"
+            "A Titan shifter",
+            "A Demon Slayer"
         ],
-        correct: 1,
-        visual: "toji"
+        correct: 0,
+        background: "three"
     },
 
     {
-        question: "Where does much of the early underground action in AOT take place?",
+        question: "What is the Underground City in Attack on Titan?",
         answers: [
-            "The Underground City",
-            "Shiganshina Forest",
-            "The Demon District"
+            "An underground settlement beneath the capital",
+            "A secret Titan forest",
+            "A Demon Slayer headquarters"
         ],
         correct: 0,
-        visual: "underground"
+        background: "four"
     },
 
     {
@@ -914,147 +761,138 @@ const animeQuestions = [
             "Jujutsu Kaisen"
         ],
         correct: 2,
-        visual: "final-toji"
+        background: "five"
     }
 
 ];
 
-let animeQuestion = 0;
-let animeAnswered = false;
+let animeIndex = 0;
+let animeLocked = false;
 
 
-function animeLoadQuestion() {
+function loadAnimeQuestion() {
 
-    const current = animeQuestions[animeQuestion];
+    const data = animeData[animeIndex];
 
-    document.getElementById("challengeNumber").innerText =
-        "CHALLENGE " + String(animeQuestion + 1).padStart(2, "0");
+    document.getElementById("animeNumber").textContent =
+        "CHALLENGE " +
+        String(animeIndex + 1).padStart(2,"0");
 
-    document.getElementById("question").innerText =
-        current.question;
+    document.getElementById("animeQuestion").textContent =
+        data.question;
 
-    const answers = document.getElementById("answers");
+    document.getElementById("animeMessage").textContent = "";
+
+    document.getElementById("animeRetry").style.display = "none";
+
+    document.getElementById("animeNext").style.display = "none";
+
+    animeLocked = false;
+
+    const background =
+        document.getElementById("animeBackground");
+
+    background.className =
+        "anime-bg " + data.background;
+
+    const answers =
+        document.getElementById("animeAnswers");
 
     answers.innerHTML = "";
 
-    document.getElementById("gameMessage").innerText = "";
+    data.answers.forEach(function(answer,index) {
 
-    document.getElementById("tryAgainButton").style.display = "none";
+        const button =
+            document.createElement("button");
 
-    document.getElementById("nextChallenge").style.display = "none";
-
-    animeAnswered = false;
-
-    current.answers.forEach(function(answer, index) {
-
-        const button = document.createElement("button");
-
-        button.innerText = answer;
+        button.textContent = answer;
 
         button.onclick = function() {
-            animeAnswer(index);
+            checkAnimeAnswer(index,button);
         };
 
         answers.appendChild(button);
 
     });
 
-    animeSetTheme();
 }
 
 
-function animeSetTheme() {
+function checkAnimeAnswer(index,button) {
 
-    const visual = document.getElementById("animeVisual");
-    const card = document.getElementById("animeGame");
+    if (animeLocked) return;
 
-    const current = animeQuestions[animeQuestion];
-
-    visual.className =
-        "anime-visual " + current.visual;
-
-    card.classList.remove("theme-change");
-
-    void card.offsetWidth;
-
-    card.classList.add("theme-change");
-}
-
-
-function animeAnswer(index) {
-
-    if (animeAnswered) return;
-
-    animeAnswered = true;
-
-    const current = animeQuestions[animeQuestion];
+    const data = animeData[animeIndex];
 
     const message =
-        document.getElementById("gameMessage");
+        document.getElementById("animeMessage");
 
-    const buttons =
-        document.querySelectorAll("#answers button");
+    if (index === data.correct) {
 
-    if (index === current.correct) {
+        animeLocked = true;
 
-        message.innerText = "Correct ✓";
+        message.textContent = "Correct ✓";
 
-        buttons[index].style.background =
-            "rgba(60, 180, 110, 0.22)";
+        button.style.background =
+            "rgba(60,180,110,.22)";
 
-        buttons[index].style.borderColor =
-            "rgba(100, 220, 150, 0.45)";
+        button.style.borderColor =
+            "rgba(100,220,150,.45)";
 
-        if (animeQuestion < animeQuestions.length - 1) {
+        if (animeIndex < animeData.length - 1) {
 
-            document.getElementById("nextChallenge").style.display =
-                "inline-block";
+            document.getElementById("animeNext")
+                .style.display = "inline-block";
 
         } else {
 
-            message.innerText =
-                "Perfect. You survived the Anime Trial ✓";
+            message.textContent =
+                "You completed the Anime Trial ✓";
 
         }
 
     } else {
 
-        message.innerText =
+        message.textContent =
             "Not quite 👀 Try again.";
 
-        buttons[index].style.background =
-            "rgba(220, 70, 80, 0.18)";
+        button.style.background =
+            "rgba(220,70,80,.18)";
 
-        buttons[index].style.borderColor =
-            "rgba(255, 100, 110, 0.4)";
+        button.style.borderColor =
+            "rgba(255,100,110,.4)";
 
-        document.getElementById("tryAgainButton").style.display =
-            "inline-block";
-
-        animeAnswered = false;
-    }
-}
-
-
-function animeTryAgain() {
-
-    animeLoadQuestion();
-}
-
-
-function animeNext() {
-
-    if (animeQuestion < animeQuestions.length - 1) {
-
-        animeQuestion++;
-
-        animeLoadQuestion();
+        document.getElementById("animeRetry")
+            .style.display = "inline-block";
 
     }
 
 }
 
-animeLoadQuestion();
+
+document.getElementById("animeRetry").onclick =
+function() {
+
+    loadAnimeQuestion();
+
+};
+
+
+document.getElementById("animeNext").onclick =
+function() {
+
+    if (animeIndex < animeData.length - 1) {
+
+        animeIndex++;
+
+        loadAnimeQuestion();
+
+    }
+
+};
+
+
+loadAnimeQuestion();
 
 </script>
     
