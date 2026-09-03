@@ -515,7 +515,10 @@ const animeQuestions = [
             "C) Sumiyoshi"
         ],
         correct: 0,
-        wrong: "NAHHH 😭 You know Akaza better than this.",
+        wrong: [
+            "CORRECT ANSWER WAS A 😭 You really chose Michikatsu?",
+            "SUMIYOSHI?! 😭 BRO WHAT ARE YOU DOING?"
+        ],
         right: "CORRECT ✓ Okay... we're off to a good start."
     },
 
@@ -528,7 +531,10 @@ const animeQuestions = [
             "C) The Cart Titan"
         ],
         correct: 1,
-        wrong: "BROOO 😭 THREE REWATCHES AND YOU PICKED THAT?",
+        wrong: [
+            "BRO 😭 Marcel literally WAS the Jaw Titan. THINK.",
+            "PIECK CATCHING STRAYS FOR ABSOLUTELY NO REASON 😭"
+        ],
         right: "CORRECT ✓ Okay, you actually know your AOT."
     },
 
@@ -541,7 +547,10 @@ const animeQuestions = [
             "C) That ridiculous physique 😭"
         ],
         correct: 2,
-        wrong: "Nahhh 😭 You know the answer to this one.",
+        wrong: [
+            "Technically... maybe? 😭 But you KNOW what this question was asking.",
+            "Battle IQ is crazy 💀 Just admit you picked the safe answer."
+        ],
         right: "CORRECT. 😭 We both knew where this was going."
     },
 
@@ -554,7 +563,10 @@ const animeQuestions = [
             "C) To replace conventional ODM gear"
         ],
         correct: 1,
-        wrong: "BROOO 😭 THAT WAS A DEEP-CUT QUESTION.",
+        wrong: [
+            "😭 TITANS IN THE UNDERGROUND? BRO, THAT PLACE WAS BUILT FOR HUMAN COMBAT.",
+            "NAHHH 😭 Replace ODM gear? You really just made up a whole new military strategy."
+        ],
         right: "CORRECT ✓ Okay... that's actually impressive."
     },
 
@@ -567,7 +579,10 @@ const animeQuestions = [
             "C) Seeing someone skip leg day 😭"
         ],
         correct: 2,
-        wrong: "😭 BRO. YOU REALLY GOT THE FINAL QUESTION WRONG?",
+        wrong: [
+            "CURSED ENERGY?! 😭 THAT'S LITERALLY THE WHOLE POINT OF TOJI.",
+            "Lack of patience? 💀 BRO YOU WERE ONE OPTION AWAY FROM LEG DAY."
+        ],
         right: "CORRECT 😭 We both knew the answer was leg day."
     }
 
@@ -604,7 +619,7 @@ function animeAnswer(choice) {
     } else {
 
         message.innerHTML =
-            "❌ WRONG<br><br>" + current.wrong;
+            "❌ WRONG<br><br>" + current.wrong[choice > current.correct ? choice - 1 : choice];
 
         message.classList.add("show");
 
