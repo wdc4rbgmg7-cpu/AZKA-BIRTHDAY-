@@ -445,246 +445,593 @@ function unlock() {
 <!-- PAGE 2: ANIME TRIAL -->
 <!-- ========================= -->
 
-<style>
+/* =========================================
+   ANIME TRIAL — CINEMATIC BACKGROUNDS
+   UI / QUESTION CARD IS UNTOUCHED
+   ========================================= */
 
 .anime-page {
     position: relative;
     min-height: 100vh;
     width: 100%;
     overflow: hidden;
-    background: #050509;
-    transition: background 0.7s ease;
+    background: #050508;
 }
 
-/* DARK OVERLAY */
+/* Main cinematic lighting */
 
 .anime-page::before {
     content: "";
     position: absolute;
     inset: 0;
+    z-index: 1;
+    pointer-events: none;
+
     background:
-        radial-gradient(circle at 50% 35%, rgba(255,255,255,0.05), transparent 35%),
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(120, 90, 180, 0.16),
+            transparent 38%
+        ),
         linear-gradient(
             90deg,
-            rgba(0,0,0,0.82),
-            rgba(0,0,0,0.48),
-            rgba(0,0,0,0.82)
+            rgba(0,0,0,0.78),
+            rgba(0,0,0,0.20),
+            rgba(0,0,0,0.78)
         );
-    z-index: 1;
 }
 
-/* CHARACTER / SCENE SILHOUETTE */
+/* Atmospheric glow */
+
+.anime-page::after {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    z-index: 1;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at 20% 70%,
+            rgba(80,110,190,0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            ellipse at 80% 25%,
+            rgba(160,50,100,0.10),
+            transparent 28%
+        );
+
+    filter: blur(35px);
+}
+
+
+/* =========================================
+   VISUAL LAYER
+   ========================================= */
 
 .anime-visual {
     position: absolute;
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    transition: all 0.8s ease;
+    overflow: hidden;
+
+    transition:
+        background 0.8s ease,
+        opacity 0.8s ease,
+        filter 0.8s ease;
 }
 
-/* TANJIRO */
+
+/* =========================================
+   DEMON SLAYER
+   ========================================= */
 
 .tanjiro {
+
     background:
+
+        /* moon glow */
         radial-gradient(
-            ellipse at 30% 45%,
-            rgba(20,130,255,0.35) 0%,
-            transparent 30%
+            circle at 78% 18%,
+            rgba(170,190,255,0.22) 0%,
+            rgba(100,120,200,0.08) 12%,
+            transparent 27%
         ),
+
+        /* blue water */
         radial-gradient(
-            ellipse at 28% 55%,
-            rgba(0,80,255,0.25) 0%,
-            transparent 40%
+            ellipse at 18% 72%,
+            rgba(20,100,220,0.25),
+            transparent 38%
+        ),
+
+        /* deep night */
+        linear-gradient(
+            145deg,
+            #03050c 0%,
+            #071327 45%,
+            #03040a 100%
         );
 }
+
+
+/* flowing water streaks */
 
 .tanjiro::before {
-    content: "⚔";
-    position: absolute;
-    left: 8%;
-    top: 18%;
-    font-size: 280px;
-    opacity: 0.12;
-    transform: rotate(-18deg);
-    filter: blur(1px);
-}
 
-.tanjiro::after {
-    content: "TANJIRO";
-    position: absolute;
-    left: 4%;
-    bottom: 5%;
-    font-size: clamp(70px, 15vw, 190px);
-    font-weight: 900;
-    letter-spacing: 12px;
-    color: rgba(60,140,255,0.08);
-}
-
-/* AOT TITAN */
-
-.aot {
-    background:
-        radial-gradient(
-            ellipse at 70% 35%,
-            rgba(180,40,35,0.30),
-            transparent 32%
-        ),
-        linear-gradient(
-            to bottom,
-            rgba(80,80,70,0.12),
-            transparent 55%
-        );
-}
-
-.aot::before {
-    content: "巨";
-    position: absolute;
-    right: 3%;
-    top: -12%;
-    font-size: clamp(300px, 70vw, 800px);
-    font-weight: 900;
-    color: rgba(180,180,160,0.10);
-    line-height: 1;
-}
-
-.aot::after {
     content: "";
+
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 32%;
+    width: 130%;
+    height: 70%;
+
+    left: -15%;
+    bottom: -15%;
+
     background:
-        linear-gradient(
-            135deg,
-            transparent 20%,
-            rgba(110,110,90,0.12) 21%,
-            transparent 22%
+        repeating-radial-gradient(
+            ellipse at center,
+            transparent 0px,
+            transparent 28px,
+            rgba(70,150,255,0.12) 30px,
+            transparent 34px
         );
+
+    transform: rotate(-12deg);
+    filter: blur(1px);
+
     opacity: 0.8;
 }
 
-/* TOJI */
 
-.toji {
+/* moon */
+
+.tanjiro::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 210px;
+    height: 210px;
+
+    right: 9%;
+    top: 10%;
+
+    border-radius: 50%;
+
     background:
         radial-gradient(
-            ellipse at 70% 45%,
-            rgba(40,60,120,0.32),
-            transparent 32%
+            circle at 35% 35%,
+            rgba(255,255,255,0.30),
+            rgba(120,150,220,0.10) 45%,
+            transparent 70%
+        );
+
+    box-shadow:
+        0 0 80px rgba(110,150,255,0.18);
+
+    opacity: 0.7;
+}
+
+
+/* =========================================
+   ATTACK ON TITAN
+   ========================================= */
+
+.aot {
+
+    background:
+
+        /* sunset/smoke */
+        radial-gradient(
+            ellipse at 75% 32%,
+            rgba(150,65,45,0.24),
+            transparent 30%
         ),
+
+        radial-gradient(
+            ellipse at 25% 60%,
+            rgba(90,90,75,0.20),
+            transparent 35%
+        ),
+
+        /* sky */
         linear-gradient(
-            120deg,
-            rgba(0,0,0,0.95),
-            rgba(15,20,40,0.55),
-            rgba(0,0,0,0.95)
+            180deg,
+            #171b24 0%,
+            #34322e 45%,
+            #0b0d11 100%
         );
 }
 
-.toji::before {
-    content: "TOJI";
+
+/* distant wall */
+
+.aot::before {
+
+    content: "";
+
     position: absolute;
-    right: -4%;
-    bottom: -8%;
-    font-size: clamp(130px, 27vw, 340px);
-    font-weight: 900;
-    letter-spacing: 8px;
-    color: rgba(100,120,180,0.09);
-    transform: rotate(-8deg);
+
+    left: -10%;
+    bottom: -5%;
+
+    width: 120%;
+    height: 38%;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(130,120,105,0.20),
+            rgba(40,38,35,0.38)
+        );
+
+    clip-path: polygon(
+        0 25%,
+        20% 18%,
+        40% 23%,
+        60% 14%,
+        80% 21%,
+        100% 12%,
+        100% 100%,
+        0 100%
+    );
+
+    filter: blur(2px);
 }
+
+
+/* giant titan-like shadow */
+
+.aot::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 430px;
+    height: 620px;
+
+    right: 5%;
+    bottom: -15%;
+
+    border-radius:
+        48% 48% 15% 15%;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 25%,
+            rgba(150,145,135,0.16),
+            rgba(40,40,38,0.12) 45%,
+            transparent 70%
+        );
+
+    filter: blur(5px);
+
+    opacity: 0.75;
+}
+
+
+/* =========================================
+   TOJI / JUJUTSU KAISEN
+   ========================================= */
+
+.toji {
+
+    background:
+
+        /* cold city light */
+        radial-gradient(
+            ellipse at 72% 25%,
+            rgba(90,110,180,0.25),
+            transparent 30%
+        ),
+
+        /* red cursed-energy accent */
+        radial-gradient(
+            ellipse at 18% 70%,
+            rgba(150,35,60,0.15),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #020306 0%,
+            #0b0e18 45%,
+            #020205 100%
+        );
+}
+
+
+/* city architecture */
+
+.toji::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(120,130,160,0.08) 1%,
+            transparent 1.5%
+        );
+
+    background-size: 75px 100%;
+
+    opacity: 0.5;
+}
+
+
+/* dramatic diagonal light */
 
 .toji::after {
-    content: "⚔";
+
+    content: "";
+
     position: absolute;
-    right: 14%;
-    top: 12%;
-    font-size: 260px;
-    color: rgba(180,190,230,0.08);
-    transform: rotate(25deg);
-}
 
-/* UNDERGROUND */
+    width: 150%;
+    height: 3px;
 
-.underground {
+    top: 42%;
+    left: -25%;
+
     background:
         linear-gradient(
             90deg,
-            rgba(30,25,20,0.95),
-            rgba(65,55,45,0.20),
-            rgba(20,18,16,0.95)
+            transparent,
+            rgba(170,185,230,0.28),
+            transparent
+        );
+
+    transform: rotate(-17deg);
+
+    box-shadow:
+        0 0 35px rgba(120,145,220,0.18);
+
+    opacity: 0.7;
+}
+
+
+/* =========================================
+   AOT UNDERGROUND
+   ========================================= */
+
+.underground {
+
+    background:
+
+        radial-gradient(
+            ellipse at 50% 65%,
+            rgba(180,145,95,0.13),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            180deg,
+            #050505,
+            #17130f 50%,
+            #030303
         );
 }
 
+
+/* underground tunnel */
+
 .underground::before {
+
     content: "";
+
     position: absolute;
+
     inset: 0;
+
     background:
+
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.65),
+            transparent 28%,
+            transparent 72%,
+            rgba(0,0,0,0.65)
+        ),
+
         repeating-linear-gradient(
             90deg,
             transparent 0px,
-            transparent 90px,
-            rgba(180,160,130,0.05) 92px,
-            transparent 95px
+            transparent 100px,
+            rgba(170,145,105,0.045) 102px,
+            transparent 105px
         );
+
+    opacity: 0.9;
 }
+
+
+/* distant lamp */
 
 .underground::after {
-    content: "地下街";
+
+    content: "";
+
     position: absolute;
+
+    width: 180px;
+    height: 180px;
+
     left: 50%;
-    top: 8%;
+    top: 17%;
+
     transform: translateX(-50%);
-    font-size: clamp(80px, 20vw, 220px);
-    color: rgba(180,160,130,0.06);
-    font-weight: 900;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(230,190,115,0.20),
+            rgba(170,120,70,0.06) 35%,
+            transparent 70%
+        );
+
+    filter: blur(5px);
 }
 
-/* FINAL TOJI */
+
+/* =========================================
+   FINAL TOJI
+   ========================================= */
 
 .final-toji {
+
     background:
+
         radial-gradient(
             ellipse at 50% 42%,
-            rgba(110,30,80,0.35),
-            transparent 30%
+            rgba(130,35,80,0.30),
+            transparent 32%
         ),
+
+        radial-gradient(
+            ellipse at 50% 85%,
+            rgba(50,70,130,0.18),
+            transparent 35%
+        ),
+
         linear-gradient(
-            to bottom,
-            #10040e,
-            #030305
+            180deg,
+            #09030a,
+            #020204 70%,
+            #000000
         );
 }
+
+
+/* huge shadow behind */
 
 .final-toji::before {
-    content: "TOJI";
-    position: absolute;
-    left: 50%;
-    top: 43%;
-    transform: translate(-50%, -50%);
-    font-size: clamp(150px, 35vw, 420px);
-    font-weight: 900;
-    letter-spacing: 15px;
-    color: rgba(190,60,130,0.08);
-}
 
-.final-toji::after {
     content: "";
+
     position: absolute;
+
+    width: 440px;
+    height: 650px;
+
     left: 50%;
-    top: 45%;
-    transform: translate(-50%, -50%);
-    width: 45vw;
-    height: 70vh;
-    max-width: 500px;
+    bottom: -25%;
+
+    transform: translateX(-50%);
+
+    border-radius:
+        50% 50% 20% 20%;
+
     background:
         radial-gradient(
-            ellipse,
-            rgba(130,40,100,0.12),
-            transparent 65%
+            ellipse at 50% 25%,
+            rgba(150,120,150,0.13),
+            rgba(30,20,35,0.08) 50%,
+            transparent 72%
         );
-    filter: blur(20px);
+
+    filter: blur(7px);
+}
+
+
+/* final spotlight */
+
+.final-toji::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 0;
+
+    width: 2px;
+    height: 100%;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(170,120,180,0.20),
+            transparent
+        );
+
+    box-shadow:
+        0 0 100px rgba(150,80,150,0.12);
+
+    opacity: 0.7;
+}
+
+
+/* =========================================
+   KEEP CONTENT ABOVE EVERYTHING
+   ========================================= */
+
+.anime-content {
+    position: relative;
+    z-index: 5;
+}
+
+
+/* =========================================
+   SMOOTH TRANSITION
+   ========================================= */
+
+.theme-change {
+
+    animation:
+        backgroundEnter 0.7s ease;
+
+}
+
+@keyframes backgroundEnter {
+
+    0% {
+        opacity: 0.55;
+        transform: scale(1.03);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .tanjiro::after {
+        width: 130px;
+        height: 130px;
+    }
+
+    .aot::after {
+        width: 260px;
+        height: 430px;
+    }
+
+    .final-toji::before {
+        width: 280px;
+        height: 480px;
+    }
+
 }
 
 /* CONTENT */
