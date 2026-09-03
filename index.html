@@ -413,16 +413,33 @@ function unlock() {
     const button = document.querySelector(".unlock");
 
     button.innerHTML = "Unlocking...";
-
     button.style.pointerEvents = "none";
 
     setTimeout(function() {
 
-        button.innerHTML = 'Unlocked ✓';
+        button.innerHTML = "Unlocked ✓";
 
         setTimeout(function() {
 
             alert("Okay... you unlocked the first part 👀");
+
+            setTimeout(function() {
+
+                const pages = document.querySelectorAll(".page");
+
+                if (pages.length > 1) {
+
+                    pages[0].style.display = "none";
+                    pages[1].style.display = "flex";
+
+                    pages[1].scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+                }
+
+            }, 200);
 
         }, 300);
 
