@@ -423,15 +423,15 @@ function unlock() {
 
             alert("Okay... you unlocked the first part 👀");
 
-            const pages = document.querySelectorAll(".page");
+            const firstPage = document.querySelector(".intro");
+            const secondPage = document.querySelector(".page");
 
-            if (pages.length > 1) {
+            if (firstPage && secondPage) {
 
-                pages[0].style.display = "none";
-                pages[1].style.display = "flex";
+                firstPage.style.display = "none";
+                secondPage.style.display = "flex";
 
                 window.scrollTo(0, 0);
-
             }
 
         }, 300);
