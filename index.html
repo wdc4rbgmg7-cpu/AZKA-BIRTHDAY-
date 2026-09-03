@@ -430,6 +430,139 @@ function unlock() {
 }
 
 </script>
-
+    
+<!-- PAGE 2: ANIME TRIAL -->
+<section class="page">
+    <div class="content">
+        <div class="small">Level 01</div>
+        <h1 style="font-size:42px;">THE ANIME TRIAL</h1>
+        <p>
+            Three challenges stand between you and the next page.
+            Let's see if you actually know your anime. 👀
+        </p>
+        <div class="card" id="animeGame">
+            <h2 id="questionTitle">⚔️ Challenge 1</h2>
+            <p id="questionText">
+                Before becoming a demon, what was Akaza's human name?
+            </p>
+            <div id="answers">
+                <button onclick="answer(0)">
+                    A) Hakuji
+                </button>
+                <button onclick="answer(1)">
+                    B) Michikatsu
+                </button>
+                <button onclick="answer(2)">
+                    C) Sumiyoshi
+                </button>
+            </div>
+            <div id="gameMessage" class="hidden-message"></div>
+        </div>
+        <button
+            id="nextChallenge"
+            onclick="nextChallenge()"
+            style="display:none;">
+            Next Challenge →
+        </button>
+    </div>
+</section>
+<script>
+let animeQuestion = 0;
+const animeQuestions = [
+    {
+        title: "⚔️ Challenge 1",
+        question: "Before becoming a demon, what was Akaza's human name?",
+        answers: [
+            "A) Hakuji",
+            "B) Michikatsu",
+            "C) Sumiyoshi"
+        ],
+        correct: 0,
+        wrong: "NAHHH 😭 You know Akaza better than this.",
+        right: "CORRECT ✓ Okay... we're off to a good start."
+    },
+    {
+        title: "🧱 Challenge 2",
+        question: "Which Titan was responsible for Marcel's death?",
+        answers: [
+            "A) The Jaw Titan",
+            "B) The Pure Titan that later became Ymir",
+            "C) The Cart Titan"
+        ],
+        correct: 1,
+        wrong: "BROOO 😭 THREE REWATCHES AND YOU PICKED THAT?",
+        right: "CORRECT ✓ Okay, you actually know your AOT."
+    },
+    {
+        title: "💀 Challenge 3",
+        question: "Toji's greatest weapon isn't actually his arsenal. What is it?",
+        answers: [
+            "A) His cursed tools",
+            "B) His battle IQ",
+            "C) That ridiculous physique 😭"
+        ],
+        correct: 2,
+        wrong: "Nahhh 😭 You know the answer to this one.",
+        right: "CORRECT. 😭 We both knew where this was going."
+    }
+];
+function answer(choice) {
+    const current = animeQuestions[animeQuestion];
+    const message = document.getElementById("gameMessage");
+    const buttons = document.querySelectorAll("#answers button");
+    if (choice === current.correct) {
+        message.innerHTML = current.right;
+        message.classList.add("show");
+        buttons.forEach(button => {
+            button.disabled = true;
+            button.style.opacity = "0.5";
+        });
+        if (animeQuestion < animeQuestions.length - 1) {
+            document.getElementById("nextChallenge").style.display = "inline-block";
+        } else {
+            document.getElementById("nextChallenge").innerHTML =
+                "🔓 Unlock Next Page →";
+            document.getElementById("nextChallenge").style.display =
+                "inline-block";
+        }
+    } else {
+        message.innerHTML = "❌ " + current.wrong;
+        message.classList.add("show");
+        const selectedButton = buttons[choice];
+        selectedButton.style.transform = "translateX(8px)";
+        setTimeout(() => {
+            selectedButton.style.transform = "translateX(0)";
+        }, 250);
+    }
+}
+function nextChallenge() {
+    if (animeQuestion < animeQuestions.length - 1) {
+        animeQuestion++;
+        const current = animeQuestions[animeQuestion];
+        document.getElementById("questionTitle").innerHTML =
+            current.title;
+        document.getElementById("questionText").innerHTML =
+            current.question;
+        const answers = document.getElementById("answers");
+        answers.innerHTML = "";
+        current.answers.forEach((answerText, index) => {
+            const button = document.createElement("button");
+            button.innerHTML = answerText;
+            button.onclick = function() {
+                answer(index);
+            };
+            answers.appendChild(button);
+        });
+        document.getElementById("gameMessage").innerHTML = "";
+        document.getElementById("gameMessage")
+            .classList.remove("show");
+        document.getElementById("nextChallenge").style.display =
+            "none";
+    } else {
+        nextPage();
+    }
+}
+</script>
+    
 </body>
 </html>
