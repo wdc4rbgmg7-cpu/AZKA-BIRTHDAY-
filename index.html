@@ -4,15 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Azka</title>
+
 <style>
-/* =========================================
-   GLOBAL
-   ========================================= */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
 body {
     min-height: 100vh;
     overflow: hidden;
@@ -20,9 +25,11 @@ body {
     color: white;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
+
 /* =========================================
    PAGE 1 — INTRO
    ========================================= */
+
 .intro {
     position: relative;
     min-height: 100vh;
@@ -36,7 +43,7 @@ body {
         radial-gradient(circle at 85% 20%, rgba(110, 40, 170, 0.20), transparent 35%),
         #07040d;
 }
-/* Soft glow */
+
 .glow {
     position: absolute;
     width: 280px;
@@ -46,7 +53,7 @@ body {
     filter: blur(90px);
     animation: pulse 5s ease-in-out infinite;
 }
-/* Stars */
+
 .star {
     position: absolute;
     width: 2px;
@@ -56,47 +63,55 @@ body {
     opacity: 0.35;
     animation: drift 8s linear infinite;
 }
+
 .star:nth-child(1) {
     left: 10%;
     top: 80%;
     animation-delay: 0s;
 }
+
 .star:nth-child(2) {
     left: 20%;
     top: 60%;
     animation-delay: 2s;
 }
+
 .star:nth-child(3) {
     left: 35%;
     top: 90%;
     animation-delay: 1s;
 }
+
 .star:nth-child(4) {
     left: 50%;
     top: 75%;
     animation-delay: 3s;
 }
+
 .star:nth-child(5) {
     left: 65%;
     top: 85%;
     animation-delay: 1.5s;
 }
+
 .star:nth-child(6) {
     left: 78%;
     top: 65%;
     animation-delay: 2.5s;
 }
+
 .star:nth-child(7) {
     left: 90%;
     top: 85%;
     animation-delay: 0.5s;
 }
+
 .star:nth-child(8) {
     left: 45%;
     top: 55%;
     animation-delay: 4s;
 }
-/* Main content */
+
 .content {
     position: relative;
     z-index: 5;
@@ -104,7 +119,7 @@ body {
     max-width: 600px;
     text-align: center;
 }
-/* Top text */
+
 .kicker {
     color: #9c8ba7;
     font-size: 11px;
@@ -114,7 +129,7 @@ body {
     opacity: 0;
     animation: appear 1.2s ease 0.3s forwards;
 }
-/* Lock */
+
 .lock {
     width: 105px;
     height: 105px;
@@ -133,11 +148,12 @@ body {
         lockIn 1.4s ease 0.5s forwards,
         floating 4s ease-in-out 2s infinite;
 }
+
 .lock span {
     font-size: 52px;
     filter: drop-shadow(0 0 15px rgba(190,120,240,0.65));
 }
-/* Title */
+
 h1 {
     font-size: clamp(42px, 11vw, 72px);
     line-height: 1.05;
@@ -147,6 +163,7 @@ h1 {
     opacity: 0;
     animation: appear 1.4s ease 0.9s forwards;
 }
+
 h1 span {
     background: linear-gradient(
         90deg,
@@ -160,7 +177,7 @@ h1 span {
     color: transparent;
     animation: shine 5s linear infinite;
 }
-/* Description */
+
 .description {
     max-width: 450px;
     margin: 0 auto 38px;
@@ -170,7 +187,7 @@ h1 span {
     opacity: 0;
     animation: appear 1.4s ease 1.3s forwards;
 }
-/* Button */
+
 .unlock {
     display: inline-flex;
     align-items: center;
@@ -194,19 +211,22 @@ h1 span {
         background 0.3s ease,
         box-shadow 0.3s ease;
 }
+
 .unlock:hover {
     transform: translateY(-3px);
     background: rgba(255,255,255,0.11);
     box-shadow:
         0 12px 40px rgba(120,60,170,0.25);
 }
+
 .unlock:active {
     transform: scale(0.95);
 }
+
 .arrow {
     font-size: 18px;
 }
-/* Bottom */
+
 .bottom {
     position: absolute;
     bottom: 22px;
@@ -220,74 +240,91 @@ h1 span {
     opacity: 0;
     animation: appear 1.5s ease 2.2s forwards;
 }
+
 /* =========================================
    PAGE 1 ANIMATIONS
    ========================================= */
+
 @keyframes appear {
     from {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
 @keyframes lockIn {
     from {
         opacity: 0;
         transform: scale(0.6);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
     }
 }
+
 @keyframes floating {
     0%, 100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-7px);
     }
 }
+
 @keyframes pulse {
     0%, 100% {
         transform: scale(0.85);
         opacity: 0.55;
     }
+
     50% {
         transform: scale(1.15);
         opacity: 1;
     }
 }
+
 @keyframes shine {
     0% {
         background-position: 0%;
     }
+
     100% {
         background-position: 200%;
     }
 }
+
 @keyframes drift {
     0% {
         transform: translateY(30px);
         opacity: 0;
     }
+
     20% {
         opacity: 0.4;
     }
+
     80% {
         opacity: 0.15;
     }
+
     100% {
         transform: translateY(-100vh);
         opacity: 0;
     }
 }
+
 /* =========================================
    PAGE 2 — ANIME TRIAL
    ========================================= */
+
 .anime-page {
     position: relative;
     min-height: 100vh;
@@ -305,7 +342,7 @@ h1 span {
             #030305 100%
         );
 }
-/* Main cinematic lighting */
+
 .anime-page::before {
     content: "";
     position: absolute;
@@ -325,7 +362,7 @@ h1 span {
             rgba(0,0,0,0.78)
         );
 }
-/* Atmospheric glow */
+
 .anime-page::after {
     content: "";
     position: absolute;
@@ -345,7 +382,7 @@ h1 span {
         );
     filter: blur(35px);
 }
-/* Visual layer */
+
 .anime-visual {
     position: absolute;
     inset: 0;
@@ -359,9 +396,9 @@ h1 span {
         background 700ms ease,
         filter 700ms ease;
 }
-/* =========================================
-   CHALLENGE 1 — DEMON SLAYER
-   ========================================= */
+
+/* Challenge 1 */
+
 .tanjiro {
     background:
         radial-gradient(
@@ -388,7 +425,7 @@ h1 span {
             #02050b 100%
         );
 }
-/* Water */
+
 .tanjiro::before {
     content: "";
     position: absolute;
@@ -408,7 +445,7 @@ h1 span {
     filter: blur(1px);
     opacity: 0.8;
 }
-/* Moon */
+
 .tanjiro::after {
     content: "";
     position: absolute;
@@ -428,9 +465,9 @@ h1 span {
         0 0 80px rgba(110,150,255,0.18);
     opacity: 0.7;
 }
-/* =========================================
-   CHALLENGE 2 — ATTACK ON TITAN
-   ========================================= */
+
+/* Challenge 2 */
+
 .aot {
     background:
         radial-gradient(
@@ -456,7 +493,7 @@ h1 span {
             #080706 100%
         );
 }
-/* Wall */
+
 .aot::before {
     content: "";
     position: absolute;
@@ -482,7 +519,7 @@ h1 span {
     );
     filter: blur(2px);
 }
-/* Titan-like shadow */
+
 .aot::after {
     content: "";
     position: absolute;
@@ -502,9 +539,9 @@ h1 span {
     filter: blur(5px);
     opacity: 0.75;
 }
-/* =========================================
-   CHALLENGE 3 — TOJI
-   ========================================= */
+
+/* Challenge 3 */
+
 .toji {
     background:
         linear-gradient(
@@ -531,7 +568,7 @@ h1 span {
             #050608 100%
         );
 }
-/* City architecture */
+
 .toji::before {
     content: "";
     position: absolute;
@@ -546,7 +583,7 @@ h1 span {
     background-size: 75px 100%;
     opacity: 0.5;
 }
-/* Diagonal light */
+
 .toji::after {
     content: "";
     position: absolute;
@@ -566,9 +603,9 @@ h1 span {
         0 0 35px rgba(120,145,220,0.18);
     opacity: 0.7;
 }
-/* =========================================
-   CHALLENGE 4 — UNDERGROUND
-   ========================================= */
+
+/* Challenge 4 */
+
 .underground {
     background:
         radial-gradient(
@@ -596,7 +633,7 @@ h1 span {
             #070605
         );
 }
-/* Tunnel */
+
 .underground::before {
     content: "";
     position: absolute;
@@ -618,7 +655,7 @@ h1 span {
         );
     opacity: 0.9;
 }
-/* Lamp */
+
 .underground::after {
     content: "";
     position: absolute;
@@ -637,9 +674,9 @@ h1 span {
         );
     filter: blur(5px);
 }
-/* =========================================
-   CHALLENGE 5 — FINAL TOJI
-   ========================================= */
+
+/* Challenge 5 */
+
 .final-toji {
     background:
         radial-gradient(
@@ -659,7 +696,7 @@ h1 span {
             #030307 100%
         );
 }
-/* Huge shadow */
+
 .final-toji::before {
     content: "";
     position: absolute;
@@ -679,7 +716,7 @@ h1 span {
         );
     filter: blur(7px);
 }
-/* Spotlight */
+
 .final-toji::after {
     content: "";
     position: absolute;
@@ -698,9 +735,9 @@ h1 span {
         0 0 100px rgba(150,80,150,0.12);
     opacity: 0.7;
 }
-/* =========================================
-   PAGE 2 CONTENT
-   ========================================= */
+
+/* Page 2 content */
+
 .anime-content {
     position: relative;
     z-index: 5;
@@ -708,7 +745,7 @@ h1 span {
     text-align: center;
     padding: 35px 0;
 }
-/* Label */
+
 .anime-label {
     font-size: 13px;
     letter-spacing: 5px;
@@ -716,7 +753,7 @@ h1 span {
     opacity: 0.65;
     margin-bottom: 12px;
 }
-/* Badge */
+
 .anime-badge {
     display: inline-block;
     padding: 9px 18px;
@@ -731,7 +768,7 @@ h1 span {
     letter-spacing: 2px;
     margin-bottom: 15px;
 }
-/* Card */
+
 .anime-card {
     background:
         rgba(5,5,10,0.72);
@@ -747,22 +784,24 @@ h1 span {
     transition:
         all 0.5s ease;
 }
-/* Question */
+
 .anime-card h2 {
     margin-top: 0;
     font-size:
         clamp(22px, 5vw, 32px);
 }
+
 .anime-card p {
     line-height: 1.6;
 }
-/* Answers */
+
 #answers {
     display: flex;
     flex-direction: column;
     gap: 12px;
     margin-top: 25px;
 }
+
 #answers button {
     width: 100%;
     padding: 15px 18px;
@@ -776,27 +815,30 @@ h1 span {
     transition:
         all 0.25s ease;
 }
+
 #answers button:hover {
     background:
         rgba(255,255,255,0.12);
     transform:
         translateY(-2px);
 }
-/* Message */
+
 #gameMessage {
     margin-top: 22px;
     line-height: 1.6;
 }
+
 .hidden-message {
     opacity: 0;
     max-height: 0;
     overflow: hidden;
 }
+
 .hidden-message.show {
     opacity: 1;
     max-height: 300px;
 }
-/* Buttons */
+
 #nextChallenge,
 #tryAgainButton {
     margin-top: 18px;
@@ -811,6 +853,7 @@ h1 span {
     transition:
         all 0.25s ease;
 }
+
 #nextChallenge:hover,
 #tryAgainButton:hover {
     background:
@@ -818,11 +861,12 @@ h1 span {
     transform:
         translateY(-2px);
 }
-/* Card animation */
+
 .theme-change {
     animation:
         animeCardChange 0.55s ease;
 }
+
 @keyframes animeCardChange {
     0% {
         opacity: 0;
@@ -830,6 +874,7 @@ h1 span {
             translateY(15px)
             scale(0.98);
     }
+
     100% {
         opacity: 1;
         transform:
@@ -837,57 +882,367 @@ h1 span {
             scale(1);
     }
 }
+
+/* =========================================
+   PAGE 3 — FOR YOU
+   ========================================= */
+
+.memory-page {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: none;
+    background:
+        radial-gradient(
+            circle at 50% 18%,
+            rgba(100,125,180,0.16),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 15% 85%,
+            rgba(70,90,145,0.12),
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            #07101f 0%,
+            #050a14 48%,
+            #02050b 100%
+        );
+    color: #edf2fa;
+    -webkit-overflow-scrolling: touch;
+}
+
+.memory-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            transparent 30%,
+            rgba(0,0,0,0.38) 100%
+        );
+    z-index: 0;
+}
+
+.memory-stars {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.memory-star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.75);
+    box-shadow: 0 0 7px rgba(220,230,255,0.45);
+}
+
+.memory-star:nth-child(1) {
+    left: 8%;
+    top: 12%;
+}
+
+.memory-star:nth-child(2) {
+    left: 18%;
+    top: 28%;
+    width: 1px;
+    height: 1px;
+}
+
+.memory-star:nth-child(3) {
+    left: 31%;
+    top: 9%;
+}
+
+.memory-star:nth-child(4) {
+    left: 44%;
+    top: 23%;
+    width: 1px;
+    height: 1px;
+}
+
+.memory-star:nth-child(5) {
+    left: 57%;
+    top: 11%;
+}
+
+.memory-star:nth-child(6) {
+    left: 69%;
+    top: 31%;
+    width: 1px;
+    height: 1px;
+}
+
+.memory-star:nth-child(7) {
+    left: 82%;
+    top: 15%;
+}
+
+.memory-star:nth-child(8) {
+    left: 91%;
+    top: 38%;
+    width: 1px;
+    height: 1px;
+}
+
+.memory-star:nth-child(9) {
+    left: 12%;
+    top: 54%;
+    width: 1px;
+    height: 1px;
+}
+
+.memory-star:nth-child(10) {
+    left: 25%;
+    top: 70%;
+}
+
+.memory-star:nth-child(11) {
+    left: 74%;
+    top: 63%;
+}
+
+.memory-star:nth-child(12) {
+    left: 88%;
+    top: 78%;
+    width: 1px;
+    height: 1px;
+}
+
+.memory-moon {
+    position: absolute;
+    top: 7%;
+    right: 9%;
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle at 35% 32%,
+            #ffffff,
+            #dbe4f3 48%,
+            rgba(170,190,220,0.65) 68%,
+            transparent 72%
+        );
+    box-shadow:
+        0 0 35px rgba(190,210,245,0.18),
+        0 0 90px rgba(130,160,210,0.10);
+    opacity: 0.75;
+}
+
+.memory-content {
+    position: relative;
+    z-index: 2;
+    width: min(88%, 720px);
+    margin: 0 auto;
+    padding:
+        90px 0 100px;
+}
+
+.memory-intro {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.memory-small {
+    color: #8d9ab0;
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.memory-title {
+    font-size: clamp(42px, 11vw, 68px);
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -2px;
+    color: #f4f7fc;
+    text-shadow:
+        0 0 35px rgba(190,205,235,0.10);
+}
+
+.memory-line {
+    width: 50px;
+    height: 1px;
+    margin: 27px auto 0;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(210,220,240,0.55),
+            transparent
+        );
+}
+
+.memory-text {
+    color: #b7c0cf;
+    font-size: 15px;
+    line-height: 1.95;
+    text-align: left;
+    margin-bottom: 34px;
+}
+
+.memory-text:last-of-type {
+    margin-bottom: 0;
+}
+
+.memory-highlight {
+    color: #e5ebf5;
+}
+
+.memory-end {
+    text-align: center;
+    padding-top: 35px;
+    margin-top: 10px;
+}
+
+.memory-end p {
+    color: #c2cad7;
+    font-size: 15px;
+    line-height: 1.9;
+    margin-bottom: 18px;
+}
+
+.memory-end .continue-text {
+    color: #f0f3f8;
+    font-size: 20px;
+    margin-top: 8px;
+    margin-bottom: 28px;
+}
+
+.memory-continue {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 26px;
+    border-radius: 999px;
+    border: 1px solid rgba(220,230,245,0.20);
+    background: rgba(255,255,255,0.055);
+    color: #f4f6fa;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.memory-continue:hover {
+    transform: translateY(-3px);
+    background: rgba(255,255,255,0.10);
+    box-shadow:
+        0 12px 35px rgba(100,130,180,0.15);
+}
+
+.memory-continue:active {
+    transform: scale(0.96);
+}
+
 /* =========================================
    MOBILE
    ========================================= */
+
 @media (max-width: 600px) {
+
     .lock {
         width: 92px;
         height: 92px;
     }
+
     .lock span {
         font-size: 46px;
     }
+
     h1 {
         font-size: 44px;
     }
+
     .description {
         font-size: 14px;
         padding:
             0 10px;
     }
+
     .kicker {
         font-size: 10px;
         letter-spacing: 4px;
     }
+
     .anime-card {
         padding:
             22px 18px;
     }
+
     .anime-content {
         width: 94%;
     }
+
     .tanjiro::after {
         width: 130px;
         height: 130px;
     }
+
     .aot::after {
         width: 260px;
         height: 430px;
     }
+
     .final-toji::before {
         width: 280px;
         height: 480px;
     }
+
+    .memory-content {
+        width: 88%;
+        padding:
+            75px 0 80px;
+    }
+
+    .memory-moon {
+        width: 85px;
+        height: 85px;
+        right: 7%;
+        top: 5%;
+    }
+
+    .memory-title {
+        font-size: 48px;
+    }
+
+    .memory-text {
+        font-size: 14px;
+        line-height: 1.9;
+        margin-bottom: 30px;
+    }
 }
 </style>
 </head>
+
 <body>
+
 <!-- =========================================
      PAGE 1
      ========================================= -->
-<section class="intro">
+
+<section class="intro" id="introPage">
+
     <div class="glow"></div>
+
     <div class="star"></div>
     <div class="star"></div>
     <div class="star"></div>
@@ -896,26 +1251,32 @@ h1 span {
     <div class="star"></div>
     <div class="star"></div>
     <div class="star"></div>
+
     <div class="content">
+
         <div class="kicker">
             A little something
         </div>
+
         <div class="lock">
             <span>
                 🔐
             </span>
         </div>
+
         <h1>
             There's something<br>
             <span>
                 waiting for you.
             </span>
         </h1>
+
         <p class="description">
             Not everything is meant to be opened at once.
             Some things are better when you discover them
             one step at a time.
         </p>
+
         <button
             class="unlock"
             onclick="unlock()">
@@ -924,14 +1285,20 @@ h1 span {
                 →
             </span>
         </button>
+
     </div>
+
     <div class="bottom">
         something made just for you
     </div>
+
 </section>
+
+
 <!-- =========================================
      PAGE 2 — ANIME TRIAL
      ========================================= -->
+
 <section
     class="page anime-page"
     id="animePage"
@@ -944,321 +1311,666 @@ h1 span {
         box-sizing:border-box;
     "
 >
+
     <div
         class="anime-visual tanjiro"
         id="animeVisual">
     </div>
+
     <div class="anime-content">
+
         <div class="anime-label">
             LEVEL 01 • THE ANIME TRIAL
         </div>
+
         <div
             class="anime-badge"
             id="animeBadge">
             ⚔️ DEMON SLAYER
         </div>
+
         <div
             class="anime-card"
             id="animeGame">
+
             <h2 id="questionTitle">
                 ⚔️ Challenge 1
             </h2>
+
             <p id="questionText">
                 Before becoming a demon,
                 what was Akaza's human name?
             </p>
+
             <div id="answers">
+
                 <button
                     onclick="animeAnswer(0)">
                     A) Hakuji
                 </button>
+
                 <button
                     onclick="animeAnswer(1)">
                     B) Michikatsu
                 </button>
+
                 <button
                     onclick="animeAnswer(2)">
                     C) Sumiyoshi
                 </button>
+
             </div>
+
             <div
                 id="gameMessage"
                 class="hidden-message">
             </div>
+
             <button
                 id="tryAgainButton"
                 onclick="animeTryAgain()"
                 style="display:none;">
                 Try Again →
             </button>
+
         </div>
+
         <button
             id="nextChallenge"
             onclick="animeNextChallenge()"
             style="display:none;">
             Next Challenge →
         </button>
+
     </div>
+
 </section>
+
+
+<!-- =========================================
+     PAGE 3 — FOR YOU
+     ========================================= -->
+
+<section
+    class="memory-page"
+    id="memoryPage">
+
+    <div class="memory-stars">
+
+        <div class="memory-star"></div>
+        <div class="memory-star"></div>
+        <div class="memory-star"></div>
+        <div class="memory-star"></div>
+        <div class="memory-star"></div>
+        <div class="memory-star"></div>
+        <div class="memory-star"></div>
+        <div class="memory-star"></div>
+        <div class="memory-star"></div>
+        <div class="memory-star"></div>
+        <div class="memory-star"></div>
+        <div class="memory-star"></div>
+
+    </div>
+
+    <div class="memory-moon"></div>
+
+    <div class="memory-content">
+
+        <div class="memory-intro">
+
+            <div class="memory-small">
+                A little more
+            </div>
+
+            <div class="memory-title">
+                For You
+            </div>
+
+            <div class="memory-line"></div>
+
+        </div>
+
+
+        <p class="memory-text">
+            I was trying to think about what I should even write here because honestly there are so many things I could say and I don't even know where to start 😭
+        </p>
+
+        <p class="memory-text">
+            When I think about everything we've shared, I don't think it's one specific moment that stands out the most. It's all the random little things that happened without us even realizing how much we'd remember them.
+        </p>
+
+        <p class="memory-text">
+            Like how we'd play CODM for so long that we'd probably lose track of how many matches we'd played 😭 Sometimes we'd actually be trying to win and sometimes we'd just be doing random stuff and somehow still keep playing.
+        </p>
+
+        <p class="memory-text">
+            And then there were all those nights when we'd just talk and somehow the conversation would keep going. We'd start talking about one thing and somehow end up talking about something completely different. Sometimes we'd have serious conversations, sometimes we'd just be saying the most random things ever, and somehow we'd still have something else to talk about.
+        </p>
+
+        <p class="memory-text">
+            And obviously I can't forget how good you became at roasting me 😭 I genuinely don't know how you always managed to find something to say. I used to call you CarryMinati's student but honestly I think I was giving you too little credit. At this point you were probably his coach 💀
+        </p>
+
+        <p class="memory-text">
+            There were also all those times we watched movies and series together. We'd start something at the same time and just sit there watching it, then talk about it afterward. It sounds like such a normal thing when I say it like that, but those moments genuinely mean a lot to me.
+        </p>
+
+        <p class="memory-text">
+            And I really appreciated the times when things weren't just jokes and games too. There were times I'd tell you about something going on with people around me or something that was bothering me, and you'd actually give me advice. Some of the things you told me genuinely helped me look at situations differently. You didn't always just tell me what I wanted to hear either, and I think that's one of the things I appreciated about you.
+        </p>
+
+        <p class="memory-text">
+            I don't think there was ever one specific moment where you suddenly became important to me. It just happened naturally. We talked more, played more, joked more, watched things together, shared random things with each other, and somehow you just got really, really close to me.
+        </p>
+
+        <p class="memory-text">
+            Like genuinely close.
+        </p>
+
+        <p class="memory-text">
+            I've had people around me before. I've had friends and I've met a lot of different people, but no one really got that close to me.
+        </p>
+
+        <p class="memory-text">
+            And I don't even think I realized it while it was happening.
+        </p>
+
+        <p class="memory-text">
+            I was just enjoying the conversations, the games, the jokes, the random arguments, the roasting, the movies, everything.
+        </p>
+
+        <p class="memory-text">
+            And I think that's what makes all of it special.
+        </p>
+
+        <p class="memory-text">
+            We weren't trying to make memories.
+        </p>
+
+        <p class="memory-text">
+            We were just having fun.
+        </p>
+
+        <p class="memory-text">
+            We were just talking.
+        </p>
+
+        <p class="memory-text">
+            We were just being ourselves.
+        </p>
+
+        <p class="memory-text">
+            And somehow all those normal moments became things that I genuinely care about.
+        </p>
+
+        <p class="memory-text">
+            I don't think you always realize how much the little things can mean to someone. A conversation can just feel like a normal conversation while you're having it, but sometimes you realize that the person you're talking to has become a really important part of your life.
+        </p>
+
+        <p class="memory-text">
+            And honestly, that's how I feel about everything we've shared.
+        </p>
+
+        <p class="memory-text">
+            <span class="memory-highlight">
+                You really do mean a lot to me.
+            </span>
+        </p>
+
+        <p class="memory-text">
+            Not because of one specific thing you did or because of one particular moment. I mean it because of everything together.
+        </p>
+
+        <p class="memory-text">
+            All the games.
+        </p>
+
+        <p class="memory-text">
+            All the random conversations.
+        </p>
+
+        <p class="memory-text">
+            All the late nights.
+        </p>
+
+        <p class="memory-text">
+            All the roasting 😭
+        </p>
+
+        <p class="memory-text">
+            All the movies and series.
+        </p>
+
+        <p class="memory-text">
+            All the advice.
+        </p>
+
+        <p class="memory-text">
+            All the stupid little moments that probably seemed completely normal at the time.
+        </p>
+
+        <p class="memory-text">
+            They all became memories that I'm genuinely grateful for.
+        </p>
+
+        <p class="memory-text">
+            And I don't want this to sound like I'm talking about something that's finished or something that belongs only in the past.
+        </p>
+
+        <p class="memory-text">
+            I just wanted you to know that all those moments became a part of how much I appreciate having you in my life.
+        </p>
+
+        <p class="memory-text">
+            And honestly, I'm really glad I got to experience all of it with you.
+        </p>
+
+        <p class="memory-text">
+            There are still so many things ahead of us that we haven't even experienced yet.
+        </p>
+
+        <p class="memory-text">
+            So yeah...
+        </p>
+
+        <div class="memory-end">
+
+            <p>
+                I'm really grateful for everything we've shared so far.
+            </p>
+
+            <p>
+                And I'm even more curious about what comes next. 🌌
+            </p>
+
+            <p class="continue-text">
+                I've already made you wait long enough 😭
+            </p>
+
+            <p>
+                So I think we should stop talking about all this for now...
+            </p>
+
+            <p>
+                Because we're still not done yet.
+            </p>
+
+            <p>
+                Let's continue.
+            </p>
+
+            <button
+                class="memory-continue"
+                onclick="page4()">
+                Continue →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
 <script>
+
 /* =========================================
    PAGE 1 → PAGE 2
    ========================================= */
+
 function unlock() {
+
     const button =
         document.querySelector(".unlock");
+
     button.innerHTML =
         "Unlocking...";
+
     button.style.pointerEvents =
         "none";
+
     setTimeout(function() {
+
         button.innerHTML =
             "Unlocked ✓";
+
         setTimeout(function() {
+
             const firstPage =
                 document.querySelector(".intro");
+
             const secondPage =
                 document.querySelector(".page");
+
             if (
                 firstPage &&
                 secondPage
             ) {
+
                 firstPage.style.display =
                     "none";
+
                 secondPage.style.display =
                     "flex";
+
                 window.scrollTo(
                     0,
                     0
                 );
             }
+
         }, 300);
+
     }, 900);
 }
+
+
 /* =========================================
    ANIME QUESTIONS
    ========================================= */
+
 let animeQuestion = 0;
+
 const animeQuestions = [
-    /* Challenge 1 */
+
     {
         theme:
             "theme-demon",
+
         visual:
             "tanjiro",
+
         badge:
             "⚔️ DEMON SLAYER",
+
         title:
             "⚔️ Challenge 1",
+
         question:
             "Before becoming a demon, what was Akaza's human name?",
+
         answers: [
             "A) Hakuji",
             "B) Michikatsu",
             "C) Sumiyoshi"
         ],
+
         correct:
             0,
+
         wrong: [
             "CORRECT ANSWER WAS A 😭 You really chose Michikatsu?",
             "SUMIYOSHI?! 😭 BRO WHAT ARE YOU DOING?"
         ],
+
         right:
             "CORRECT ✓ Okay... we're off to a good start."
     },
-    /* Challenge 2 */
+
+
     {
         theme:
             "theme-aot",
+
         visual:
             "aot",
+
         badge:
             "🩸 ATTACK ON TITAN",
+
         title:
             "⚔️ Challenge 2",
+
         question:
             "How did Marcel die?",
+
         answers: [
             "A) Jaw Titan",
             "B) Pure Titan — later Ymir",
             "C) Cart Titan"
         ],
+
         correct:
             1,
+
         wrong: [
             "BRO 😭 Marcel literally WAS the Jaw Titan. THINK.",
             "PIECK CATCHING STRAYS FOR ABSOLUTELY NO REASON 😭"
         ],
+
         right:
             "CORRECT ✓ Okay, you actually know your AOT."
     },
-    /* Challenge 3 */
+
+
     {
         theme:
             "theme-toji",
+
         visual:
             "toji",
+
         badge:
             "🗡️ JUJUTSU KAISEN",
+
         title:
             "⚔️ Challenge 3",
+
         question:
             "What is Toji's greatest weapon?",
+
         answers: [
             "A) His cursed tools",
             "B) His battle IQ",
             "C) His ridiculous physique"
         ],
+
         correct:
             2,
+
         wrong: [
             "Technically... maybe? 😭 But you KNOW what this question was asking.",
             "Battle IQ is crazy 💀 Just admit you picked the safe answer."
         ],
+
         right:
             "CORRECT. 😭 We both knew where this was going."
     },
-    /* Challenge 4 */
+
+
     {
         theme:
             "theme-underground",
+
         visual:
             "underground",
+
         badge:
             "🕯️ AOT • UNDERGROUND",
+
         title:
             "⚔️ Challenge 4",
+
         question:
             "What was the original purpose of the anti-personnel vertical maneuvering equipment?",
+
         answers: [
             "A) Fight Titans in the Underground",
             "B) Allow combat in narrow urban spaces",
             "C) Replace conventional ODM gear"
         ],
+
         correct:
             1,
+
         wrong: [
             "😭 TITANS IN THE UNDERGROUND? BRO, THAT PLACE WAS BUILT FOR HUMAN COMBAT.",
             "NAHHH 😭 Replace ODM gear? You really just made up a whole new military strategy."
         ],
+
         right:
             "CORRECT ✓ Okay... that's actually impressive."
     },
-    /* Challenge 5 */
+
+
     {
         theme:
             "theme-final",
+
         visual:
             "final-toji",
+
         badge:
             "☠️ FINAL CHALLENGE",
+
         title:
             "⚔️ Challenge 5",
+
         question:
             "What is Toji's greatest enemy?",
+
         answers: [
             "A) Cursed energy",
             "B) His lack of patience",
             "C) Seeing someone skip leg day 😭"
         ],
+
         correct:
             2,
+
         wrong: [
             "CURSED ENERGY?! 😭 THAT'S LITERALLY THE WHOLE POINT OF TOJI.",
             "Lack of patience? 💀 BRO YOU WERE ONE OPTION AWAY FROM LEG DAY."
         ],
+
         right:
             "CORRECT 😭 We both knew the answer was leg day."
     }
+
 ];
+
+
 /* =========================================
    CHANGE THEME
    ========================================= */
+
 function animeSetTheme() {
+
     const visual =
         document.getElementById(
             "animeVisual"
         );
+
     const card =
         document.getElementById(
             "animeGame"
         );
+
     const badge =
         document.getElementById(
             "animeBadge"
         );
+
     const current =
         animeQuestions[
             animeQuestion
         ];
+
     visual.className =
         "anime-visual " +
         current.visual;
+
     badge.innerHTML =
         current.badge;
+
     card.classList.remove(
         "theme-change"
     );
+
     void card.offsetWidth;
+
     card.classList.add(
         "theme-change"
     );
 }
+
+
 /* =========================================
    ANSWER
    ========================================= */
+
 function animeAnswer(choice) {
+
     const current =
         animeQuestions[
             animeQuestion
         ];
+
     const message =
         document.getElementById(
             "gameMessage"
         );
+
     const buttons =
         document.querySelectorAll(
             "#answers button"
         );
+
     const tryAgain =
         document.getElementById(
             "tryAgainButton"
         );
+
     const nextButton =
         document.getElementById(
             "nextChallenge"
         );
+
     if (
         choice ===
         current.correct
     ) {
+
         message.innerHTML =
             "✓ " +
             current.right;
+
         message.classList.add(
             "show"
         );
+
         buttons.forEach(
             function(button) {
+
                 button.disabled =
                     true;
+
                 button.style.opacity =
                     "0.5";
+
             }
         );
+
         tryAgain.style.display =
             "none";
+
         nextButton.style.display =
             "inline-block";
+
         if (
             animeQuestion ===
             animeQuestions.length - 1
         ) {
+
             nextButton.innerHTML =
                 "🔓 Unlock Next Page →";
+
         }
+
     }
+
     else {
+
         message.innerHTML =
             "❌ WRONG<br><br>" +
             current.wrong[
@@ -1267,137 +1979,228 @@ function animeAnswer(choice) {
                     ? choice - 1
                     : choice
             ];
+
         message.classList.add(
             "show"
         );
+
         buttons.forEach(
             function(button) {
                 button.disabled =
                     true;
             }
         );
+
         tryAgain.style.display =
             "inline-block";
+
         nextButton.style.display =
             "none";
     }
 }
+
+
 /* =========================================
    TRY AGAIN
    ========================================= */
+
 function animeTryAgain() {
+
     const message =
         document.getElementById(
             "gameMessage"
         );
+
     const buttons =
         document.querySelectorAll(
             "#answers button"
         );
+
     const tryAgain =
         document.getElementById(
             "tryAgainButton"
         );
+
     message.innerHTML =
         "";
+
     message.classList.remove(
         "show"
     );
+
     buttons.forEach(
         function(button) {
+
             button.disabled =
                 false;
+
             button.style.opacity =
                 "1";
+
         }
     );
+
     tryAgain.style.display =
         "none";
 }
+
+
 /* =========================================
    NEXT CHALLENGE
    ========================================= */
+
 function animeNextChallenge() {
+
     if (
         animeQuestion <
         animeQuestions.length - 1
     ) {
+
         animeQuestion++;
+
         const current =
             animeQuestions[
                 animeQuestion
             ];
+
         document.getElementById(
             "questionTitle"
         ).innerHTML =
             current.title;
+
         document.getElementById(
             "questionText"
         ).innerHTML =
             current.question;
+
         const answers =
             document.getElementById(
                 "answers"
             );
+
         answers.innerHTML =
             "";
+
         current.answers.forEach(
             function(
                 answerText,
                 index
             ) {
+
                 const button =
                     document.createElement(
                         "button"
                     );
+
                 button.innerHTML =
                     answerText;
+
                 button.onclick =
                     function() {
+
                         animeAnswer(
                             index
                         );
+
                     };
+
                 answers.appendChild(
                     button
                 );
+
             }
         );
+
         document.getElementById(
             "gameMessage"
         ).innerHTML =
             "";
+
         document.getElementById(
             "gameMessage"
         ).classList.remove(
             "show"
         );
+
         document.getElementById(
             "tryAgainButton"
         ).style.display =
             "none";
+
         document.getElementById(
             "nextChallenge"
         ).style.display =
             "none";
+
         animeSetTheme();
+
     }
+
     else {
+
         nextPage();
+
     }
 }
+
+
 /* =========================================
-   FINAL BUTTON
+   PAGE 2 → PAGE 3
    ========================================= */
+
 function nextPage() {
-    alert(
-        "You completed the Anime Trial! 🔓"
-    );
+
+    const animePage =
+        document.getElementById(
+            "animePage"
+        );
+
+    const memoryPage =
+        document.getElementById(
+            "memoryPage"
+        );
+
+    if (
+        animePage &&
+        memoryPage
+    ) {
+
+        animePage.style.display =
+            "none";
+
+        memoryPage.style.display =
+            "block";
+
+        document.body.style.overflow =
+            "hidden";
+
+        memoryPage.scrollTop =
+            0;
+
+    }
 }
+
+
+/* =========================================
+   PAGE 4 — PLACEHOLDER
+   ========================================= */
+
+function page4() {
+
+    alert(
+        "Page 4 is coming next 🌌"
+    );
+
+}
+
+
 /* =========================================
    START
    ========================================= */
+
 animeSetTheme();
+
 </script>
+
 </body>
 </html>
