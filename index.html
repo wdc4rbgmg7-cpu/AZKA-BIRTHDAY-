@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Azka</title>
+
+<title>A Little Something</title>
 
 <style>
 
 /* =========================================================
    GLOBAL
-   ========================================================= */
+========================================================= */
 
 * {
     box-sizing: border-box;
@@ -24,3082 +25,1708 @@ body {
 }
 
 body {
-    min-height: 100vh;
-    overflow: hidden;
-    background: #050308;
-    color: white;
     font-family:
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
         sans-serif;
+    background: #090611;
+    color: white;
+    overflow-x: hidden;
 }
 
 button {
-    font-family: inherit;
+    font: inherit;
 }
 
 
 /* =========================================================
-   PAGE 1 — MIDNIGHT PURPLE INTRO
-   ========================================================= */
+   PAGE 1 — INTRO
+   KEPT THE SAME
+========================================================= */
 
 .intro {
-    position: relative;
     min-height: 100vh;
     width: 100%;
+    position: relative;
+    overflow: hidden;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
 
     background:
         radial-gradient(
-            circle at 50% 35%,
-            rgba(155, 65, 235, 0.32),
-            transparent 38%
-        ),
-        radial-gradient(
-            circle at 15% 85%,
-            rgba(95, 25, 170, 0.34),
-            transparent 40%
-        ),
-        radial-gradient(
-            circle at 88% 15%,
-            rgba(125, 45, 200, 0.24),
+            circle at 50% 30%,
+            rgba(126, 70, 190, 0.25),
             transparent 35%
         ),
         linear-gradient(
-            145deg,
-            #090311 0%,
-            #140621 45%,
-            #050207 100%
+            160deg,
+            #07030d,
+            #120822 45%,
+            #08030f
         );
-}
-
-.intro::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-
-    background:
-        radial-gradient(
-            ellipse at 50% 100%,
-            rgba(180, 75, 255, 0.18),
-            transparent 45%
-        );
-
-    z-index: 0;
-}
-
-.intro::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background:
-        linear-gradient(
-            115deg,
-            transparent 0%,
-            rgba(255,255,255,0.015) 48%,
-            transparent 52%
-        );
-
-    background-size: 280% 100%;
-
-    animation: introSweep 9s linear infinite;
-
-    pointer-events: none;
-    z-index: 1;
 }
 
 .glow {
     position: absolute;
-
-    width: 330px;
-    height: 330px;
-
-    left: 50%;
-    top: 48%;
-
-    transform:
-        translate(-50%, -50%);
-
+    width: 420px;
+    height: 420px;
     border-radius: 50%;
 
     background:
-        rgba(145, 55, 220, 0.20);
+        radial-gradient(
+            circle,
+            rgba(159, 86, 255, 0.18),
+            transparent 68%
+        );
 
-    filter:
-        blur(100px);
-
-    animation:
-        pulse 5s ease-in-out infinite;
-
-    z-index: 0;
+    filter: blur(25px);
+    animation: introGlow 6s ease-in-out infinite;
 }
 
+@keyframes introGlow {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: .7;
+    }
 
-/* PAGE 1 STARS */
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+}
 
 .star {
     position: absolute;
-
-    width: 2px;
-    height: 2px;
-
-    border-radius: 50%;
-
+    width: 3px;
+    height: 3px;
     background: white;
-
-    opacity: 0.45;
+    border-radius: 50%;
+    opacity: .6;
 
     animation:
-        drift 8s linear infinite;
-
-    z-index: 1;
-}
-
-.star:nth-child(1) {
-    left: 10%;
-    top: 80%;
+        twinkle 3s ease-in-out infinite;
 }
 
 .star:nth-child(2) {
-    left: 20%;
-    top: 60%;
-    animation-delay: 2s;
+    top: 13%;
+    left: 17%;
 }
 
 .star:nth-child(3) {
-    left: 35%;
-    top: 90%;
-    animation-delay: 1s;
+    top: 27%;
+    left: 81%;
+    animation-delay: .8s;
 }
 
 .star:nth-child(4) {
-    left: 50%;
-    top: 75%;
-    animation-delay: 3s;
+    top: 66%;
+    left: 13%;
+    animation-delay: 1.4s;
 }
 
 .star:nth-child(5) {
-    left: 65%;
-    top: 85%;
-    animation-delay: 1.5s;
+    top: 76%;
+    left: 84%;
+    animation-delay: .5s;
 }
 
 .star:nth-child(6) {
-    left: 78%;
-    top: 65%;
-    animation-delay: 2.5s;
+    top: 43%;
+    left: 92%;
+    animation-delay: 1.9s;
 }
 
 .star:nth-child(7) {
-    left: 90%;
-    top: 85%;
-    animation-delay: 0.5s;
+    top: 84%;
+    left: 36%;
+    animation-delay: 2.3s;
 }
 
 .star:nth-child(8) {
-    left: 45%;
-    top: 55%;
-    animation-delay: 4s;
+    top: 17%;
+    left: 48%;
+    animation-delay: 1.1s;
 }
 
-.star:nth-child(9) {
-    left: 6%;
-    top: 35%;
-    animation-delay: 3.5s;
+@keyframes twinkle {
+    0%,
+    100% {
+        opacity: .25;
+        transform: scale(.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.4);
+    }
 }
 
-.star:nth-child(10) {
-    left: 94%;
-    top: 42%;
-    animation-delay: 2.8s;
-}
 
-
-/* =========================================================
-   PAGE 1 — CAT
-   ========================================================= */
+/* Cute cat */
 
 .intro-cat {
     position: absolute;
+    width: 210px;
+    height: 210px;
 
-    width: min(430px, 88vw);
-    height: auto;
+    right: 8%;
+    bottom: 8%;
 
-    left: 50%;
-    bottom: -18px;
-
-    transform:
-        translateX(-50%);
-
-    z-index: 2;
-
-    pointer-events: none;
-
-    opacity: 0.88;
-
-    filter:
-        drop-shadow(
-            0 0 18px rgba(190, 85, 255, 0.45)
-        )
-        drop-shadow(
-            0 0 55px rgba(125, 45, 210, 0.30)
-        );
+    opacity: .9;
 
     animation:
         catFloat 5s ease-in-out infinite;
 }
 
-.intro-cat .cat-body {
-    fill: #24102f;
+@keyframes catFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
-.intro-cat .cat-head {
-    fill: #301441;
+.intro-cat .cat-body {
+    fill: #1d1230;
+    stroke: #b88cff;
+    stroke-width: 2;
 }
 
 .intro-cat .cat-ear {
-    fill: #351548;
-}
-
-.intro-cat .cat-inner-ear {
-    fill: #c76de8;
-    opacity: 0.65;
-}
-
-.intro-cat .cat-face {
-    fill: #38164b;
+    fill: #24133b;
+    stroke: #b88cff;
+    stroke-width: 2;
 }
 
 .intro-cat .cat-eye {
-    fill: #f4c8ff;
-
-    filter:
-        drop-shadow(
-            0 0 7px rgba(240, 180, 255, 0.9)
-        );
-}
-
-.intro-cat .cat-pupil {
-    fill: #130719;
+    fill: #d9b9ff;
 }
 
 .intro-cat .cat-nose {
-    fill: #ef9be8;
-}
-
-.intro-cat .cat-mouth {
-    stroke: #d982d8;
+    fill: #d88cff;
 }
 
 .intro-cat .cat-whisker {
-    stroke: rgba(236, 180, 255, 0.75);
+    stroke: #b88cff;
+    stroke-width: 1.5;
+    opacity: .8;
 }
-
-.intro-cat .cat-paw {
-    fill: #301441;
-}
-
-.intro-cat .cat-tail {
-    fill: none;
-    stroke: #301441;
-    stroke-width: 30;
-    stroke-linecap: round;
-}
-
-.intro-cat .cat-highlight {
-    fill: rgba(224, 166, 255, 0.12);
-}
-
-
-/* =========================================================
-   PAGE 1 — CONTENT
-   ========================================================= */
 
 .content {
     position: relative;
     z-index: 5;
 
-    width: 90%;
-    max-width: 600px;
-
     text-align: center;
+    width: min(90%, 600px);
 
-    transform:
-        translateY(-30px);
+    animation:
+        contentAppear 1.2s ease forwards;
+}
+
+@keyframes contentAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .kicker {
-    color: #b998c8;
-
-    font-size: 11px;
-    letter-spacing: 5px;
     text-transform: uppercase;
-
-    margin-bottom: 32px;
-
-    opacity: 0;
-
-    animation:
-        appear 1.2s ease 0.3s forwards;
+    letter-spacing: 4px;
+    font-size: 11px;
+    opacity: .55;
+    margin-bottom: 22px;
 }
 
 .lock {
-    width: 105px;
-    height: 105px;
-
-    margin:
-        0 auto 32px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background:
-        rgba(25, 8, 35, 0.62);
-
-    border:
-        1px solid rgba(224, 177, 255, 0.20);
-
-    box-shadow:
-        0 0 40px rgba(150, 65, 220, 0.32),
-        inset 0 0 30px rgba(255,255,255,0.025);
-
-    backdrop-filter:
-        blur(12px);
-
-    opacity: 0;
-
-    animation:
-        lockIn 1.4s ease 0.5s forwards,
-        floating 4s ease-in-out 2s infinite;
+    font-size: 34px;
+    margin-bottom: 15px;
 }
 
-.lock span {
-    font-size: 52px;
-
-    filter:
-        drop-shadow(
-            0 0 15px rgba(215, 150, 255, 0.8)
-        );
-}
-
-h1 {
-    font-size:
-        clamp(42px, 11vw, 72px);
-
-    line-height: 1.05;
-
-    font-weight: 600;
-
+.content h1 {
+    font-size: clamp(38px, 9vw, 68px);
+    line-height: .98;
+    font-weight: 700;
     letter-spacing: -2px;
 
-    margin-bottom: 22px;
-
-    opacity: 0;
-
-    animation:
-        appear 1.4s ease 0.9s forwards;
-}
-
-h1 span {
     background:
         linear-gradient(
-            90deg,
+            135deg,
             #ffffff,
-            #d8a8f0,
-            #f0c8ff,
-            #ffffff
+            #d8baff,
+            #9b65d6
         );
 
-    background-size:
-        250%;
-
-    -webkit-background-clip:
-        text;
-
-    background-clip:
-        text;
-
-    color:
-        transparent;
-
-    animation:
-        shine 5s linear infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
-.description {
-    max-width: 450px;
+.content p {
+    max-width: 480px;
+    margin: 25px auto 30px;
 
-    margin:
-        0 auto 38px;
-
-    color:
-        #b1a2ba;
-
-    font-size:
-        15px;
-
-    line-height:
-        1.8;
-
-    opacity: 0;
-
-    animation:
-        appear 1.4s ease 1.3s forwards;
+    line-height: 1.7;
+    font-size: 15px;
+    color: rgba(255,255,255,.65);
 }
 
-.unlock {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 12px;
-
-    min-width: 165px;
-
-    padding:
-        15px 28px;
-
-    border-radius:
-        50px;
-
-    border:
-        1px solid rgba(231, 197, 255, 0.25);
-
+.unlock-button {
+    border: 1px solid rgba(205,166,255,.35);
     background:
-        rgba(255,255,255,0.055);
+        rgba(123, 67, 174, .18);
 
-    color:
-        white;
+    color: white;
 
-    font-size:
-        13px;
+    padding: 14px 30px;
+    border-radius: 999px;
 
-    letter-spacing:
-        2px;
-
-    text-transform:
-        uppercase;
-
-    cursor:
-        pointer;
-
-    backdrop-filter:
-        blur(12px);
-
-    opacity:
-        0;
-
-    animation:
-        appear 1.4s ease 1.7s forwards;
+    cursor: pointer;
 
     transition:
-        transform 0.3s ease,
-        background 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.unlock:hover {
-    transform:
-        translateY(-3px);
-
-    background:
-        rgba(220,170,255,0.12);
+        .3s ease;
 
     box-shadow:
-        0 12px 40px rgba(145,60,210,0.30);
+        0 0 25px rgba(128,70,190,.15);
 }
 
-.unlock:active {
-    transform:
-        scale(0.95);
+.unlock-button:hover {
+    transform: translateY(-3px);
+
+    background:
+        rgba(143, 82, 204, .3);
+
+    box-shadow:
+        0 0 35px rgba(151,92,220,.3);
 }
 
-.arrow {
-    font-size:
-        18px;
-}
+.bottom-text {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
 
-.bottom {
-    position:
-        absolute;
+    font-size: 11px;
+    letter-spacing: 2px;
+    opacity: .35;
 
-    bottom:
-        22px;
-
-    left:
-        0;
-
-    width:
-        100%;
-
-    text-align:
-        center;
-
-    color:
-        #675570;
-
-    font-size:
-        9px;
-
-    letter-spacing:
-        3px;
-
-    text-transform:
-        uppercase;
-
-    opacity:
-        0;
-
-    animation:
-        appear 1.5s ease 2.2s forwards;
-
-    z-index:
-        6;
-}
-
-
-/* =========================================================
-   PAGE 1 — ANIMATIONS
-   ========================================================= */
-
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform:
-            translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform:
-            translateY(0);
-    }
-}
-
-@keyframes lockIn {
-    from {
-        opacity: 0;
-        transform:
-            scale(0.6);
-    }
-
-    to {
-        opacity: 1;
-        transform:
-            scale(1);
-    }
-}
-
-@keyframes floating {
-    0%, 100% {
-        transform:
-            translateY(0);
-    }
-
-    50% {
-        transform:
-            translateY(-7px);
-    }
-}
-
-@keyframes pulse {
-    0%, 100% {
-        transform:
-            translate(-50%, -50%)
-            scale(0.85);
-
-        opacity:
-            0.55;
-    }
-
-    50% {
-        transform:
-            translate(-50%, -50%)
-            scale(1.15);
-
-        opacity:
-            1;
-    }
-}
-
-@keyframes shine {
-    0% {
-        background-position:
-            0%;
-    }
-
-    100% {
-        background-position:
-            250%;
-    }
-}
-
-@keyframes drift {
-    0% {
-        transform:
-            translateY(30px);
-
-        opacity:
-            0;
-    }
-
-    20% {
-        opacity:
-            0.45;
-    }
-
-    80% {
-        opacity:
-            0.15;
-    }
-
-    100% {
-        transform:
-            translateY(-100vh);
-
-        opacity:
-            0;
-    }
-}
-
-@keyframes catFloat {
-    0%, 100% {
-        transform:
-            translateX(-50%)
-            translateY(0);
-    }
-
-    50% {
-        transform:
-            translateX(-50%)
-            translateY(-8px);
-    }
-}
-
-@keyframes introSweep {
-    0% {
-        background-position: 120% 0;
-    }
-
-    100% {
-        background-position: -120% 0;
-    }
+    white-space: nowrap;
 }
 
 
 /* =========================================================
    PAGE 2 — ANIME TRIAL
-   ========================================================= */
+   NEW VISUAL SYSTEM
+========================================================= */
 
 .anime-page {
     position: relative;
-
-    min-height: 100vh;
-    width: 100%;
-
     overflow: hidden;
 
-    background: #050507;
-
-    --accent: #a8c8ff;
-    --accent-soft: rgba(130,170,255,0.22);
-    --card-border: rgba(180,200,255,0.18);
-    --button-bg: rgba(255,255,255,0.055);
-    --button-hover: rgba(255,255,255,0.12);
+    background: #080611;
 }
 
 
-/* =========================================================
-   PAGE 2 — DARK OVERLAYS
-   ========================================================= */
+/* subtle atmospheric layer */
 
 .anime-page::before {
     content: "";
+    position: absolute;
+    inset: 0;
 
-    position:
-        absolute;
-
-    inset:
-        0;
-
-    z-index:
-        2;
-
-    pointer-events:
-        none;
+    pointer-events: none;
 
     background:
         radial-gradient(
-            ellipse at center,
+            circle at 50% 50%,
             transparent 20%,
-            rgba(0,0,0,0.35) 70%,
-            rgba(0,0,0,0.72) 100%
+            rgba(0,0,0,.38) 100%
         );
-}
 
-.anime-page::after {
-    content: "";
-
-    position:
-        absolute;
-
-    inset:
-        0;
-
-    z-index:
-        3;
-
-    pointer-events:
-        none;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,0.55),
-            transparent 25%,
-            transparent 75%,
-            rgba(0,0,0,0.55)
-        );
+    z-index: 2;
 }
 
 
-/* =========================================================
-   ANIME VISUAL BASE
-   ========================================================= */
+/* actual scene */
 
 .anime-visual {
-    position:
-        absolute;
+    position: absolute;
+    inset: 0;
 
-    inset:
-        0;
+    z-index: 0;
 
-    z-index:
-        0;
-
-    overflow:
-        hidden;
-
-    pointer-events:
-        none;
+    overflow: hidden;
 
     transition:
-        background 0.8s ease,
-        filter 0.8s ease;
-
-    filter:
-        contrast(1.08)
-        saturate(0.92);
-}
-
-
-/* =========================================================
-   DEMON SLAYER SCENE
-   ========================================================= */
-
-.tanjiro {
-    background:
-        radial-gradient(
-            circle at 72% 18%,
-            rgba(220,235,255,0.38),
-            transparent 12%
-        ),
-        radial-gradient(
-            ellipse at 50% 82%,
-            rgba(25,100,160,0.45),
-            transparent 48%
-        ),
-        linear-gradient(
-            180deg,
-            #06111e 0%,
-            #071a2a 42%,
-            #02060b 100%
-        );
-}
-
-
-/* Moon */
-
-.tanjiro::after {
-    content: "";
-
-    position:
-        absolute;
-
-    width:
-        180px;
-
-    height:
-        180px;
-
-    right:
-        8%;
-
-    top:
-        8%;
-
-    border-radius:
-        50%;
-
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #ffffff,
-            #dbe7ff 42%,
-            rgba(155,185,230,0.55) 62%,
-            transparent 72%
-        );
-
-    box-shadow:
-        0 0 35px rgba(170,200,255,0.35),
-        0 0 100px rgba(80,150,255,0.20);
-}
-
-
-/* Water */
-
-.tanjiro::before {
-    content: "";
-
-    position:
-        absolute;
-
-    width:
-        150%;
-
-    height:
-        70%;
-
-    left:
-        -25%;
-
-    bottom:
-        -18%;
-
-    background:
-        repeating-radial-gradient(
-            ellipse at center,
-            transparent 0,
-            transparent 25px,
-            rgba(65,170,235,0.15) 27px,
-            rgba(65,170,235,0.04) 32px,
-            transparent 37px
-        );
-
-    transform:
-        rotate(-8deg);
+        background 1s ease;
 
     animation:
-        waterMove 9s linear infinite;
+        sceneAppear .8s ease;
 }
 
-@keyframes waterMove {
+@keyframes sceneAppear {
     from {
-        transform:
-            rotate(-8deg)
-            translateX(0);
+        opacity: 0;
+        transform: scale(1.03);
     }
 
     to {
-        transform:
-            rotate(-8deg)
-            translateX(80px);
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
 
-/* Demon Slayer bamboo silhouettes */
-
-.anime-page.theme-demon .anime-visual {
-    background:
-        radial-gradient(
-            circle at 72% 18%,
-            rgba(220,235,255,0.38),
-            transparent 12%
-        ),
-        radial-gradient(
-            ellipse at 50% 80%,
-            rgba(20,105,160,0.42),
-            transparent 45%
-        ),
-        repeating-linear-gradient(
-            82deg,
-            transparent 0 75px,
-            rgba(25,75,75,0.28) 76px 82px,
-            transparent 83px 125px
-        ),
-        linear-gradient(
-            180deg,
-            #06121f,
-            #071a29 48%,
-            #020508
-        );
-}
-
-
 /* =========================================================
-   ATTACK ON TITAN SCENE
-   ========================================================= */
+   QUESTION 1 — DEMON SLAYER
+   Japanese night forest / wisteria / moon / lanterns
+========================================================= */
 
-.aot {
+.anime-visual.tanjiro {
     background:
-        linear-gradient(
-            180deg,
-            #101517 0%,
-            #343c3b 46%,
-            #111313 100%
-        );
-}
 
-
-/* Huge moon */
-
-.aot::after {
-    content: "";
-
-    position:
-        absolute;
-
-    width:
-        250px;
-
-    height:
-        250px;
-
-    right:
-        7%;
-
-    top:
-        8%;
-
-    border-radius:
-        50%;
-
-    background:
+        /* stars */
         radial-gradient(
-            circle at 35% 30%,
-            rgba(255,255,255,0.8),
-            rgba(205,215,207,0.50) 48%,
-            rgba(130,145,140,0.18) 65%,
-            transparent 72%
-        );
-
-    box-shadow:
-        0 0 80px rgba(220,230,225,0.15);
-}
-
-
-/* Walls / skyline */
-
-.aot::before {
-    content: "";
-
-    position:
-        absolute;
-
-    left:
-        -5%;
-
-    bottom:
-        -5%;
-
-    width:
-        110%;
-
-    height:
-        42%;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(150,150,135,0.30),
-            rgba(55,58,55,0.65)
-        );
-
-    clip-path:
-        polygon(
-            0 25%,
-            8% 20%,
-            14% 26%,
-            20% 17%,
-            28% 23%,
-            36% 14%,
-            43% 24%,
-            51% 16%,
-            60% 22%,
-            67% 12%,
-            75% 20%,
-            84% 15%,
-            92% 22%,
-            100% 13%,
-            100% 100%,
-            0 100%
-        );
-}
-
-
-/* AOT theme */
-
-.anime-page.theme-aot {
-    --accent: #b9d5ca;
-    --accent-soft: rgba(130,180,165,0.20);
-    --card-border: rgba(190,215,205,0.20);
-}
-
-.anime-page.theme-aot .anime-visual {
-    filter:
-        contrast(1.12)
-        saturate(0.65);
-}
-
-
-/* =========================================================
-   JJK / TOJI SCENE
-   ========================================================= */
-
-.toji {
-    background:
+            circle at 18% 18%,
+            rgba(255,255,255,.9) 0 1px,
+            transparent 2px
+        ),
         radial-gradient(
-            circle at 55% 25%,
-            rgba(190,205,240,0.20),
-            transparent 17%
+            circle at 76% 24%,
+            rgba(255,255,255,.7) 0 1px,
+            transparent 2px
         ),
-        linear-gradient(
-            115deg,
-            transparent 0 35%,
-            rgba(145,160,210,0.09) 36%,
-            transparent 38%
+        radial-gradient(
+            circle at 42% 13%,
+            rgba(255,255,255,.65) 0 1px,
+            transparent 2px
         ),
-        linear-gradient(
-            70deg,
-            transparent 0 63%,
-            rgba(145,160,210,0.08) 64%,
-            transparent 66%
-        ),
-        linear-gradient(
-            180deg,
-            #090c13,
-            #171b27 48%,
-            #030407 100%
-        );
-}
 
-
-/* City lines */
-
-.toji::before {
-    content: "";
-
-    position:
-        absolute;
-
-    inset:
-        0;
-
-    background:
-        repeating-linear-gradient(
-            90deg,
-            transparent 0 72px,
-            rgba(150,170,210,0.07) 73px,
+        /* moon */
+        radial-gradient(
+            circle at 78% 20%,
+            rgba(235,230,255,.95) 0 42px,
+            rgba(201,192,255,.3) 43px,
             transparent 75px
         ),
+
+        /* mist */
+        radial-gradient(
+            ellipse at 50% 65%,
+            rgba(84,89,150,.2),
+            transparent 55%
+        ),
+
+        /* forest depth */
+        linear-gradient(
+            90deg,
+            rgba(5,12,23,.98) 0 8%,
+            transparent 8% 14%,
+            rgba(5,11,20,.9) 14% 18%,
+            transparent 18% 25%,
+            rgba(4,10,19,.95) 25% 31%,
+            transparent 31% 40%,
+            rgba(4,9,18,.9) 40% 44%,
+            transparent 44% 55%,
+            rgba(3,9,17,.95) 55% 60%,
+            transparent 60% 70%,
+            rgba(4,10,18,.95) 70% 76%,
+            transparent 76% 84%,
+            rgba(3,8,16,.98) 84%
+        ),
+
         linear-gradient(
             180deg,
-            transparent 55%,
-            rgba(80,90,120,0.12) 56%,
-            transparent 57%
+            #071225 0%,
+            #0c1930 42%,
+            #080c19 75%,
+            #03050c 100%
         );
 }
 
 
-/* Cursed slash */
+/* tree trunks */
 
-.toji::after {
+.anime-visual.tanjiro::before {
     content: "";
 
-    position:
-        absolute;
-
-    width:
-        160%;
-
-    height:
-        5px;
-
-    left:
-        -30%;
-
-    top:
-        42%;
+    position: absolute;
+    inset: 0;
 
     background:
         linear-gradient(
-            90deg,
-            transparent,
-            rgba(190,205,255,0.5),
-            rgba(125,145,230,0.18),
-            transparent
+            79deg,
+            transparent 0 12%,
+            rgba(17,13,25,.95) 12% 16%,
+            transparent 16% 29%,
+            rgba(13,11,22,.9) 29% 33%,
+            transparent 33% 48%,
+            rgba(15,12,23,.95) 48% 53%,
+            transparent 53% 67%,
+            rgba(12,10,20,.95) 67% 71%,
+            transparent 71% 88%,
+            rgba(9,8,17,.95) 88% 93%,
+            transparent 93%
         );
 
-    transform:
-        rotate(-17deg);
-
-    filter:
-        blur(1px);
-
-    box-shadow:
-        0 0 18px rgba(120,150,255,0.25);
+    opacity: .9;
 
     animation:
-        cursedSlash 4s ease-in-out infinite;
+        forestMove 12s ease-in-out infinite alternate;
 }
 
-@keyframes cursedSlash {
-    0%, 100% {
-        opacity: 0.2;
-        transform:
-            rotate(-17deg)
-            translateX(-40px);
+@keyframes forestMove {
+    from {
+        transform: translateX(-5px);
     }
 
-    50% {
-        opacity: 0.8;
-        transform:
-            rotate(-17deg)
-            translateX(40px);
+    to {
+        transform: translateX(5px);
     }
 }
 
 
-/* JJK theme */
+/* wisteria + lantern particles */
 
-.anime-page.theme-jjk {
-    --accent: #c6b7ff;
-    --accent-soft: rgba(145,105,255,0.22);
-    --card-border: rgba(185,160,255,0.22);
-    --button-hover: rgba(145,105,255,0.15);
+.anime-visual.tanjiro::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            circle at 17% 58%,
+            rgba(185,133,255,.75) 0 3px,
+            transparent 4px
+        ),
+
+        radial-gradient(
+            circle at 21% 63%,
+            rgba(168,119,245,.55) 0 2px,
+            transparent 3px
+        ),
+
+        radial-gradient(
+            circle at 26% 55%,
+            rgba(197,147,255,.7) 0 3px,
+            transparent 4px
+        ),
+
+        radial-gradient(
+            circle at 82% 61%,
+            rgba(182,129,255,.7) 0 3px,
+            transparent 4px
+        ),
+
+        radial-gradient(
+            circle at 87% 55%,
+            rgba(164,111,237,.6) 0 2px,
+            transparent 3px
+        ),
+
+        radial-gradient(
+            circle at 12% 72%,
+            rgba(255,177,91,.75) 0 5px,
+            transparent 12px
+        ),
+
+        radial-gradient(
+            circle at 89% 70%,
+            rgba(255,183,95,.65) 0 4px,
+            transparent 11px
+        ),
+
+        repeating-linear-gradient(
+            105deg,
+            transparent 0 65px,
+            rgba(137,91,184,.18) 66px 69px,
+            transparent 70px 110px
+        );
+
+    opacity: .9;
+
+    animation:
+        particlesFloat 7s ease-in-out infinite alternate;
 }
 
-.anime-page.theme-jjk .anime-visual {
-    filter:
-        contrast(1.15)
-        saturate(0.8);
+@keyframes particlesFloat {
+    from {
+        transform: translateY(5px);
+    }
+
+    to {
+        transform: translateY(-12px);
+    }
 }
 
 
 /* =========================================================
-   UNDERGROUND AOT
-   ========================================================= */
+   QUESTION 2 — ATTACK ON TITAN
+   Wall / rooftops / giant moon / military atmosphere
+========================================================= */
 
-.underground {
+.anime-visual.aot {
     background:
+
+        /* enormous moon */
         radial-gradient(
-            ellipse at 50% 35%,
-            rgba(230,185,110,0.20),
-            transparent 24%
+            circle at 73% 20%,
+            rgba(220,227,221,.96) 0 65px,
+            rgba(181,195,193,.28) 66px,
+            transparent 125px
         ),
+
+        /* clouds */
+        radial-gradient(
+            ellipse at 25% 27%,
+            rgba(164,177,180,.16),
+            transparent 32%
+        ),
+        radial-gradient(
+            ellipse at 65% 35%,
+            rgba(168,181,181,.13),
+            transparent 30%
+        ),
+
+        /* city */
         linear-gradient(
             90deg,
-            rgba(0,0,0,0.95),
-            transparent 27%,
-            transparent 73%,
-            rgba(0,0,0,0.95)
+            rgba(20,27,30,.98) 0 8%,
+            transparent 8% 12%,
+            rgba(27,34,35,.98) 12% 19%,
+            transparent 19% 24%,
+            rgba(21,29,31,.98) 24% 31%,
+            transparent 31% 38%,
+            rgba(26,33,34,.98) 38% 46%,
+            transparent 46% 54%,
+            rgba(19,27,29,.98) 54% 61%,
+            transparent 61% 69%,
+            rgba(27,34,35,.98) 69% 77%,
+            transparent 77% 84%,
+            rgba(18,25,28,.98) 84% 92%,
+            transparent 92%
         ),
-        repeating-linear-gradient(
-            90deg,
-            #17110d 0 55px,
-            #231914 56px 61px
-        ),
+
         linear-gradient(
             180deg,
-            #251a10,
-            #060504
+            #11191d 0%,
+            #202c30 45%,
+            #171e21 67%,
+            #080c0e 100%
         );
 }
 
 
-/* Underground lamps */
+/* wall blocks */
 
-.underground::after {
+.anime-visual.aot::before {
     content: "";
 
-    position:
-        absolute;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
 
-    width:
-        230px;
-
-    height:
-        230px;
-
-    left:
-        50%;
-
-    top:
-        14%;
-
-    transform:
-        translateX(-50%);
-
-    border-radius:
-        50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,208,135,0.25),
-            rgba(200,140,75,0.08) 38%,
-            transparent 70%
-        );
-
-    box-shadow:
-        0 0 70px rgba(240,175,90,0.12);
-}
-
-
-/* Underground architecture */
-
-.underground::before {
-    content: "";
-
-    position:
-        absolute;
-
-    inset:
-        0;
+    height: 42%;
 
     background:
         repeating-linear-gradient(
             0deg,
-            transparent 0 58px,
-            rgba(115,85,60,0.13) 59px,
-            transparent 62px
+            rgba(9,13,14,.8) 0 24px,
+            rgba(48,55,55,.65) 25px 27px
         ),
-        linear-gradient(
+        repeating-linear-gradient(
             90deg,
-            rgba(0,0,0,0.7),
-            transparent 25%,
-            transparent 75%,
-            rgba(0,0,0,0.7)
+            transparent 0 68px,
+            rgba(5,8,9,.75) 69px 72px
         );
+
+    clip-path:
+        polygon(
+            0 30%,
+            12% 25%,
+            20% 33%,
+            32% 21%,
+            43% 28%,
+            54% 17%,
+            67% 29%,
+            78% 19%,
+            90% 27%,
+            100% 20%,
+            100% 100%,
+            0 100%
+        );
+
+    opacity: .95;
 }
 
-.anime-page.theme-underground {
-    --accent: #e8c58d;
-    --accent-soft: rgba(220,160,80,0.20);
-    --card-border: rgba(230,195,140,0.22);
-    --button-hover: rgba(220,170,90,0.13);
+
+/* rooftops + flying dust */
+
+.anime-visual.aot::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            155deg,
+            transparent 0 60%,
+            rgba(5,8,10,.95) 60% 63%,
+            transparent 63%
+        ),
+
+        linear-gradient(
+            25deg,
+            transparent 0 67%,
+            rgba(5,8,10,.95) 67% 70%,
+            transparent 70%
+        ),
+
+        radial-gradient(
+            circle at 18% 76%,
+            rgba(188,161,94,.55) 0 2px,
+            transparent 4px
+        ),
+
+        radial-gradient(
+            circle at 37% 67%,
+            rgba(209,188,135,.4) 0 2px,
+            transparent 5px
+        ),
+
+        radial-gradient(
+            circle at 59% 77%,
+            rgba(219,190,133,.45) 0 2px,
+            transparent 5px
+        ),
+
+        radial-gradient(
+            circle at 82% 65%,
+            rgba(201,178,120,.5) 0 2px,
+            transparent 5px
+        );
+
+    animation:
+        dustMove 8s linear infinite alternate;
+}
+
+@keyframes dustMove {
+    from {
+        transform: translateX(-8px);
+    }
+
+    to {
+        transform: translateX(10px);
+    }
 }
 
 
 /* =========================================================
-   FINAL TOJI SCENE
-   ========================================================= */
+   QUESTION 3 — JUJUTSU KAISEN
+   Tokyo urban supernatural / cursed energy
+========================================================= */
 
-.final-toji {
+.anime-visual.toji {
     background:
+
+        /* cursed glow */
         radial-gradient(
-            ellipse at 50% 25%,
-            rgba(235,235,255,0.24),
-            transparent 18%
+            circle at 55% 48%,
+            rgba(119,48,191,.35),
+            transparent 26%
+        ),
+
+        radial-gradient(
+            circle at 25% 65%,
+            rgba(80,37,135,.28),
+            transparent 30%
+        ),
+
+        /* city lights */
+        radial-gradient(
+            circle at 14% 55%,
+            rgba(170,100,255,.8) 0 2px,
+            transparent 4px
         ),
         radial-gradient(
-            ellipse at 50% 95%,
-            rgba(100,75,145,0.26),
-            transparent 42%
+            circle at 82% 62%,
+            rgba(203,130,255,.7) 0 2px,
+            transparent 4px
         ),
+
+        /* skyline */
         linear-gradient(
             90deg,
-            #020205,
-            #15121c 48%,
-            #020205
-        );
-}
+            #08070f 0 8%,
+            #12101b 8% 17%,
+            #07060d 17% 23%,
+            #171320 23% 31%,
+            #08070e 31% 39%,
+            #11101a 39% 48%,
+            #06060d 48% 55%,
+            #15111e 55% 64%,
+            #08070d 64% 72%,
+            #161220 72% 81%,
+            #07060d 81% 90%,
+            #12101a 90%
+        ),
 
-
-/* Toji silhouette */
-
-.final-toji::before {
-    content: "";
-
-    position:
-        absolute;
-
-    width:
-        440px;
-
-    height:
-        650px;
-
-    left:
-        50%;
-
-    bottom:
-        -25%;
-
-    transform:
-        translateX(-50%);
-
-    border-radius:
-        50% 50% 20% 20%;
-
-    background:
-        radial-gradient(
-            ellipse at 50% 25%,
-            rgba(155,125,170,0.18),
-            rgba(30,20,35,0.08) 50%,
-            transparent 72%
-        );
-
-    filter:
-        blur(7px);
-}
-
-
-/* Central cursed energy */
-
-.final-toji::after {
-    content: "";
-
-    position:
-        absolute;
-
-    left:
-        50%;
-
-    top:
-        -20%;
-
-    width:
-        3px;
-
-    height:
-        140%;
-
-    transform:
-        translateX(-50%)
-        rotate(8deg);
-
-    background:
         linear-gradient(
-            transparent,
-            rgba(190,145,230,0.05) 20%,
-            rgba(185,140,230,0.42) 50%,
-            rgba(190,145,230,0.05) 80%,
-            transparent
+            180deg,
+            #05040b,
+            #100a19 55%,
+            #030208
+        );
+}
+
+
+/* building windows + cursed symbols */
+
+.anime-visual.toji::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+
+        repeating-linear-gradient(
+            90deg,
+            transparent 0 42px,
+            rgba(194,126,255,.12) 43px 46px,
+            transparent 47px 76px
+        ),
+
+        repeating-linear-gradient(
+            0deg,
+            transparent 0 32px,
+            rgba(201,137,255,.1) 33px 35px,
+            transparent 36px 61px
+        ),
+
+        radial-gradient(
+            circle at 52% 48%,
+            transparent 0 40px,
+            rgba(183,85,255,.25) 41px 43px,
+            transparent 44px 75px,
+            rgba(168,78,242,.14) 76px 78px,
+            transparent 79px
         );
 
-    box-shadow:
-        0 0 35px rgba(160,100,230,0.20);
+    opacity: .9;
 
     animation:
-        finalEnergy 3s ease-in-out infinite;
+        cursePulse 3s ease-in-out infinite;
 }
 
-@keyframes finalEnergy {
-    0%, 100% {
-        opacity: 0.3;
+@keyframes cursePulse {
+    0%,
+    100% {
+        opacity: .55;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.025);
+    }
+}
+
+
+/* cursed energy streaks */
+
+.anime-visual.toji::after {
+    content: "";
+
+    position: absolute;
+    inset: -20%;
+
+    background:
+
+        linear-gradient(
+            118deg,
+            transparent 0 39%,
+            rgba(191,102,255,.75) 39.2% 39.5%,
+            transparent 39.8%
+        ),
+
+        linear-gradient(
+            62deg,
+            transparent 0 56%,
+            rgba(130,66,230,.65) 56.2% 56.5%,
+            transparent 56.8%
+        ),
+
+        linear-gradient(
+            140deg,
+            transparent 0 70%,
+            rgba(214,134,255,.55) 70.2% 70.45%,
+            transparent 70.8%
+        );
+
+    filter: blur(.3px);
+
+    animation:
+        energySlash 4s ease-in-out infinite;
+}
+
+@keyframes energySlash {
+    0% {
+        transform: translate(-25px, 20px);
+        opacity: .2;
+    }
+
+    50% {
+        opacity: .9;
+    }
+
+    100% {
+        transform: translate(25px, -20px);
+        opacity: .25;
+    }
+}
+
+
+/* =========================================================
+   QUESTION 4 — AOT UNDERGROUND
+   Narrow underground city / lamps / pipes / corridor
+========================================================= */
+
+.anime-visual.underground {
+    background:
+
+        /* tunnel perspective */
+        linear-gradient(
+            90deg,
+            rgba(18,12,10,.98),
+            transparent 18%,
+            transparent 82%,
+            rgba(17,11,9,.98)
+        ),
+
+        /* brick walls */
+        repeating-linear-gradient(
+            0deg,
+            rgba(62,45,39,.65) 0 23px,
+            rgba(25,19,18,.85) 24px 27px
+        ),
+
+        repeating-linear-gradient(
+            90deg,
+            rgba(0,0,0,.12) 0 52px,
+            rgba(115,80,61,.16) 53px 55px
+        ),
+
+        linear-gradient(
+            180deg,
+            #201613,
+            #30201a 50%,
+            #0b0909
+        );
+}
+
+
+/* tunnel ceiling / perspective */
+
+.anime-visual.underground::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+
+        /* pipes */
+        repeating-linear-gradient(
+            90deg,
+            transparent 0 85px,
+            rgba(7,7,8,.8) 86px 93px,
+            rgba(110,78,61,.35) 94px 97px,
+            transparent 98px 150px
+        ),
+
+        /* perspective beams */
+        linear-gradient(
+            28deg,
+            transparent 0 48%,
+            rgba(5,5,6,.8) 48.5% 50%,
+            transparent 50.5%
+        ),
+
+        linear-gradient(
+            152deg,
+            transparent 0 48%,
+            rgba(5,5,6,.8) 48.5% 50%,
+            transparent 50.5%
+        );
+
+    opacity: .9;
+}
+
+
+/* warm hanging lamps + dust */
+
+.anime-visual.underground::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            circle at 19% 39%,
+            rgba(255,172,83,.95) 0 6px,
+            rgba(255,137,51,.28) 7px 24px,
+            transparent 45px
+        ),
+
+        radial-gradient(
+            circle at 50% 29%,
+            rgba(255,185,96,.95) 0 7px,
+            rgba(255,151,64,.25) 8px 27px,
+            transparent 50px
+        ),
+
+        radial-gradient(
+            circle at 82% 42%,
+            rgba(255,170,77,.9) 0 6px,
+            rgba(255,141,51,.22) 7px 24px,
+            transparent 44px
+        ),
+
+        radial-gradient(
+            circle at 31% 72%,
+            rgba(204,156,107,.45) 0 2px,
+            transparent 4px
+        ),
+
+        radial-gradient(
+            circle at 68% 62%,
+            rgba(220,166,111,.4) 0 2px,
+            transparent 5px
+        );
+
+    animation:
+        lampFlicker 3s ease-in-out infinite;
+}
+
+@keyframes lampFlicker {
+    0%,
+    100% {
+        opacity: .85;
     }
 
     50% {
         opacity: 1;
     }
-}
 
-.anime-page.theme-final {
-    --accent: #dfc7ff;
-    --accent-soft: rgba(180,125,255,0.23);
-    --card-border: rgba(210,180,255,0.24);
-    --button-hover: rgba(180,125,255,0.16);
+    52% {
+        opacity: .72;
+    }
+
+    54% {
+        opacity: .95;
+    }
 }
 
 
 /* =========================================================
-   PAGE 2 — FLOATING PARTICLES
-   ========================================================= */
+   QUESTION 5 — FINAL TOJI
+   Cinematic battlefield / rooftop / moonlight / slashes
+========================================================= */
 
-.scene-particles {
-    position:
-        absolute;
+.anime-visual.final-toji {
+    background:
 
-    inset:
-        0;
+        /* moon behind silhouette */
+        radial-gradient(
+            circle at 70% 24%,
+            rgba(232,227,255,.96) 0 48px,
+            rgba(189,164,240,.28) 49px 105px,
+            transparent 120px
+        ),
 
-    overflow:
-        hidden;
+        /* horizon glow */
+        radial-gradient(
+            ellipse at 50% 62%,
+            rgba(81,48,122,.45),
+            transparent 48%
+        ),
+
+        /* distant battlefield */
+        linear-gradient(
+            180deg,
+            #070612 0%,
+            #111022 46%,
+            #151127 62%,
+            #05040a 100%
+        );
 }
 
-.scene-particles span {
-    position:
-        absolute;
 
-    display:
-        block;
+/* rooftop / ruined structures */
 
-    width:
-        3px;
+.anime-visual.final-toji::before {
+    content: "";
 
-    height:
-        3px;
-
-    border-radius:
-        50%;
+    position: absolute;
+    inset: 0;
 
     background:
-        var(--accent);
 
-    opacity:
-        0.35;
+        linear-gradient(
+            160deg,
+            transparent 0 59%,
+            rgba(2,2,5,.98) 59.5% 65%,
+            transparent 65.5%
+        ),
 
-    box-shadow:
-        0 0 8px var(--accent);
+        linear-gradient(
+            20deg,
+            transparent 0 66%,
+            rgba(2,2,5,.98) 66.5% 72%,
+            transparent 72.5%
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(2,2,5,.98) 0 9%,
+            transparent 9% 18%,
+            rgba(3,2,7,.96) 18% 22%,
+            transparent 22% 79%,
+            rgba(2,2,5,.98) 79% 85%,
+            transparent 85%
+        );
+
+    opacity: .95;
+}
+
+
+/* slashes / particles */
+
+.anime-visual.final-toji::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            118deg,
+            transparent 0 42%,
+            rgba(224,193,255,.85) 42.2% 42.55%,
+            transparent 42.8%
+        ),
+
+        linear-gradient(
+            105deg,
+            transparent 0 56%,
+            rgba(177,116,255,.7) 56.2% 56.5%,
+            transparent 56.8%
+        ),
+
+        linear-gradient(
+            72deg,
+            transparent 0 62%,
+            rgba(230,208,255,.65) 62.2% 62.45%,
+            transparent 62.8%
+        ),
+
+        radial-gradient(
+            circle at 25% 48%,
+            rgba(205,155,255,.7) 0 2px,
+            transparent 5px
+        ),
+
+        radial-gradient(
+            circle at 82% 57%,
+            rgba(221,185,255,.65) 0 2px,
+            transparent 5px
+        ),
+
+        radial-gradient(
+            circle at 57% 74%,
+            rgba(181,121,255,.55) 0 2px,
+            transparent 5px
+        );
 
     animation:
-        particleFloat 7s linear infinite;
+        finalEnergy 3.5s ease-in-out infinite alternate;
 }
 
-.scene-particles span:nth-child(1) {
-    left: 8%;
-    top: 80%;
-    animation-delay: 0s;
-}
-
-.scene-particles span:nth-child(2) {
-    left: 17%;
-    top: 62%;
-    animation-delay: 1.2s;
-}
-
-.scene-particles span:nth-child(3) {
-    left: 29%;
-    top: 90%;
-    animation-delay: 2.5s;
-}
-
-.scene-particles span:nth-child(4) {
-    left: 42%;
-    top: 70%;
-    animation-delay: 0.8s;
-}
-
-.scene-particles span:nth-child(5) {
-    left: 56%;
-    top: 85%;
-    animation-delay: 3s;
-}
-
-.scene-particles span:nth-child(6) {
-    left: 68%;
-    top: 64%;
-    animation-delay: 1.7s;
-}
-
-.scene-particles span:nth-child(7) {
-    left: 79%;
-    top: 78%;
-    animation-delay: 2.2s;
-}
-
-.scene-particles span:nth-child(8) {
-    left: 91%;
-    top: 58%;
-    animation-delay: 3.8s;
-}
-
-.scene-particles span:nth-child(9) {
-    left: 35%;
-    top: 48%;
-    animation-delay: 4s;
-}
-
-.scene-particles span:nth-child(10) {
-    left: 73%;
-    top: 42%;
-    animation-delay: 4.8s;
-}
-
-@keyframes particleFloat {
-    0% {
-        transform:
-            translateY(35px)
-            scale(0.7);
-
-        opacity:
-            0;
+@keyframes finalEnergy {
+    from {
+        transform: translateX(-8px) translateY(5px);
+        opacity: .5;
     }
 
-    20% {
-        opacity:
-            0.45;
-    }
-
-    80% {
-        opacity:
-            0.18;
-    }
-
-    100% {
-        transform:
-            translateY(-100vh)
-            scale(1.1);
-
-        opacity:
-            0;
+    to {
+        transform: translateX(8px) translateY(-5px);
+        opacity: 1;
     }
 }
 
 
 /* =========================================================
-   PAGE 2 — CONTENT
-   ========================================================= */
+   PAGE 2 CONTENT
+========================================================= */
 
 .anime-content {
-    position:
-        relative;
+    position: relative;
+    z-index: 5;
 
-    z-index:
-        6;
+    width: min(92%, 560px);
 
-    width:
-        min(92%, 720px);
-
-    max-height:
-        100vh;
-
-    text-align:
-        center;
-
-    padding:
-        30px 0;
-
-    transition:
-        opacity 0.4s ease;
+    text-align: center;
 }
 
 .anime-label {
-    font-size:
-        11px;
+    font-size: 10px;
+    letter-spacing: 4px;
 
-    letter-spacing:
-        5px;
+    color: rgba(255,255,255,.55);
 
-    text-transform:
-        uppercase;
-
-    color:
-        rgba(255,255,255,0.58);
-
-    margin-bottom:
-        13px;
-
-    text-shadow:
-        0 2px 10px rgba(0,0,0,0.8);
+    margin-bottom: 13px;
 }
 
 .anime-badge {
-    display:
-        inline-flex;
+    display: inline-block;
 
-    align-items:
-        center;
+    padding: 7px 14px;
 
-    justify-content:
-        center;
+    border-radius: 999px;
 
-    min-height:
-        36px;
-
-    padding:
-        9px 18px;
+    background:
+        rgba(0,0,0,.35);
 
     border:
-        1px solid var(--card-border);
-
-    border-radius:
-        999px;
-
-    background:
-        rgba(0,0,0,0.42);
-
-    backdrop-filter:
-        blur(14px);
-
-    box-shadow:
-        0 8px 35px rgba(0,0,0,0.28),
-        0 0 25px var(--accent-soft);
-
-    color:
-        var(--accent);
-
-    font-size:
-        11px;
-
-    letter-spacing:
-        2px;
-
-    margin-bottom:
-        16px;
-
-    transition:
-        all 0.6s ease;
-}
-
-
-/* =========================================================
-   PAGE 2 — GAME CARD
-   ========================================================= */
-
-.anime-card {
-    position:
-        relative;
-
-    overflow:
-        hidden;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(12,12,18,0.84),
-            rgba(3,3,7,0.78)
-        );
-
-    border:
-        1px solid var(--card-border);
-
-    backdrop-filter:
-        blur(22px);
-
-    box-shadow:
-        0 30px 100px rgba(0,0,0,0.65),
-        0 0 55px var(--accent-soft),
-        inset 0 0 40px rgba(255,255,255,0.025);
-
-    border-radius:
-        24px;
-
-    padding:
-        30px;
-
-    transition:
-        border 0.6s ease,
-        box-shadow 0.6s ease,
-        background 0.6s ease;
-}
-
-
-/* Card decorative line */
-
-.anime-card::before {
-    content:
-        "";
-
-    position:
-        absolute;
-
-    top:
-        0;
-
-    left:
-        8%;
-
-    width:
-        84%;
-
-    height:
-        1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            var(--accent),
-            transparent
-        );
-
-    opacity:
-        0.55;
-}
-
-
-/* Card corner */
-
-.anime-card::after {
-    content:
-        "✦";
-
-    position:
-        absolute;
-
-    top:
-        17px;
-
-    right:
-        22px;
-
-    color:
-        var(--accent);
-
-    opacity:
-        0.45;
-
-    font-size:
-        12px;
-
-    text-shadow:
-        0 0 12px var(--accent);
-}
-
-.anime-card h2 {
-    margin-top:
-        0;
-
-    margin-bottom:
-        14px;
-
-    font-size:
-        clamp(22px,5vw,32px);
-
-    font-weight:
-        600;
-
-    color:
-        #ffffff;
-
-    text-shadow:
-        0 0 25px var(--accent-soft);
-}
-
-.anime-card p {
-    line-height:
-        1.7;
-
-    color:
-        rgba(255,255,255,0.78);
-
-    font-size:
-        15px;
-}
-
-
-/* =========================================================
-   QUESTION NUMBER
-   ========================================================= */
-
-.challenge-number {
-    display:
-        block;
-
-    color:
-        var(--accent);
-
-    font-size:
-        9px;
-
-    letter-spacing:
-        4px;
-
-    text-transform:
-        uppercase;
-
-    margin-bottom:
-        8px;
-
-    opacity:
-        0.75;
-}
-
-
-/* =========================================================
-   ANSWERS
-   ========================================================= */
-
-#answers {
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    gap:
-        11px;
-
-    margin-top:
-        25px;
-}
-
-#answers button {
-    position:
-        relative;
-
-    width:
-        100%;
-
-    padding:
-        15px 18px;
-
-    border-radius:
-        14px;
-
-    border:
-        1px solid rgba(255,255,255,0.12);
-
-    background:
-        var(--button-bg);
-
-    color:
-        rgba(255,255,255,0.92);
-
-    cursor:
-        pointer;
-
-    text-align:
-        left;
-
-    font-size:
-        14px;
-
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        border 0.25s ease,
-        box-shadow 0.25s ease;
-
-    backdrop-filter:
-        blur(8px);
-}
-
-#answers button::after {
-    content:
-        "→";
-
-    position:
-        absolute;
-
-    right:
-        18px;
-
-    opacity:
-        0;
-
-    color:
-        var(--accent);
-
-    transition:
-        all 0.25s ease;
-}
-
-#answers button:hover {
-    background:
-        var(--button-hover);
-
-    border-color:
-        var(--card-border);
-
-    transform:
-        translateX(4px);
-
-    box-shadow:
-        0 7px 25px rgba(0,0,0,0.25),
-        0 0 18px var(--accent-soft);
-}
-
-#answers button:hover::after {
-    opacity:
-        1;
-
-    right:
-        14px;
-}
-
-#answers button:active {
-    transform:
-        scale(0.98);
-}
-
-#answers button:disabled {
-    cursor:
-        default;
-}
-
-
-/* =========================================================
-   GAME MESSAGE
-   ========================================================= */
-
-#gameMessage {
-    margin-top:
-        22px;
-
-    line-height:
-        1.6;
-
-    font-size:
-        14px;
-
-    color:
-        var(--accent);
-
-    text-shadow:
-        0 0 15px var(--accent-soft);
-
-    transition:
-        opacity 0.3s ease;
-}
-
-.hidden-message {
-    opacity:
-        0;
-
-    max-height:
-        0;
-
-    overflow:
-        hidden;
-
-    transition:
-        all 0.4s ease;
-}
-
-.hidden-message.show {
-    opacity:
-        1;
-
-    max-height:
-        300px;
-}
-
-
-/* =========================================================
-   GAME BUTTONS
-   ========================================================= */
-
-#nextChallenge,
-#tryAgainButton {
-    margin-top:
-        18px;
-
-    padding:
-        13px 23px;
-
-    border-radius:
-        999px;
-
-    border:
-        1px solid var(--card-border);
-
-    background:
-        rgba(0,0,0,0.35);
-
-    color:
-        white;
-
-    cursor:
-        pointer;
-
-    transition:
-        all 0.25s ease;
-
-    backdrop-filter:
-        blur(10px);
-
-    box-shadow:
-        0 0 20px rgba(0,0,0,0.15);
-}
-
-#nextChallenge:hover,
-#tryAgainButton:hover {
-    background:
-        var(--button-hover);
-
-    transform:
-        translateY(-2px);
-
-    box-shadow:
-        0 10px 35px var(--accent-soft);
-}
-
-#nextChallenge:active,
-#tryAgainButton:active {
-    transform:
-        scale(0.96);
-}
-
-
-/* =========================================================
-   CARD TRANSITION
-   ========================================================= */
-
-.theme-change {
-    animation:
-        animeCardChange 0.65s ease;
-}
-
-@keyframes animeCardChange {
-    0% {
-        opacity:
-            0;
-
-        transform:
-            translateY(20px)
-            scale(0.97);
-    }
-
-    100% {
-        opacity:
-            1;
-
-        transform:
-            translateY(0)
-            scale(1);
-    }
-}
-
-
-/* =========================================================
-   PAGE 2 — SCENE DECORATION
-   ========================================================= */
-
-.scene-label {
-    position:
-        absolute;
-
-    left:
-        24px;
-
-    bottom:
-        22px;
-
-    z-index:
-        5;
-
-    color:
-        rgba(255,255,255,0.28);
-
-    font-size:
-        9px;
-
-    letter-spacing:
-        3px;
-
-    text-transform:
-        uppercase;
-
-    pointer-events:
-        none;
-}
-
-
-/* =========================================================
-   PAGE 3 — MEMORY PAGE
-   ========================================================= */
-
-.memory-page {
-    position:
-        fixed;
-
-    inset:
-        0;
-
-    z-index:
-        100;
-
-    width:
-        100%;
-
-    height:
-        100vh;
-
-    overflow-y:
-        auto;
-
-    overflow-x:
-        hidden;
-
-    display:
-        none;
-
-    -webkit-overflow-scrolling:
-        touch;
-
-    color:
-        #fff3fa;
-
-    background:
-        radial-gradient(
-            circle at 50% 18%,
-            rgba(255,150,205,0.25),
-            transparent 34%
-        ),
-        radial-gradient(
-            circle at 10% 85%,
-            rgba(211,105,180,0.20),
-            transparent 38%
-        ),
-        radial-gradient(
-            circle at 90% 70%,
-            rgba(173,111,215,0.17),
-            transparent 36%
-        ),
-        linear-gradient(
-            180deg,
-            #1b0a19 0%,
-            #16091a 48%,
-            #09040d 100%
-        );
-}
-
-.memory-page::before {
-    content:
-        "";
-
-    position:
-        fixed;
-
-    inset:
-        0;
-
-    pointer-events:
-        none;
-
-    background:
-        radial-gradient(
-            circle at 50% 55%,
-            transparent 28%,
-            rgba(0,0,0,0.42) 100%
-        );
-
-    z-index:
-        0;
-}
-
-
-/* =========================================================
-   PAGE 3 — KITTEN
-   ========================================================= */
-
-.memory-kitten {
-    position:
-        absolute;
-
-    width:
-        min(330px, 70vw);
-
-    height:
-        auto;
-
-    left:
-        50%;
-
-    top:
-        7%;
-
-    transform:
-        translateX(-50%);
-
-    pointer-events:
-        none;
-
-    opacity:
-        0.72;
-
-    z-index:
-        1;
-
-    filter:
-        drop-shadow(
-            0 0 18px rgba(255,135,205,0.35)
-        );
-
-    animation:
-        kittenFloat 5s ease-in-out infinite;
-}
-
-.memory-kitten .body {
-    fill:
-        #6b284f;
-}
-
-.memory-kitten .head {
-    fill:
-        #8c3a68;
-}
-
-.memory-kitten .ear {
-    fill:
-        #9f4876;
-}
-
-.memory-kitten .inner {
-    fill:
-        #f3a1c5;
-
-    opacity:
-        0.85;
-}
-
-.memory-kitten .eye {
-    fill:
-        #ffe7f3;
-
-    filter:
-        drop-shadow(
-            0 0 6px rgba(255,190,225,0.8)
-        );
-}
-
-.memory-kitten .pupil {
-    fill:
-        #321021;
-}
-
-.memory-kitten .nose {
-    fill:
-        #ff9fc7;
-}
-
-.memory-kitten .mouth {
-    stroke:
-        #f49ac0;
-}
-
-.memory-kitten .whisker {
-    stroke:
-        rgba(255,220,238,0.75);
-}
-
-.memory-kitten .tail {
-    fill:
-        none;
-
-    stroke:
-        #7a315a;
-
-    stroke-width:
-        25;
-
-    stroke-linecap:
-        round;
-}
-
-@keyframes kittenFloat {
-    0%, 100% {
-        transform:
-            translateX(-50%)
-            translateY(0);
-    }
-
-    50% {
-        transform:
-            translateX(-50%)
-            translateY(-7px);
-    }
-}
-
-
-/* =========================================================
-   PAGE 3 — STARS
-   ========================================================= */
-
-.memory-stars {
-    position:
-        absolute;
-
-    inset:
-        0;
-
-    overflow:
-        hidden;
-
-    pointer-events:
-        none;
-
-    z-index:
-        0;
-}
-
-.memory-star {
-    position:
-        absolute;
-
-    width:
-        2px;
-
-    height:
-        2px;
-
-    border-radius:
-        50%;
-
-    background:
-        rgba(255,220,240,0.80);
-
-    box-shadow:
-        0 0 7px rgba(255,170,220,0.55);
-
-    animation:
-        memoryTwinkle 3s ease-in-out infinite;
-}
-
-.memory-star:nth-child(1) {
-    left: 8%;
-    top: 12%;
-}
-
-.memory-star:nth-child(2) {
-    left: 18%;
-    top: 28%;
-    animation-delay: 0.7s;
-}
-
-.memory-star:nth-child(3) {
-    left: 31%;
-    top: 9%;
-    animation-delay: 1.4s;
-}
-
-.memory-star:nth-child(4) {
-    left: 44%;
-    top: 23%;
-    animation-delay: 0.3s;
-}
-
-.memory-star:nth-child(5) {
-    left: 57%;
-    top: 11%;
-    animation-delay: 1.8s;
-}
-
-.memory-star:nth-child(6) {
-    left: 69%;
-    top: 31%;
-    animation-delay: 0.9s;
-}
-
-.memory-star:nth-child(7) {
-    left: 82%;
-    top: 15%;
-    animation-delay: 2s;
-}
-
-.memory-star:nth-child(8) {
-    left: 91%;
-    top: 38%;
-    animation-delay: 1.1s;
-}
-
-.memory-star:nth-child(9) {
-    left: 12%;
-    top: 54%;
-    animation-delay: 0.5s;
-}
-
-.memory-star:nth-child(10) {
-    left: 25%;
-    top: 70%;
-    animation-delay: 1.6s;
-}
-
-.memory-star:nth-child(11) {
-    left: 74%;
-    top: 63%;
-    animation-delay: 2.2s;
-}
-
-.memory-star:nth-child(12) {
-    left: 88%;
-    top: 78%;
-    animation-delay: 1.2s;
-}
-
-@keyframes memoryTwinkle {
-    0%, 100% {
-        opacity:
-            0.25;
-
-        transform:
-            scale(0.8);
-    }
-
-    50% {
-        opacity:
-            1;
-
-        transform:
-            scale(1.5);
-    }
-}
-
-
-/* =========================================================
-   PAGE 3 — MOON
-   ========================================================= */
-
-.memory-moon {
-    position:
-        absolute;
-
-    top:
-        7%;
-
-    right:
-        9%;
-
-    width:
-        105px;
-
-    height:
-        105px;
-
-    border-radius:
-        50%;
-
-    background:
-        radial-gradient(
-            circle at 35% 32%,
-            #fff5fb,
-            #f4c6dd 48%,
-            rgba(225,145,190,0.55) 68%,
-            transparent 72%
-        );
-
-    box-shadow:
-        0 0 35px rgba(255,175,215,0.22),
-        0 0 90px rgba(220,110,180,0.14);
-
-    opacity:
-        0.78;
-
-    z-index:
-        1;
-}
-
-
-/* =========================================================
-   PAGE 3 — FLOATING HEARTS / SPARKLES
-   ========================================================= */
-
-.memory-decoration {
-    position:
-        absolute;
-
-    inset:
-        0;
-
-    pointer-events:
-        none;
-
-    overflow:
-        hidden;
-
-    z-index:
-        1;
-}
-
-.memory-decoration span {
-    position:
-        absolute;
-
-    color:
-        rgba(255,180,220,0.35);
-
-    font-size:
-        14px;
-
-    animation:
-        heartFloat 8s linear infinite;
-}
-
-.memory-decoration span:nth-child(1) {
-    left: 10%;
-    bottom: 10%;
-}
-
-.memory-decoration span:nth-child(2) {
-    left: 23%;
-    bottom: 28%;
-    animation-delay: 2s;
-}
-
-.memory-decoration span:nth-child(3) {
-    left: 76%;
-    bottom: 20%;
-    animation-delay: 4s;
-}
-
-.memory-decoration span:nth-child(4) {
-    left: 88%;
-    bottom: 35%;
-    animation-delay: 1s;
-}
-
-.memory-decoration span:nth-child(5) {
-    left: 52%;
-    bottom: 8%;
-    animation-delay: 3s;
-}
-
-@keyframes heartFloat {
-    0% {
-        transform:
-            translateY(20px)
-            rotate(0deg);
-
-        opacity:
-            0;
-    }
-
-    20% {
-        opacity:
-            0.4;
-    }
-
-    80% {
-        opacity:
-            0.18;
-    }
-
-    100% {
-        transform:
-            translateY(-100vh)
-            rotate(30deg);
-
-        opacity:
-            0;
-    }
-}
-
-
-/* =========================================================
-   PAGE 3 — CONTENT
-   ========================================================= */
-
-.memory-content {
-    position:
-        relative;
-
-    z-index:
-        3;
-
-    width:
-        min(88%,720px);
-
-    margin:
-        0 auto;
-
-    padding:
-        90px 0 100px;
-}
-
-.memory-intro {
-    text-align:
-        center;
-
-    margin-bottom:
-        55px;
-}
-
-.memory-small {
-    color:
-        #d39ab8;
-
-    font-size:
-        10px;
-
-    letter-spacing:
-        5px;
-
-    text-transform:
-        uppercase;
-
-    margin-bottom:
-        20px;
-}
-
-.memory-title {
-    font-size:
-        clamp(42px,11vw,68px);
-
-    line-height:
-        1;
-
-    font-weight:
-        500;
-
-    letter-spacing:
-        -2px;
-
-    color:
-        #fff0f8;
-
-    text-shadow:
-        0 0 35px rgba(255,170,215,0.16);
-}
-
-.memory-line {
-    width:
-        50px;
-
-    height:
-        1px;
-
-    margin:
-        27px auto 0;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,190,220,0.70),
-            transparent
-        );
-}
-
-
-/* =========================================================
-   PAGE 3 — TEXT
-   ========================================================= */
-
-.memory-text {
-    color:
-        #d4b5c6;
-
-    font-size:
-        15px;
-
-    line-height:
-        1.95;
-
-    text-align:
-        left;
-
-    margin-bottom:
-        34px;
-}
-
-.memory-text:last-of-type {
-    margin-bottom:
-        0;
-}
-
-.memory-highlight {
-    color:
-        #ffe2f0;
-
-    text-shadow:
-        0 0 18px rgba(255,170,215,0.18);
-}
-
-
-/* =========================================================
-   PAGE 3 — END
-   ========================================================= */
-
-.memory-end {
-    text-align:
-        center;
-
-    padding-top:
-        35px;
-
-    margin-top:
-        10px;
-}
-
-.memory-end p {
-    color:
-        #d9bdcd;
-
-    font-size:
-        15px;
-
-    line-height:
-        1.9;
-
-    margin-bottom:
-        18px;
-}
-
-.memory-end .continue-text {
-    color:
-        #fff0f7;
-
-    font-size:
-        20px;
-
-    margin-top:
-        8px;
-
-    margin-bottom:
-        28px;
-}
-
-.memory-continue {
-    display:
-        inline-flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    gap:
-        10px;
-
-    padding:
-        14px 26px;
-
-    border-radius:
-        999px;
-
-    border:
-        1px solid rgba(255,210,230,0.25);
-
-    background:
-        rgba(255,180,215,0.07);
-
-    color:
-        #fff4fa;
-
-    font-size:
-        12px;
-
-    letter-spacing:
-        2px;
-
-    text-transform:
-        uppercase;
-
-    cursor:
-        pointer;
+        1px solid rgba(255,255,255,.16);
 
     backdrop-filter:
         blur(12px);
 
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        box-shadow 0.25s ease;
+    font-size: 11px;
+    letter-spacing: 1px;
+
+    margin-bottom: 14px;
 }
 
-.memory-continue:hover {
-    transform:
-        translateY(-3px);
+.anime-card {
+    padding: 30px 25px;
+
+    border-radius: 25px;
 
     background:
-        rgba(255,180,215,0.14);
+        rgba(8,5,15,.72);
+
+    border:
+        1px solid rgba(255,255,255,.14);
+
+    backdrop-filter:
+        blur(18px);
 
     box-shadow:
-        0 12px 35px rgba(220,90,165,0.20);
+        0 25px 80px rgba(0,0,0,.55);
+
+    transition:
+        .5s ease;
 }
 
-.memory-continue:active {
-    transform:
-        scale(0.96);
+.theme-change {
+    animation:
+        cardTheme .65s ease;
+}
+
+@keyframes cardTheme {
+    0% {
+        opacity: .3;
+        transform: translateY(15px) scale(.97);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.anime-card h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.anime-card p {
+    font-size: 15px;
+    line-height: 1.65;
+
+    color:
+        rgba(255,255,255,.72);
+
+    margin-bottom: 23px;
+}
+
+#answers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#answers button,
+#tryAgainButton,
+#nextChallenge {
+    width: 100%;
+
+    border: 1px solid rgba(255,255,255,.16);
+
+    background:
+        rgba(255,255,255,.07);
+
+    color: white;
+
+    padding: 13px 16px;
+
+    border-radius: 13px;
+
+    cursor: pointer;
+
+    transition:
+        .25s ease;
+}
+
+#answers button:hover:not(:disabled),
+#tryAgainButton:hover,
+#nextChallenge:hover {
+    transform: translateY(-2px);
+
+    background:
+        rgba(156,91,220,.25);
+
+    border-color:
+        rgba(202,160,255,.4);
+}
+
+#answers button:disabled {
+    cursor: default;
+}
+
+#tryAgainButton {
+    margin-top: 16px;
+}
+
+#nextChallenge {
+    width: auto;
+
+    margin-top: 18px;
+
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.hidden-message {
+    display: none;
+
+    margin-top: 18px;
+
+    padding: 13px;
+
+    border-radius: 13px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    color:
+        rgba(255,255,255,.85);
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+.hidden-message.show {
+    display: block;
+
+    animation:
+        messageAppear .35s ease;
+}
+
+@keyframes messageAppear {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   PAGE 3 — FOR YOU
+   KEPT THE SAME
+========================================================= */
+
+.memory-page {
+    min-height: 100vh;
+    width: 100%;
+
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(216,112,175,.18),
+            transparent 32%
+        ),
+        linear-gradient(
+            155deg,
+            #100713,
+            #241126 48%,
+            #09050d
+        );
+
+    padding:
+        70px 22px
+        90px;
+}
+
+.memory-star {
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    opacity: .45;
+
+    animation:
+        memoryTwinkle 4s ease-in-out infinite;
+}
+
+.memory-star:nth-child(1) {
+    top: 8%;
+    left: 12%;
+}
+
+.memory-star:nth-child(2) {
+    top: 17%;
+    left: 82%;
+    animation-delay: 1s;
+}
+
+.memory-star:nth-child(3) {
+    top: 31%;
+    left: 23%;
+    animation-delay: 2s;
+}
+
+.memory-star:nth-child(4) {
+    top: 38%;
+    left: 91%;
+    animation-delay: .5s;
+}
+
+.memory-star:nth-child(5) {
+    top: 52%;
+    left: 8%;
+    animation-delay: 1.8s;
+}
+
+.memory-star:nth-child(6) {
+    top: 61%;
+    left: 77%;
+    animation-delay: 2.5s;
+}
+
+.memory-star:nth-child(7) {
+    top: 72%;
+    left: 18%;
+    animation-delay: .7s;
+}
+
+.memory-star:nth-child(8) {
+    top: 81%;
+    left: 87%;
+    animation-delay: 1.3s;
+}
+
+.memory-star:nth-child(9) {
+    top: 90%;
+    left: 42%;
+    animation-delay: 2.1s;
+}
+
+.memory-star:nth-child(10) {
+    top: 25%;
+    left: 51%;
+    animation-delay: 3s;
+}
+
+.memory-star:nth-child(11) {
+    top: 68%;
+    left: 52%;
+    animation-delay: 1.7s;
+}
+
+.memory-star:nth-child(12) {
+    top: 46%;
+    left: 42%;
+    animation-delay: 2.7s;
+}
+
+@keyframes memoryTwinkle {
+    0%,
+    100% {
+        opacity: .2;
+    }
+
+    50% {
+        opacity: .9;
+    }
+}
+
+.memory-kitten {
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
+
+    right: 3%;
+    top: 8%;
+
+    opacity: .8;
+
+    animation:
+        kittenFloat 6s ease-in-out infinite;
+}
+
+@keyframes kittenFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-9px) rotate(1deg);
+    }
+}
+
+.memory-kitten .cat-body {
+    fill: #251426;
+    stroke: #f09acb;
+    stroke-width: 2;
+}
+
+.memory-kitten .cat-ear {
+    fill: #321934;
+    stroke: #f09acb;
+    stroke-width: 2;
+}
+
+.memory-kitten .cat-eye {
+    fill: #ffd0e7;
+}
+
+.memory-kitten .cat-nose {
+    fill: #f49acb;
+}
+
+.memory-kitten .cat-whisker {
+    stroke: #f09acb;
+    stroke-width: 1.5;
+}
+
+.memory-moon {
+    position: absolute;
+
+    width: 170px;
+    height: 170px;
+
+    border-radius: 50%;
+
+    right: -45px;
+    bottom: 12%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #ffeef8,
+            #d99ac4 60%,
+            #9c577e
+        );
+
+    box-shadow:
+        0 0 60px rgba(235,137,190,.25);
+
+    opacity: .25;
+}
+
+.memory-content {
+    position: relative;
+    z-index: 5;
+
+    max-width: 720px;
+
+    margin:
+        0 auto;
+}
+
+.memory-content h2 {
+    text-align: center;
+
+    font-size:
+        clamp(42px, 10vw, 70px);
+
+    margin-bottom: 45px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff,
+            #ffc4e4,
+            #d978b0
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.memory-content p {
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    color:
+        rgba(255,255,255,.73);
+
+    margin-bottom: 25px;
+}
+
+.memory-content .ending {
+    text-align: center;
+
+    margin-top: 55px;
+}
+
+.memory-content .ending p {
+    margin-bottom: 13px;
+}
+
+.memory-content .ending strong {
+    color: #ffd0e7;
+}
+
+.continue-button {
+    margin-top: 25px;
+
+    padding:
+        14px 28px;
+
+    border-radius: 999px;
+
+    border:
+        1px solid rgba(255,173,216,.35);
+
+    background:
+        rgba(220,106,170,.15);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition:
+        .3s ease;
+}
+
+.continue-button:hover {
+    transform: translateY(-3px);
+
+    background:
+        rgba(220,106,170,.28);
+
+    box-shadow:
+        0 0 30px rgba(224,105,170,.2);
 }
 
 
 /* =========================================================
    MOBILE
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 600px) {
 
-    /* PAGE 1 */
-
     .intro-cat {
-        width:
-            370px;
+        width: 140px;
+        height: 140px;
 
-        bottom:
-            -12px;
+        right: -5%;
+        bottom: 8%;
 
-        opacity:
-            0.76;
+        opacity: .7;
     }
 
-    .content {
-        transform:
-            translateY(-38px);
-    }
-
-    .lock {
-        width:
-            92px;
-
-        height:
-            92px;
-    }
-
-    .lock span {
-        font-size:
-            46px;
-    }
-
-    h1 {
-        font-size:
-            44px;
-    }
-
-    .description {
-        font-size:
-            14px;
-
-        padding:
-            0 10px;
-    }
-
-    .kicker {
-        font-size:
-            10px;
-
-        letter-spacing:
-            4px;
-    }
-
-
-    /* PAGE 2 */
-
-    .anime-content {
-        width:
-            94%;
-
-        padding:
-            22px 0;
-    }
-
-    .anime-label {
-        font-size:
-            9px;
-
-        letter-spacing:
-            3px;
-
-        margin-bottom:
-            9px;
-    }
-
-    .anime-badge {
-        font-size:
-            9px;
-
-        padding:
-            8px 14px;
-
-        margin-bottom:
-            11px;
+    .content h1 {
+        font-size: 45px;
     }
 
     .anime-card {
-        padding:
-            24px 17px;
-
-        border-radius:
-            20px;
+        padding: 24px 18px;
     }
 
     .anime-card h2 {
-        font-size:
-            23px;
+        font-size: 20px;
     }
 
     .anime-card p {
-        font-size:
-            14px;
-
-        line-height:
-            1.6;
+        font-size: 14px;
     }
 
-    #answers {
-        margin-top:
-            19px;
-
-        gap:
-            9px;
-    }
-
-    #answers button {
+    .memory-page {
         padding:
-            14px 15px;
-
-        font-size:
-            13px;
-    }
-
-    #answers button::after {
-        display:
-            none;
-    }
-
-    .scene-label {
-        display:
-            none;
-    }
-
-    .tanjiro::after {
-        width:
-            125px;
-
-        height:
-            125px;
-
-        right:
-            5%;
-
-        top:
-            7%;
-    }
-
-    .aot::after {
-        width:
-            160px;
-
-        height:
-            160px;
-
-        right:
-            4%;
-
-        top:
-            8%;
-    }
-
-    .final-toji::before {
-        width:
-            280px;
-
-        height:
-            480px;
-    }
-
-
-    /* PAGE 3 */
-
-    .memory-content {
-        width:
-            88%;
-
-        padding:
-            75px 0 80px;
+            60px 18px
+            80px;
     }
 
     .memory-kitten {
-        width:
-            280px;
+        width: 120px;
+        height: 120px;
 
-        top:
-            5%;
-
-        opacity:
-            0.55;
+        right: -10%;
+        top: 4%;
     }
 
-    .memory-moon {
-        width:
-            75px;
-
-        height:
-            75px;
-
-        right:
-            7%;
-
-        top:
-            5%;
+    .memory-content h2 {
+        font-size: 48px;
     }
 
-    .memory-title {
-        font-size:
-            48px;
-    }
-
-    .memory-text {
-        font-size:
-            14px;
-
-        line-height:
-            1.9;
-
-        margin-bottom:
-            30px;
-    }
-
-    .memory-end p {
-        font-size:
-            14px;
-    }
-
-    .memory-end .continue-text {
-        font-size:
-            18px;
-    }
-}
-
-
-/* =========================================================
-   VERY SMALL PHONES
-   ========================================================= */
-
-@media (max-width: 380px) {
-
-    .content {
-        transform:
-            translateY(-25px);
-    }
-
-    h1 {
-        font-size:
-            39px;
-    }
-
-    .lock {
-        width:
-            82px;
-
-        height:
-            82px;
-
-        margin-bottom:
-            24px;
-    }
-
-    .lock span {
-        font-size:
-            40px;
-    }
-
-    .description {
-        font-size:
-            13px;
-
-        line-height:
-            1.65;
-    }
-
-    .anime-card {
-        padding:
-            20px 14px;
-    }
-
-    .anime-card h2 {
-        font-size:
-            21px;
-    }
-
-    .anime-card p {
-        font-size:
-            13px;
+    .memory-content p {
+        font-size: 15px;
     }
 }
 
@@ -3110,9 +1737,9 @@ h1 span {
 <body>
 
 
-<!-- =========================================================
+<!-- =====================================================
      PAGE 1
-     ========================================================= -->
+===================================================== -->
 
 <section
     class="intro"
@@ -3129,253 +1756,75 @@ h1 span {
     <div class="star"></div>
     <div class="star"></div>
     <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
 
 
-    <!-- =====================================================
-         PAGE 1 CAT
-         ===================================================== -->
+    <!-- CUTE CAT -->
 
     <svg
         class="intro-cat"
-        viewBox="0 0 500 560"
+        viewBox="0 0 200 200"
         xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
     >
 
-        <!-- Tail -->
-
         <path
-            class="cat-tail"
-            d="
-                M390 420
-                C470 390 472 285 405 270
-                C355 258 352 310 390 320
-            "
+            class="cat-ear"
+            d="M45 75 L30 25 L75 50 Z"
         />
 
-
-        <!-- Body -->
+        <path
+            class="cat-ear"
+            d="M125 50 L170 25 L155 75 Z"
+        />
 
         <ellipse
             class="cat-body"
-            cx="250"
-            cy="410"
-            rx="125"
-            ry="130"
+            cx="100"
+            cy="105"
+            rx="62"
+            ry="57"
         />
 
-
-        <!-- Body highlight -->
-
-        <ellipse
-            class="cat-highlight"
-            cx="215"
-            cy="365"
-            rx="65"
-            ry="85"
-        />
-
-
-        <!-- Head -->
-
-        <path
-            class="cat-head"
-            d="
-                M130 235
-                C125 150 175 95 250 95
-                C325 95 375 150 370 235
-                C365 315 315 350 250 350
-                C185 350 135 315 130 235
-                Z
-            "
-        />
-
-
-        <!-- Left ear -->
-
-        <path
-            class="cat-ear"
-            d="
-                M140 175
-                L115 48
-                L205 115
-                Z
-            "
-        />
-
-
-        <!-- Right ear -->
-
-        <path
-            class="cat-ear"
-            d="
-                M360 175
-                L385 48
-                L295 115
-                Z
-            "
-        />
-
-
-        <!-- Inner ears -->
-
-        <path
-            class="cat-inner-ear"
-            d="
-                M137 137
-                L128 78
-                L181 119
-                Z
-            "
-        />
-
-        <path
-            class="cat-inner-ear"
-            d="
-                M363 137
-                L372 78
-                L319 119
-                Z
-            "
-        />
-
-
-        <!-- Face -->
-
-        <ellipse
-            class="cat-face"
-            cx="250"
-            cy="238"
-            rx="108"
-            ry="92"
-        />
-
-
-        <!-- Eyes -->
-
-        <ellipse
+        <circle
             class="cat-eye"
-            cx="205"
-            cy="230"
-            rx="19"
-            ry="27"
+            cx="77"
+            cy="100"
+            r="6"
         />
 
-        <ellipse
+        <circle
             class="cat-eye"
-            cx="295"
-            cy="230"
-            rx="19"
-            ry="27"
+            cx="123"
+            cy="100"
+            r="6"
         />
-
-
-        <!-- Pupils -->
-
-        <ellipse
-            class="cat-pupil"
-            cx="205"
-            cy="233"
-            rx="7"
-            ry="15"
-        />
-
-        <ellipse
-            class="cat-pupil"
-            cx="295"
-            cy="233"
-            rx="7"
-            ry="15"
-        />
-
-
-        <!-- Nose -->
 
         <path
             class="cat-nose"
-            d="
-                M241 263
-                Q250 256 259 263
-                Q250 275 241 263
-            "
-        />
-
-
-        <!-- Mouth -->
-
-        <path
-            class="cat-mouth"
-            d="
-                M250 273
-                Q250 287 237 288
-                M250 273
-                Q250 287 263 288
-            "
-            fill="none"
-            stroke-width="4"
-            stroke-linecap="round"
-        />
-
-
-        <!-- Whiskers -->
-
-        <path
-            class="cat-whisker"
-            d="M170 264 L78 248"
-            fill="none"
-            stroke-width="3"
-            stroke-linecap="round"
+            d="M96 112 Q100 116 104 112 Q100 120 96 112"
         />
 
         <path
             class="cat-whisker"
-            d="M170 280 L70 282"
-            fill="none"
-            stroke-width="3"
-            stroke-linecap="round"
+            d="M80 115 L35 105"
         />
 
         <path
             class="cat-whisker"
-            d="M330 264 L422 248"
-            fill="none"
-            stroke-width="3"
-            stroke-linecap="round"
+            d="M80 120 L35 125"
         />
 
         <path
             class="cat-whisker"
-            d="M330 280 L430 282"
-            fill="none"
-            stroke-width="3"
-            stroke-linecap="round"
+            d="M120 115 L165 105"
         />
 
-
-        <!-- Paws -->
-
-        <ellipse
-            class="cat-paw"
-            cx="190"
-            cy="500"
-            rx="47"
-            ry="30"
-        />
-
-        <ellipse
-            class="cat-paw"
-            cx="310"
-            cy="500"
-            rx="47"
-            ry="30"
+        <path
+            class="cat-whisker"
+            d="M120 120 L165 125"
         />
 
     </svg>
 
-
-    <!-- PAGE 1 TEXT -->
 
     <div class="content">
 
@@ -3384,39 +1833,31 @@ h1 span {
         </div>
 
         <div class="lock">
-            <span>
-                🔐
-            </span>
+            🔐
         </div>
 
         <h1>
             There's something<br>
-            <span>
-                waiting for you.
-            </span>
+            waiting for you.
         </h1>
 
-        <p class="description">
+        <p>
             Not everything is meant to be opened at once.
             Some things are better when you discover them
             one step at a time.
         </p>
 
         <button
-            class="unlock"
+            class="unlock-button"
             onclick="unlock()"
+            id="unlockButton"
         >
-            Unlock
-
-            <span class="arrow">
-                →
-            </span>
+            Unlock →
         </button>
 
     </div>
 
-
-    <div class="bottom">
+    <div class="bottom-text">
         something made just for you
     </div>
 
@@ -3424,55 +1865,28 @@ h1 span {
 
 
 
-<!-- =========================================================
-     PAGE 2 — ANIME TRIAL
-     ========================================================= -->
+<!-- =====================================================
+     PAGE 2
+===================================================== -->
 
 <section
-    class="anime-page page theme-demon"
+    class="page anime-page"
     id="animePage"
-    style="display:none;"
+    style="
+        min-height:100vh;
+        width:100%;
+        display:none;
+        align-items:center;
+        justify-content:center;
+        box-sizing:border-box;
+    "
 >
-
-
-    <!-- =====================================================
-         VISUAL BACKGROUND
-         ===================================================== -->
 
     <div
         class="anime-visual tanjiro"
-        id="animeVisual"
-    >
-
-        <div class="scene-particles">
-
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </div>
-
+        id="animeVisual">
     </div>
 
-
-    <div
-        class="scene-label"
-        id="sceneLabel"
-    >
-        NIGHT FOREST
-    </div>
-
-
-    <!-- =====================================================
-         GAME CONTENT
-         ===================================================== -->
 
     <div class="anime-content">
 
@@ -3493,14 +1907,6 @@ h1 span {
             class="anime-card"
             id="animeGame"
         >
-
-            <span
-                class="challenge-number"
-                id="challengeNumber"
-            >
-                CHALLENGE 01
-            </span>
-
 
             <h2 id="questionTitle">
                 ⚔️ Challenge 1
@@ -3562,246 +1968,93 @@ h1 span {
 
 
 
-<!-- =========================================================
-     PAGE 3 — FOR YOU
-     ========================================================= -->
+<!-- =====================================================
+     PAGE 3
+===================================================== -->
 
 <section
     class="memory-page"
     id="memoryPage"
+    style="display:none;"
 >
 
-
-    <!-- =====================================================
-         STARS
-         ===================================================== -->
-
-    <div class="memory-stars">
-
-        <div class="memory-star"></div>
-        <div class="memory-star"></div>
-        <div class="memory-star"></div>
-        <div class="memory-star"></div>
-        <div class="memory-star"></div>
-        <div class="memory-star"></div>
-        <div class="memory-star"></div>
-        <div class="memory-star"></div>
-        <div class="memory-star"></div>
-        <div class="memory-star"></div>
-        <div class="memory-star"></div>
-        <div class="memory-star"></div>
-
-    </div>
+    <div class="memory-star"></div>
+    <div class="memory-star"></div>
+    <div class="memory-star"></div>
+    <div class="memory-star"></div>
+    <div class="memory-star"></div>
+    <div class="memory-star"></div>
+    <div class="memory-star"></div>
+    <div class="memory-star"></div>
+    <div class="memory-star"></div>
+    <div class="memory-star"></div>
+    <div class="memory-star"></div>
+    <div class="memory-star"></div>
 
 
-    <!-- =====================================================
-         FLOATING DECORATION
-         ===================================================== -->
-
-    <div class="memory-decoration">
-
-        <span>♡</span>
-        <span>✦</span>
-        <span>♡</span>
-        <span>✧</span>
-        <span>♡</span>
-
-    </div>
-
-
-    <!-- =====================================================
-         PINK KITTEN
-         ===================================================== -->
+    <!-- KITTEN -->
 
     <svg
         class="memory-kitten"
-        viewBox="0 0 500 560"
+        viewBox="0 0 200 200"
         xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
     >
 
-        <!-- Tail -->
-
         <path
-            class="tail"
-            d="
-                M390 420
-                C470 390 472 285 405 270
-                C355 258 352 310 390 320
-            "
-        />
-
-
-        <!-- Body -->
-
-        <ellipse
-            class="body"
-            cx="250"
-            cy="410"
-            rx="125"
-            ry="130"
-        />
-
-
-        <!-- Head -->
-
-        <path
-            class="head"
-            d="
-                M130 235
-                C125 150 175 95 250 95
-                C325 95 375 150 370 235
-                C365 315 315 350 250 350
-                C185 350 135 315 130 235
-                Z
-            "
-        />
-
-
-        <!-- Ears -->
-
-        <path
-            class="ear"
-            d="
-                M140 175
-                L115 48
-                L205 115
-                Z
-            "
+            class="cat-ear"
+            d="M45 75 L30 25 L75 50 Z"
         />
 
         <path
-            class="ear"
-            d="
-                M360 175
-                L385 48
-                L295 115
-                Z
-            "
-        />
-
-
-        <!-- Inner ears -->
-
-        <path
-            class="inner"
-            d="
-                M137 137
-                L128 78
-                L181 119
-                Z
-            "
-        />
-
-        <path
-            class="inner"
-            d="
-                M363 137
-                L372 78
-                L319 119
-                Z
-            "
-        />
-
-
-        <!-- Eyes -->
-
-        <ellipse
-            class="eye"
-            cx="205"
-            cy="230"
-            rx="19"
-            ry="27"
+            class="cat-ear"
+            d="M125 50 L170 25 L155 75 Z"
         />
 
         <ellipse
-            class="eye"
-            cx="295"
-            cy="230"
-            rx="19"
-            ry="27"
+            class="cat-body"
+            cx="100"
+            cy="105"
+            rx="62"
+            ry="57"
         />
 
-
-        <!-- Pupils -->
-
-        <ellipse
-            class="pupil"
-            cx="205"
-            cy="233"
-            rx="7"
-            ry="15"
+        <circle
+            class="cat-eye"
+            cx="77"
+            cy="100"
+            r="6"
         />
 
-        <ellipse
-            class="pupil"
-            cx="295"
-            cy="233"
-            rx="7"
-            ry="15"
-        />
-
-
-        <!-- Nose -->
-
-        <path
-            class="nose"
-            d="
-                M241 263
-                Q250 256 259 263
-                Q250 275 241 263
-            "
-        />
-
-
-        <!-- Mouth -->
-
-        <path
-            class="mouth"
-            d="
-                M250 273
-                Q250 287 237 288
-                M250 273
-                Q250 287 263 288
-            "
-            fill="none"
-            stroke-width="4"
-            stroke-linecap="round"
-        />
-
-
-        <!-- Whiskers -->
-
-        <path
-            class="whisker"
-            d="M170 264 L78 248"
-            fill="none"
-            stroke-width="3"
-            stroke-linecap="round"
+        <circle
+            class="cat-eye"
+            cx="123"
+            cy="100"
+            r="6"
         />
 
         <path
-            class="whisker"
-            d="M170 280 L70 282"
-            fill="none"
-            stroke-width="3"
-            stroke-linecap="round"
+            class="cat-nose"
+            d="M96 112 Q100 116 104 112 Q100 120 96 112"
         />
 
         <path
-            class="whisker"
-            d="M330 264 L422 248"
-            fill="none"
-            stroke-width="3"
-            stroke-linecap="round"
+            class="cat-whisker"
+            d="M80 115 L35 105"
         />
 
         <path
-            class="whisker"
-            d="M330 280 L430 282"
-            fill="none"
-            stroke-width="3"
-            stroke-linecap="round"
+            class="cat-whisker"
+            d="M80 120 L35 125"
+        />
+
+        <path
+            class="cat-whisker"
+            d="M120 115 L165 105"
+        />
+
+        <path
+            class="cat-whisker"
+            d="M120 120 L165 125"
         />
 
     </svg>
@@ -3810,225 +2063,124 @@ h1 span {
     <div class="memory-moon"></div>
 
 
-    <!-- =====================================================
-         MEMORY CONTENT
-         ===================================================== -->
-
     <div class="memory-content">
 
-
-        <div class="memory-intro">
-
-            <div class="memory-small">
-                A little more
-            </div>
-
-            <div class="memory-title">
-                For You
-            </div>
-
-            <div class="memory-line"></div>
-
-        </div>
+        <h2>
+            For You
+        </h2>
 
 
-        <p class="memory-text">
-            I was trying to think about what I should even write here because honestly there are so many things I could say and I don't even know where to start 😭
+        <p>
+            I don't really know where to start with this,
+            because there are some people who slowly become
+            a part of your life without you even realizing it.
         </p>
 
 
-        <p class="memory-text">
-            When I think about everything we've shared, I don't think it's one specific moment that stands out the most. It's all the random little things that happened without us even realizing how much we'd remember them.
+        <p>
+            And somehow, you became one of those people for me.
+            Not because everything was perfect, and not because
+            every moment was some huge unforgettable event.
         </p>
 
 
-        <p class="memory-text">
-            Like how we'd play CODM for so long that we'd probably lose track of how many matches we'd played 😭 Sometimes we'd actually be trying to win and sometimes we'd just be doing random stuff and somehow still keep playing.
+        <p>
+            It's actually the little things that stayed with me.
+            The random conversations, the stupid jokes,
+            the arguments over absolutely nothing,
+            and all those moments where we somehow ended up
+            laughing at things that probably weren't even funny.
         </p>
 
 
-        <p class="memory-text">
-            And then there were all those nights when we'd just talk and somehow the conversation would keep going. We'd start talking about one thing and somehow end up talking about something completely different. Sometimes we'd have serious conversations, sometimes we'd just be saying the most random things ever, and somehow we'd still have something else to talk about.
+        <p>
+            I think that's what makes a friendship special.
+            You don't always notice it happening.
+            You just wake up one day and realize that
+            talking to that person became part of your normal.
         </p>
 
 
-        <p class="memory-text">
-            And obviously I can't forget how good you became at roasting me 😭 I genuinely don't know how you always managed to find something to say. I used to call you CarryMinati's student but honestly I think I was giving you too little credit. At this point you were probably his coach 💀
+        <p>
+            And honestly, I'm glad it happened.
         </p>
 
 
-        <p class="memory-text">
-            There were also all those times we watched movies and series together. We'd start something at the same time and just sit there watching it, then talk about it afterward. It sounds like such a normal thing when I say it like that, but those moments genuinely mean a lot to me.
+        <p>
+            We've had our weird moments.
+            We've misunderstood each other sometimes.
+            We've gone quiet.
+            We've talked again.
+            We've probably annoyed each other more times
+            than either of us would like to admit.
         </p>
 
 
-        <p class="memory-text">
-            And I really appreciated the times when things weren't just jokes and games too. There were times I'd tell you about something going on with people around me or something that was bothering me, and you'd actually give me advice. Some of the things you told me genuinely helped me look at situations differently. You didn't always just tell me what I wanted to hear either, and I think that's one of the things I appreciated about you.
+        <p>
+            But somehow, we're still here.
         </p>
 
 
-        <p class="memory-text">
-            I don't think there was ever one specific moment where you suddenly became important to me. It just happened naturally. We talked more, played more, joked more, watched things together, shared random things with each other, and somehow you just got really, really close to me.
+        <p>
+            And that's something I genuinely appreciate.
         </p>
 
 
-        <p class="memory-text">
-            Like genuinely close.
+        <p>
+            You have this way of making ordinary moments
+            feel like memories.
+            Sometimes it's just a conversation,
+            sometimes it's a game,
+            sometimes it's literally just you being you.
         </p>
 
 
-        <p class="memory-text">
-            I've had people around me before. I've had friends and I've met a lot of different people, but no one really got that close to me.
+        <p>
+            I don't think you always realize how much
+            your presence can mean to someone.
         </p>
 
 
-        <p class="memory-text">
-            And I don't even think I realized it while it was happening.
+        <p>
+            So I wanted this little surprise to be more
+            than just a birthday message.
         </p>
 
 
-        <p class="memory-text">
-            I was just enjoying the conversations, the games, the jokes, the random arguments, the roasting, the movies, everything.
+        <p>
+            I wanted to make something that you could
+            actually go through.
+            Something with little challenges,
+            memories, jokes, and things that remind you
+            of the person you are.
         </p>
 
 
-        <p class="memory-text">
-            And I think that's what makes all of it special.
+        <p>
+            Because you deserve something that feels
+            like it was actually made for you.
         </p>
 
 
-        <p class="memory-text">
-            We weren't trying to make memories.
-        </p>
-
-
-        <p class="memory-text">
-            We were just having fun.
-        </p>
-
-
-        <p class="memory-text">
-            We were just talking.
-        </p>
-
-
-        <p class="memory-text">
-            We were just being ourselves.
-        </p>
-
-
-        <p class="memory-text">
-            And somehow all those normal moments became things that I genuinely care about.
-        </p>
-
-
-        <p class="memory-text">
-            I don't think you always realize how much the little things can mean to someone. A conversation can just feel like a normal conversation while you're having it, but sometimes you realize that the person you're talking to has become a really important part of your life.
-        </p>
-
-
-        <p class="memory-text">
-            And honestly, that's how I feel about everything we've shared.
-        </p>
-
-
-        <p class="memory-text">
-            <span class="memory-highlight">
-                You really do mean a lot to me.
-            </span>
-        </p>
-
-
-        <p class="memory-text">
-            Not because of one specific thing you did or because of one particular moment. I mean it because of everything together.
-        </p>
-
-
-        <p class="memory-text">
-            All the games.
-        </p>
-
-
-        <p class="memory-text">
-            All the random conversations.
-        </p>
-
-
-        <p class="memory-text">
-            All the late nights.
-        </p>
-
-
-        <p class="memory-text">
-            All the roasting 😭
-        </p>
-
-
-        <p class="memory-text">
-            All the movies and series.
-        </p>
-
-
-        <p class="memory-text">
-            All the advice.
-        </p>
-
-
-        <p class="memory-text">
-            All the stupid little moments that probably seemed completely normal at the time.
-        </p>
-
-
-        <p class="memory-text">
-            They all became memories that I'm genuinely grateful for.
-        </p>
-
-
-        <p class="memory-text">
-            And I don't want this to sound like I'm talking about something that's finished or something that belongs only in the past.
-        </p>
-
-
-        <p class="memory-text">
-            I just wanted you to know that all those moments became a part of how much I appreciate having you in my life.
-        </p>
-
-
-        <p class="memory-text">
-            And honestly, I'm really glad I got to experience all of it with you.
-        </p>
-
-
-        <p class="memory-text">
-            There are still so many things ahead of us that we haven't even experienced yet.
-        </p>
-
-
-        <p class="memory-text">
-            So yeah...
-        </p>
-
-
-        <!-- =================================================
-             END
-             ================================================= -->
-
-        <div class="memory-end">
+        <div class="ending">
 
             <p>
-                I'm really grateful for everything we've shared so far.
+                I'm really grateful for everything we've
+                shared so far.
             </p>
 
             <p>
-                And I'm even more curious about what comes next. 🌌
+                And I'm even more curious about what
+                comes next. 🌌
             </p>
 
-            <p class="continue-text">
+            <p>
                 I've already made you wait long enough 😭
             </p>
 
             <p>
-                So I think we should stop talking about all this for now...
+                So I think we should stop talking about
+                all this for now...
             </p>
 
             <p>
@@ -4036,11 +2188,14 @@ h1 span {
             </p>
 
             <p>
-                Let's continue.
+                <strong>
+                    Let's continue.
+                </strong>
             </p>
 
+
             <button
-                class="memory-continue"
+                class="continue-button"
                 onclick="page4()"
             >
                 Continue →
@@ -4057,97 +2212,74 @@ h1 span {
 <script>
 
 /* =========================================================
-   PAGE 1 → PAGE 2
-   ========================================================= */
+   PAGE 1
+========================================================= */
 
 function unlock() {
 
     const button =
-        document.querySelector(".unlock");
+        document.getElementById(
+            "unlockButton"
+        );
 
     button.innerHTML =
         "Unlocking...";
 
-    button.style.pointerEvents =
-        "none";
+    setTimeout(
+        function() {
 
-    setTimeout(function() {
+            button.innerHTML =
+                "Unlocked ✓";
 
-        button.innerHTML =
-            "Unlocked ✓";
+            setTimeout(
+                function() {
 
-        setTimeout(function() {
+                    document.getElementById(
+                        "introPage"
+                    ).style.display =
+                        "none";
 
-            const firstPage =
-                document.getElementById(
-                    "introPage"
-                );
+                    const animePage =
+                        document.getElementById(
+                            "animePage"
+                        );
 
-            const secondPage =
-                document.getElementById(
-                    "animePage"
-                );
+                    animePage.style.display =
+                        "flex";
 
-            if (
-                firstPage &&
-                secondPage
-            ) {
+                    window.scrollTo(
+                        0,
+                        0
+                    );
 
-                firstPage.style.display =
-                    "none";
+                },
+                500
+            );
 
-                secondPage.style.display =
-                    "flex";
-
-                document.body.style.overflow =
-                    "hidden";
-
-                window.scrollTo(
-                    0,
-                    0
-                );
-
-                animeSetTheme();
-
-            }
-
-        }, 350);
-
-    }, 900);
+        },
+        800
+    );
 }
 
 
+
 /* =========================================================
-   ANIME QUESTIONS
-   ========================================================= */
+   PAGE 2 QUESTIONS
+   KEPT THE SAME
+========================================================= */
 
 let animeQuestion = 0;
 
-
 const animeQuestions = [
 
-    /* =====================================================
-       QUESTION 1 — DEMON SLAYER
-       ===================================================== */
-
     {
-        visual:
-            "tanjiro",
-
-        theme:
-            "theme-demon",
-
-        scene:
-            "NIGHT FOREST • DEMON SLAYER",
+        visual: "tanjiro",
 
         badge:
             "⚔️ DEMON SLAYER",
 
         title:
             "⚔️ Challenge 1",
-
-        number:
-            "CHALLENGE 01",
 
         question:
             "Before becoming a demon, what was Akaza's human name?",
@@ -4158,8 +2290,7 @@ const animeQuestions = [
             "C) Sumiyoshi"
         ],
 
-        correct:
-            0,
+        correct: 0,
 
         wrong: [
             "CORRECT ANSWER WAS A 😭 You really chose Michikatsu?",
@@ -4171,28 +2302,14 @@ const animeQuestions = [
     },
 
 
-    /* =====================================================
-       QUESTION 2 — ATTACK ON TITAN
-       ===================================================== */
-
     {
-        visual:
-            "aot",
-
-        theme:
-            "theme-aot",
-
-        scene:
-            "THE WALLS • ATTACK ON TITAN",
+        visual: "aot",
 
         badge:
             "🩸 ATTACK ON TITAN",
 
         title:
             "⚔️ Challenge 2",
-
-        number:
-            "CHALLENGE 02",
 
         question:
             "How did Marcel die?",
@@ -4203,8 +2320,7 @@ const animeQuestions = [
             "C) Cart Titan"
         ],
 
-        correct:
-            1,
+        correct: 1,
 
         wrong: [
             "BRO 😭 Marcel literally WAS the Jaw Titan. THINK.",
@@ -4216,28 +2332,14 @@ const animeQuestions = [
     },
 
 
-    /* =====================================================
-       QUESTION 3 — JUJUTSU KAISEN
-       ===================================================== */
-
     {
-        visual:
-            "toji",
-
-        theme:
-            "theme-jjk",
-
-        scene:
-            "CURSED CITY • JUJUTSU KAISEN",
+        visual: "toji",
 
         badge:
             "🗡️ JUJUTSU KAISEN",
 
         title:
             "⚔️ Challenge 3",
-
-        number:
-            "CHALLENGE 03",
 
         question:
             "What is Toji's greatest weapon?",
@@ -4248,8 +2350,7 @@ const animeQuestions = [
             "C) His ridiculous physique"
         ],
 
-        correct:
-            2,
+        correct: 2,
 
         wrong: [
             "Technically... maybe? 😭 But you KNOW what this question was asking.",
@@ -4261,28 +2362,14 @@ const animeQuestions = [
     },
 
 
-    /* =====================================================
-       QUESTION 4 — AOT UNDERGROUND
-       ===================================================== */
-
     {
-        visual:
-            "underground",
-
-        theme:
-            "theme-underground",
-
-        scene:
-            "THE UNDERGROUND • AOT",
+        visual: "underground",
 
         badge:
             "🕯️ AOT • UNDERGROUND",
 
         title:
             "⚔️ Challenge 4",
-
-        number:
-            "CHALLENGE 04",
 
         question:
             "What was the original purpose of the anti-personnel vertical maneuvering equipment?",
@@ -4293,8 +2380,7 @@ const animeQuestions = [
             "C) Replace conventional ODM gear"
         ],
 
-        correct:
-            1,
+        correct: 1,
 
         wrong: [
             "😭 TITANS IN THE UNDERGROUND? BRO, THAT PLACE WAS BUILT FOR HUMAN COMBAT.",
@@ -4306,28 +2392,14 @@ const animeQuestions = [
     },
 
 
-    /* =====================================================
-       QUESTION 5 — FINAL TOJI
-       ===================================================== */
-
     {
-        visual:
-            "final-toji",
-
-        theme:
-            "theme-final",
-
-        scene:
-            "FINAL TRIAL • TOJI",
+        visual: "final-toji",
 
         badge:
             "☠️ FINAL CHALLENGE",
 
         title:
             "⚔️ Challenge 5",
-
-        number:
-            "CHALLENGE 05",
 
         question:
             "What is Toji's greatest enemy?",
@@ -4338,8 +2410,7 @@ const animeQuestions = [
             "C) Seeing someone skip leg day 😭"
         ],
 
-        correct:
-            2,
+        correct: 2,
 
         wrong: [
             "CURSED ENERGY?! 😭 THAT'S LITERALLY THE WHOLE POINT OF TOJI.",
@@ -4353,16 +2424,13 @@ const animeQuestions = [
 ];
 
 
+
 /* =========================================================
-   SET ANIME THEME
-   ========================================================= */
+   PAGE 2 FUNCTIONS
+   KEPT THE SAME
+========================================================= */
 
 function animeSetTheme() {
-
-    const page =
-        document.getElementById(
-            "animePage"
-        );
 
     const visual =
         document.getElementById(
@@ -4379,86 +2447,17 @@ function animeSetTheme() {
             "animeBadge"
         );
 
-    const sceneLabel =
-        document.getElementById(
-            "sceneLabel"
-        );
-
-    const challengeNumber =
-        document.getElementById(
-            "challengeNumber"
-        );
-
     const current =
         animeQuestions[
             animeQuestion
         ];
 
-
-    /* PAGE THEME */
-
-    page.className =
-        "anime-page page " +
-        current.theme;
-
-
-    /* VISUAL */
-
     visual.className =
         "anime-visual " +
         current.visual;
 
-
-    /* Keep particles */
-
-    const particles =
-        document.createElement(
-            "div"
-        );
-
-    particles.className =
-        "scene-particles";
-
-    for (
-        let i = 0;
-        i < 10;
-        i++
-    ) {
-
-        const particle =
-            document.createElement(
-                "span"
-            );
-
-        particles.appendChild(
-            particle
-        );
-    }
-
-    visual.appendChild(
-        particles
-    );
-
-
-    /* BADGE */
-
     badge.innerHTML =
         current.badge;
-
-
-    /* SCENE LABEL */
-
-    sceneLabel.innerHTML =
-        current.scene;
-
-
-    /* NUMBER */
-
-    challengeNumber.innerHTML =
-        current.number;
-
-
-    /* CARD ANIMATION */
 
     card.classList.remove(
         "theme-change"
@@ -4472,9 +2471,6 @@ function animeSetTheme() {
 }
 
 
-/* =========================================================
-   ANSWER
-   ========================================================= */
 
 function animeAnswer(choice) {
 
@@ -4525,7 +2521,7 @@ function animeAnswer(choice) {
                     true;
 
                 button.style.opacity =
-                    "0.45";
+                    "0.5";
 
             }
         );
@@ -4533,7 +2529,6 @@ function animeAnswer(choice) {
 
         tryAgain.style.display =
             "none";
-
 
         nextButton.style.display =
             "inline-block";
@@ -4545,37 +2540,20 @@ function animeAnswer(choice) {
         ) {
 
             nextButton.innerHTML =
-                "🔓 Finish Trial →";
+                "🔓 Unlock Next Page →";
 
         }
 
-    }
-
-    else {
-
-        let wrongIndex =
-            choice >
-            current.correct
-                ? choice - 1
-                : choice;
-
-
-        if (
-            wrongIndex < 0 ||
-            wrongIndex >= current.wrong.length
-        ) {
-
-            wrongIndex = 0;
-
-        }
-
+    } else {
 
         message.innerHTML =
             "❌ WRONG<br><br>" +
             current.wrong[
-                wrongIndex
+                choice >
+                current.correct
+                    ? choice - 1
+                    : choice
             ];
-
 
         message.classList.add(
             "show"
@@ -4595,16 +2573,14 @@ function animeAnswer(choice) {
         tryAgain.style.display =
             "inline-block";
 
-
         nextButton.style.display =
             "none";
+
     }
+
 }
 
 
-/* =========================================================
-   TRY AGAIN
-   ========================================================= */
 
 function animeTryAgain() {
 
@@ -4650,9 +2626,6 @@ function animeTryAgain() {
 }
 
 
-/* =========================================================
-   NEXT CHALLENGE
-   ========================================================= */
 
 function animeNextChallenge() {
 
@@ -4670,23 +2643,17 @@ function animeNextChallenge() {
             ];
 
 
-        /* TITLE */
-
         document.getElementById(
             "questionTitle"
         ).innerHTML =
             current.title;
 
 
-        /* QUESTION */
-
         document.getElementById(
             "questionText"
         ).innerHTML =
             current.question;
 
-
-        /* ANSWERS */
 
         const answers =
             document.getElementById(
@@ -4732,22 +2699,18 @@ function animeNextChallenge() {
         );
 
 
-        /* RESET MESSAGE */
-
-        const message =
-            document.getElementById(
-                "gameMessage"
-            );
-
-        message.innerHTML =
+        document.getElementById(
+            "gameMessage"
+        ).innerHTML =
             "";
 
-        message.classList.remove(
+
+        document.getElementById(
+            "gameMessage"
+        ).classList.remove(
             "show"
         );
 
-
-        /* RESET TRY AGAIN */
 
         document.getElementById(
             "tryAgainButton"
@@ -4755,39 +2718,23 @@ function animeNextChallenge() {
             "none";
 
 
-        /* RESET NEXT */
-
         document.getElementById(
             "nextChallenge"
         ).style.display =
             "none";
 
 
-        /* CHANGE ENTIRE SCENE */
-
         animeSetTheme();
 
-
-        /* Scroll to top */
-
-        window.scrollTo(
-            0,
-            0
-        );
-
-    }
-
-    else {
+    } else {
 
         nextPage();
 
     }
+
 }
 
 
-/* =========================================================
-   PAGE 2 → PAGE 3
-   ========================================================= */
 
 function nextPage() {
 
@@ -4823,16 +2770,10 @@ function nextPage() {
             0;
 
     }
+
 }
 
 
-/* =========================================================
-   PAGE 4 PLACEHOLDER
-   =========================================================
-
-   Kept only because the Continue button on Page 3
-   needs somewhere to go for now.
-   ========================================================= */
 
 function page4() {
 
@@ -4842,10 +2783,6 @@ function page4() {
 
 }
 
-
-/* =========================================================
-   START PAGE 2 THEME
-   ========================================================= */
 
 animeSetTheme();
 
